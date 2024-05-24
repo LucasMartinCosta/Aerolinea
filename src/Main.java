@@ -4,5 +4,6 @@ public class Main {
         System.out.println("hola tierra");
         System.out.println("hola luna");
 
+        CLASE dato;
     }
 }
