@@ -1,7 +1,7 @@
 import Aerolinea.Aerolinea;
 import Aviones.Avion;
 
-import Paquetes_vuelos.Vuelos;
+import Paquetes_vuelos.Vuelo;
 
 import java.util.Scanner;
 

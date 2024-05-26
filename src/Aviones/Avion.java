@@ -5,9 +5,9 @@ public class Avion {
     private Integer capacidad_personas;
     private double tiempo_vuelo;
     private String tipo;  /*PRIVADO O COMERCIAL*/
-    private char estado;    /*Ocupado-Reparacion etc*/
+    private int estado;    /*Disponible(1) - Ocupado (0) - Reparacion (-1) */
 
-    public Avion(String modelo, Integer capacidad_personas, double tiempo_vuelo, char estado) {
+    public Avion(String modelo, Integer capacidad_personas, double tiempo_vuelo, int estado) {
         this.modelo = modelo;
         this.capacidad_personas = capacidad_personas;
         this.tiempo_vuelo = tiempo_vuelo;
