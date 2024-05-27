@@ -5,14 +5,15 @@ import java.time.LocalDate;
 public class Cliente extends Persona{
 
     private Integer pasaporte;
-    private LocalDate nacimiento; // deberiamos poder calcular en base a al fecha de nacimiento
-
+    private LocalDate nacimiento;
+    private int edad;
     private long numTelefono;
 
-    public Cliente(String nombre, String apellido, String email, Genero genero, Integer pasaporte, LocalDate nacimiento, long numTelefono) {
+    public Cliente(String nombre, String apellido, String email, Genero genero, Integer pasaporte, LocalDate nacimiento, int edad,long numTelefono) {
         super(nombre, apellido, email, genero);
         this.pasaporte = pasaporte;
         this.nacimiento = nacimiento;
+        this.edad = edad ;
         this.numTelefono = numTelefono;
     }
 
