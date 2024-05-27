@@ -7,14 +7,21 @@ public class Persona {
     private String nombre;
     private String apellido;
     private String email;
+    public Genero genero;
 
 
 
     // constructor para usar cuando queres iniciar sesion? faltaria la contrasenia ?
-    public Persona(String nombre, String apellido,String email ) {
+    public Persona(String nombre, String apellido,String email, Genero genero ) {
         this.nombre = nombre;
         this.email = email;
+        this.genero = genero;
 
+    }
+
+
+    public Genero getGenero() {
+        return genero;
     }
 
 

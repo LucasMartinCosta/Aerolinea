@@ -5,30 +5,13 @@ public class Avion {
     private Integer capacidad_personas;
     private double tiempo_vuelo;
     private String tipo;  /*PRIVADO O COMERCIAL*/
-    private int estado;    /*Disponible(1) - Ocupado (0) - Reparacion (-1) * */
-    //private final String DISPONIBLE;
-    //private final String OCUPADO;
-    //private final string REPARACION;
-    /* o un enum que se llame public enum estado {
-   DISPONIBLE, OCUPADO, REPARACION }
-
-    */
+    private int estado;    /*Disponible(1) - Ocupado (0) - Reparacion (-1) */
 
     public Avion(String modelo, Integer capacidad_personas, double tiempo_vuelo, int estado) {
         this.modelo = modelo;
         this.capacidad_personas = capacidad_personas;
         this.tiempo_vuelo = tiempo_vuelo;
         this.estado = estado;
-    }
-
-
-    @Override
-    public String toString() {
-        return
-                "\nAvion= " + tipo +
-                " -Modelo='" + modelo;
-
-
     }
 
     public String getModelo() {
@@ -70,7 +53,4 @@ public class Avion {
     public void setEstado(int estado) {
         this.estado = estado;
     }
-
-
-
 }

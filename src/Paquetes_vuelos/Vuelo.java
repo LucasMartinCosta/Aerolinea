@@ -14,97 +14,34 @@ public class Vuelo {
     private LocalDate fechaLlegada;
     private LocalDateTime horaSalida;
     private LocalDateTime horaLlegada;
-    private int estado; // Ok(1) - Retrasado(0) - Cancelado (-1) hacemos enum?
+    private int estado; // Ok(1) - Retrasado(0) - Cancelado (-1)
+    private Integer codigoVuelo;
 
-
-    public String getOrigen() {
-        return origen;
-    }
-
-    public void setOrigen(String origen) {
+    public Vuelo(String origen, String destino, Avion avion, Double tiempoVuelo, LocalDate fechaSalida, LocalDate fechaLlegada, LocalDateTime horaSalida, LocalDateTime horaLlegada, int estado, int codigoVuelo) {
         this.origen = origen;
-    }
-
-    public String getDestino() {
-        return destino;
-    }
-
-    public void setDestino(String destino) {
         this.destino = destino;
-    }
-
-    public Avion getAvion() {
-        return avion;
-    }
-
-    public void setAvion(Avion avion) {
         this.avion = avion;
-    }
-
-    public Double getTiempoVuelo() {
-        return tiempoVuelo;
-    }
-
-    public void setTiempoVuelo(Double tiempoVuelo) {
         this.tiempoVuelo = tiempoVuelo;
-    }
-
-    public LocalDate getFechaSalida() {
-        return fechaSalida;
-    }
-
-    public void setFechaSalida(LocalDate fechaSalida) {
         this.fechaSalida = fechaSalida;
-    }
-
-    public LocalDate getFechaLlegada() {
-        return fechaLlegada;
-    }
-
-    public void setFechaLlegada(LocalDate fechaLlegada) {
         this.fechaLlegada = fechaLlegada;
-    }
-
-    public LocalDateTime getHoraSalida() {
-        return horaSalida;
-    }
-
-    public void setHoraSalida(LocalDateTime horaSalida) {
         this.horaSalida = horaSalida;
-    }
-
-    public LocalDateTime getHoraLlegada() {
-        return horaLlegada;
-    }
-
-    public void setHoraLlegada(LocalDateTime horaLlegada) {
         this.horaLlegada = horaLlegada;
-    }
-
-    public int getEstado() {
-        return estado;
-    }
-
-    public void setEstado(int estado) {
         this.estado = estado;
+        this.codigoVuelo = codigoVuelo;
     }
-
-
-    // este to string puede funcionar como mostrar tarjeta de embarque y mostrar cuando compras el vuelo
 
 
     @Override
     public String toString() {
-        return "\n---Vuelo---\n" +
-                "Origen= " + origen + "         " +
-                "Destino=" + destino +
-                "" + avion.toString() +
-                "\nDuracion= " + tiempoVuelo +
-                "Salida= " + fechaSalida + "       "+
-                "Horario=" + horaSalida +
-                "\nLlegada= " + fechaLlegada +  "      "+
-                "Horario=" + horaLlegada +
-                "\nEstado=" + estado
-                +"\n--------------";
+        return "\nORG=" + origen +
+                "                    DES=" + destino  +
+                "\nDURACION= " + tiempoVuelo +
+                "\nSALIDA=" + fechaSalida +
+                "\n" +avion.getModelo() +
+                "      " + horaSalida +
+                "\nLLEGADA= " + fechaLlegada +
+
+                "       " + horaLlegada;
+
     }
 }
