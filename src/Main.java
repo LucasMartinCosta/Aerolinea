@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         Scanner lector = new Scanner(System.in);
 
 //        Avion avion2 = new Avion("prueba", 120, 15, 1, 5);   PRUEBA COMPRA DE ASIENTOS
