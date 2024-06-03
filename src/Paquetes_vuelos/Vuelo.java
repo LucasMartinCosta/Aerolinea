@@ -27,7 +27,7 @@ public class Vuelo {
         this.horaSalida = horaSalida;
         this.horaLlegada = horaLlegada;
         this.estado = estado;
-        this.codigoVuelo = codigoVuelo;
+
     }
 
 
@@ -43,5 +43,13 @@ public class Vuelo {
 
                 "       " + horaLlegada;
 
+    }
+
+    public Integer getCodigoVuelo() {
+        return codigoVuelo;
+    }
+
+    public Avion getAvion() {
+        return avion;
     }
 }

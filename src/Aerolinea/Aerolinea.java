@@ -15,10 +15,7 @@ public class Aerolinea {
         this.vuelos_Aerolineas = new HashMap<>();
     }
 
-    public void agregarVuelos(Integer i, Vuelo v){
-        Vuelo vuelos =new Vuelo(v);
-        vuelos_Aerolineas.put(i,v);
-    }
+
 
     public String getNombre() {
         return nombre;
