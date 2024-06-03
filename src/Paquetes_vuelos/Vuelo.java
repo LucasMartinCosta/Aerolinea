@@ -17,7 +17,9 @@ public class Vuelo {
     private int estado; // Ok(1) - Retrasado(0) - Cancelado (-1)
     private Integer codigoVuelo;
 
-    public Vuelo(String origen, String destino, Avion avion, Double tiempoVuelo, LocalDate fechaSalida, LocalDate fechaLlegada, LocalDateTime horaSalida, LocalDateTime horaLlegada, int estado, int codigoVuelo) {
+    public Vuelo(String origen, String destino, Avion avion, Double tiempoVuelo, LocalDate fechaSalida,
+                 LocalDate fechaLlegada, LocalDateTime horaSalida, LocalDateTime horaLlegada, int estado, int codigoVuelo) {
+
         this.origen = origen;
         this.destino = destino;
         this.avion = avion;
