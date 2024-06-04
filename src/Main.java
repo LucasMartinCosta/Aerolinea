@@ -14,12 +14,9 @@ public class Main {
 
         Scanner lector = new Scanner(System.in);
 
-//        Avion avion2 = new Avion("prueba", 120, 15, 1, 5);   PRUEBA COMPRA DE ASIENTOS
-//        //avion2.mostrarAsientos();
-//        avion2.comprarAsiento(1, 'A');
-//        avion2.comprarAsiento(3, 'C');
-//        avion2.comprarAsiento(5, 'B');
-//        avion2.mostrarAsientos();
+        Avion avion2 = new Avion("prueba", 120, 15, 1, 5);  // PRUEBA COMPRA DE ASIENTOS
+        //avion2.mostrarAsientos();
+        avion2.mostrarAsientos();
 
 
         Lista_vuelos listavuelos= new Lista_vuelos();
@@ -40,6 +37,7 @@ public class Main {
                 System.out.println("Vuelos disponibles: ");
                 listavuelos.mostrar_paquetes_vuelos();
         }
+
 
     }
 }

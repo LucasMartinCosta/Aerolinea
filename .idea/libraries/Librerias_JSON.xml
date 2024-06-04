@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Librerias JSON">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../Librerias JSON/Librerias JSON/gson-2.8.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Librerias JSON/Librerias JSON/jackson-annotations-2.15.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Librerias JSON/Librerias JSON/jackson-core-2.15.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Librerias JSON/Librerias JSON/jackson-databind-2.15.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Librerias JSON/Librerias JSON/json-20220320.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../Librerias JSON/Librerias JSON" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/../../Librerias JSON/Librerias JSON" recursive="false" />
+  </library>
+</component>

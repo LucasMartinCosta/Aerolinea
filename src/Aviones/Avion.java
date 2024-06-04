@@ -89,14 +89,14 @@ public class Avion {
     }
 
 
-    public boolean comprarAsiento (int fila, char letra)
+    public boolean comprarAsiento (Cliente dato, int fila, char letra)
     {
         if (asientos.containsKey(fila) && asientos.get(fila).containsKey(letra))
         {
             Asiento aux = asientos.get(fila).get(letra);
             if(!aux.isDisponible())
             {
-                aux.reservar();
+                aux.reservar(dato);
                 return true;
             }
             else
