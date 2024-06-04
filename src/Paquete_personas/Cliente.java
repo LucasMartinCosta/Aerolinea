@@ -7,10 +7,11 @@ import java.io.Console;
 //import java.lang.classfile.Attribute;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class Cliente extends Persona{
+public class Cliente extends Persona  {
 
     private Integer pasaporte;
     private LocalDate nacimiento;
@@ -29,6 +30,7 @@ public class Cliente extends Persona{
     }
 
     public Cliente(String nombre, String apellido, String email) {
+
         super(nombre, apellido, email);
     }
 
@@ -62,6 +64,13 @@ public class Cliente extends Persona{
             i++;
         }
     }
+
+
+
+
+
+
+
 //    // Método para comprar vuelos
 //    public void comprarVuelo(int codigo, int cantidadCompras, Vuelo vuelo) {
 //        // Verificar si el vuelo está disponible y hay suficientes asientos

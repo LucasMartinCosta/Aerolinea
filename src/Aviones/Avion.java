@@ -5,7 +5,7 @@ import Paquete_personas.Cliente;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Avion {
+public class Avion  {
 
     private Map<Integer, Map <Character, Asiento>> asientos;
     private String modelo;
@@ -13,6 +13,9 @@ public class Avion {
     private double tiempo_vuelo; // en horas
     private String tipo;  /*PRIVADO O COMERCIAL*/
     private int estado;    /*Disponi|ble(1) - Ocupado (0) - Reparacion (-1) */
+
+    public Avion() {
+    }
 
     public Avion(String modelo, Integer capacidad_personas, double tiempo_vuelo, int estado, int filas) {
         this.modelo = modelo;
@@ -141,8 +144,6 @@ public class Avion {
             System.out.println();
         }
     }
-
-
 
 
 

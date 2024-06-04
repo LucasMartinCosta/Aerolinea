@@ -5,7 +5,7 @@ import Aviones.Avion;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class Vuelo  {
+public class Vuelo implements Comparable<Vuelo> {
     private String origen;
     private String destino;
     private Avion avion;
@@ -137,5 +137,23 @@ public class Vuelo  {
 
     public void setFechaLlegada(LocalDate fechaLlegada) {
         this.fechaLlegada = fechaLlegada;
+    }
+
+    @Override
+    public int compareTo(Vuelo o) {
+        int flag=0;
+        if(this.codigoVuelo == o.codigoVuelo)
+        {
+            flag=1;
+        }
+        else if(this.codigoVuelo < o.codigoVuelo)
+        {
+            flag=-1;
+        }
+        else
+        {
+            flag=0;
+        }
+        return flag;
     }
 }
