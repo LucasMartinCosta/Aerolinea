@@ -18,7 +18,9 @@ public class Vuelo  {
     private Integer codigoVuelo;
     private String condicionVuelo;
 
-    public Vuelo(String origen, String destino, Avion avion, Double tiempoVuelo, LocalDate fechaSalida, LocalDate fechaLlegada, LocalDateTime horaSalida, LocalDateTime horaLlegada, int estado, int codigoVuelo) {
+    public Vuelo(String origen, String destino, Avion avion, Double tiempoVuelo, LocalDate fechaSalida,
+                 LocalDate fechaLlegada, LocalDateTime horaSalida, LocalDateTime horaLlegada, int estado, int codigoVuelo) {
+
         this.origen = origen;
         this.destino = destino;
         this.avion = avion;
