@@ -12,7 +12,7 @@ import java.util.Scanner;
 //creo que tendria que llamarse gestionUsuario
 //capaz en vez de ingresar apellido y id cada vez que queres hacer algo hay que ver si podes acceder directamente
 //o hacerlo de una frorma q el cliente no tenga que poner
-//siempre su id y apellido?
+//siempre su id y apellido? hhhhh
 
 
 public class Reserva {
