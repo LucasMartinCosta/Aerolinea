@@ -16,16 +16,17 @@ import java.util.TreeSet;
 
 public class manejo_archivos {
 
-    private TreeSet<Persona> listaPersonas = leer_todo_archivo_personas();
+    private TreeSet<Persona> listaPersonas;
 
-    private ArrayList<Avion>listaAvion = leer_archivo_aviones();
+    private ArrayList<Avion>listaAvion ;
 
-    private HashSet<Vuelo> listaVuelos = leerarchivo_paquetes();
+    private HashSet<Vuelo> listaVuelos ;
 
-    private HashMap<Integer, Reserva> listaReservas = leerarchivo_reserva();
+    private HashMap<Integer, Reserva> listaReservas;
 
     //hacer atributos de la clase archivo con todas las estructuras de datos que se creen y dsp
     //manejarlas con set y get. Gracias guille.
+
 
     File archivo_personas = new File("archivoPersonas.txt");
     File archivo_aviones = new File("archivoAviones.txt");
@@ -48,10 +49,10 @@ public class manejo_archivos {
 
     }
 
-    public TreeSet<Persona> leer_todo_archivo_personas()
+    public void leer_todo_archivo_personas()
     {
         try {
-            return mapper.readValue(archivo_personas, new TypeReference<TreeSet<Persona>>() {
+            this.listaPersonas = mapper.readValue(archivo_personas, new TypeReference<TreeSet<Persona>>() {
             });
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -62,20 +63,20 @@ public class manejo_archivos {
 
     public void cargaarchivo_aviones(ArrayList<Avion> lista_aviones)
     {
-            try {
-                mapper.writeValue(archivo_aviones,lista_aviones);
-            }
-            catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+        try {
+            mapper.writeValue(archivo_aviones,lista_aviones);
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
-    public ArrayList<Avion> leer_archivo_aviones()
+    public void leer_archivo_aviones()
     {
         try {
-           return mapper.readValue(archivo_aviones, new TypeReference<ArrayList<Avion>>() {
-           });
+            this.listaAvion = mapper.readValue(archivo_aviones, new TypeReference<ArrayList<Avion>>() {
+            });
         }
         catch (IOException e)
         {
@@ -95,11 +96,11 @@ public class manejo_archivos {
         }
     }
 
-    public HashSet<Vuelo> leerarchivo_paquetes()
+    public void leerarchivo_paquetes()
     {
         try
         {
-            return mapper.readValue(archivo_vuelos, new TypeReference<HashSet<Vuelo>>() {
+            this.listaVuelos =  mapper.readValue(archivo_vuelos, new TypeReference<HashSet<Vuelo>>() {
             });
         }
         catch (IOException e)
@@ -121,15 +122,31 @@ public class manejo_archivos {
         }
     }
 
-    public HashMap leerarchivo_reserva()
+    public void leerarchivo_reserva()
     {
         try {
-            return mapper.readValue(archivo_reservas, new TypeReference<HashMap>() {
+            this.listaReservas = mapper.readValue(archivo_reservas, new TypeReference<HashMap>() {
             });
         }
         catch (IOException e)
         {
             throw new RuntimeException(e);
         }
+    }
+
+    public TreeSet<Persona> getListaPersonas() {
+        return listaPersonas;
+    }
+
+    public ArrayList<Avion> getListaAvion() {
+        return listaAvion;
+    }
+
+    public HashSet<Vuelo> getListaVuelos() {
+        return listaVuelos;
+    }
+
+    public HashMap<Integer, Reserva> getListaReservas() {
+        return listaReservas;
     }
 }
