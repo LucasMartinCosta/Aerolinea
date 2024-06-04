@@ -1,9 +1,11 @@
 package Paquete_personas;
 
+import Aerolinea.Reserva;
 import Paquetes_vuelos.Vuelo;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Cliente extends Persona{
 
@@ -12,6 +14,7 @@ public class Cliente extends Persona{
     private int edad;
     private long numTelefono;
     private ArrayList<Vuelo> vuelos_comprados = new ArrayList<>();
+    private HashMap<Integer, Reserva> reservas = new HashMap<>();
 
     public Cliente(String nombre, String apellido, String email, Integer pasaporte, LocalDate nacimiento, int edad,long numTelefono) {
         super(nombre, apellido, email);
@@ -29,10 +32,13 @@ public class Cliente extends Persona{
     public String toString() {
         return super.toString() +
                 "\nPasaporte= " + pasaporte +
-                "\nFecha de nacimiento= "+ nacimiento
+                "\nFecha de nacimiento= "+ nacimiento;
 
-                +"\n----------------";
+
     }
+
+    //este metodo lo haria en una clase llamada gestion de clientes el cual engloba comprar vuelos, reservas( dentro de reservas
+    // encontramos modificar, ver pasaje,ver estado, eliminar reserva? cuando eliminas reserva tenes q devolver dinero
 
     public void comprarvuelo(int codigo, int cantidadcompras, Vuelo a)
     {
@@ -52,4 +58,22 @@ public class Cliente extends Persona{
             i++;
         }
     }
+//    // Método para comprar vuelos
+//    public void comprarVuelo(int codigo, int cantidadCompras, Vuelo vuelo) {
+//        // Verificar si el vuelo está disponible y hay suficientes asientos
+//        if (vuelo.getCapacidadDisponible() >= cantidadCompras) {
+//            // Comprar la cantidad especificada de asientos en el vuelo
+//            for (int i = 0; i < cantidadCompras; i++) {
+//                vuelos_comprados.add(vuelo);
+//                vuelo.reservarAsiento(); // Restar un asiento a la capacidad disponible del vuelo
+//            }
+//            System.out.println("La compra fue realizada con éxito.");
+//        } else {
+//            System.out.println("No hay suficientes asientos disponibles en este vuelo.");
+//        }
+//    }
+
+
+
+
 }

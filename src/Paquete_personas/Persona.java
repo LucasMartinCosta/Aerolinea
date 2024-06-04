@@ -7,17 +7,24 @@ public class Persona {
     private String nombre;
     private String apellido;
     private String email;
+    private String contra;
 
 
 
-
-    // constructor para usar cuando queres iniciar sesion? faltaria la contrasenia ?
+    // este constructor lo podemos usar a la hora de comprar vuelos cuando tenes que completar datos
     public Persona(String nombre, String apellido,String email ) {
         this.nombre = nombre;
+        this.apellido = apellido;
         this.email = email;
 
 
     }
+    //constructor que usamos para generar USUARIOS!
+    public Persona(String email, String contra){
+        this.email = email;
+        this.contra = contra;
+    }
+
 
     public String getNombre() {
         return nombre;
@@ -65,4 +72,6 @@ public class Persona {
                 "\nEmail= " + email +"\n---------";
 
     }
+
+
 }
