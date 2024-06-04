@@ -28,6 +28,9 @@ public class Cliente extends Persona{
         this.numTelefono = numTelefono;
     }
 
+    public Cliente(String nombre, String apellido, String email) {
+        super(nombre, apellido, email);
+    }
 
 
     @Override

@@ -1,11 +1,12 @@
 package Aviones;
 
+import Paquete_personas.Cliente;
+
 public class Asiento {
     private int fila;
     private char letra;
     private boolean reservado;
-
-    //private Cliente cliente;
+    private Cliente cliente;
 
     public Asiento(int fila, char letra) {
         this.fila = fila;
@@ -37,15 +38,16 @@ public class Asiento {
         this.reservado = disponible;
     }
 
-    public void reservar ()
+    public void reservar (Cliente dato)
     {
-        //this.cliente=dato;
+        cliente=dato;
         this.reservado=true;
     }
 
     public void liberar ()
     {
         this.reservado=false;
+        cliente=new Cliente("", "", ""); // pisa el cliente con un constructor vacio
     }
 
 

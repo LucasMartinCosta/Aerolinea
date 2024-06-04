@@ -1,5 +1,6 @@
 package paquete_archivos;
 
+import Aerolinea.Reserva;
 import Aviones.Avion;
 import Paquete_personas.Persona;
 import Paquetes_vuelos.Vuelo;
@@ -15,10 +16,22 @@ import java.util.TreeSet;
 
 public class manejo_archivos {
 
+    private TreeSet<Persona> listaPersonas = leer_todo_archivo_personas();
+
+    private ArrayList<Avion>listaAvion = leer_archivo_aviones();
+
+    private HashSet<Vuelo> listaVuelos = leerarchivo_paquetes();
+
+    private HashMap<Integer, Reserva> listaReservas = leerarchivo_reserva();
+
+    //hacer atributos de la clase archivo con todas las estructuras de datos que se creen y dsp
+    //manejarlas con set y get. Gracias guille.
+
     File archivo_personas = new File("archivoPersonas.txt");
     File archivo_aviones = new File("archivoAviones.txt");
-    File archivo_paquetes_vuelos = new File("archivoPaquetes.txt");
+    File archivo_vuelos = new File("archivoPaquetes.txt");
     File archivo_reservas = new File("archivoReserva.txt");
+
 
     ObjectMapper mapper = new ObjectMapper();
 
@@ -74,7 +87,7 @@ public class manejo_archivos {
     public void cargararchivo_paquetes(HashSet<Vuelo>lista_vuelos)
     {
         try {
-            mapper.writeValue(archivo_paquetes_vuelos, lista_vuelos);
+            mapper.writeValue(archivo_vuelos, lista_vuelos);
         }
         catch (IOException e)
         {
@@ -86,7 +99,7 @@ public class manejo_archivos {
     {
         try
         {
-            return mapper.readValue(archivo_paquetes_vuelos, new TypeReference<HashSet<Vuelo>>() {
+            return mapper.readValue(archivo_vuelos, new TypeReference<HashSet<Vuelo>>() {
             });
         }
         catch (IOException e)
@@ -96,7 +109,7 @@ public class manejo_archivos {
 
     }
 
-    public void cargararchivo_reserva(HashMap lista_reservas)
+    public void cargararchivo_reserva(HashMap<Integer,Reserva> lista_reservas) // tiene el id de reserva
     {
         try
         {
