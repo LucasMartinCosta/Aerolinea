@@ -3,7 +3,7 @@ package Paquete_personas;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Persona {
+public class Persona implements Comparable<Persona> {
     private String nombre;
     private String apellido;
     private String email;
@@ -19,6 +19,10 @@ public class Persona {
 
 
     }
+
+    public Persona() {
+    }
+
     //constructor que usamos para generar USUARIOS!
     public Persona(String email, String contra){
         this.email = email;
@@ -74,4 +78,8 @@ public class Persona {
     }
 
 
+    @Override
+    public int compareTo(Persona o) {
+        return this.apellido.compareTo(o.apellido);
+    }
 }
