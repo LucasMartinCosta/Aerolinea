@@ -26,20 +26,7 @@ public class Main {
 
         Cliente cliente1 = new Cliente("Imanol","Sayago", "Imanolsayago0@gmail.com", 123, LocalDate.of(2003,10,10), 12, 418648);
 
-        int opcion1;
-        System.out.println("Ingrese 1 si usted desea comprar un pasaje");
-        System.out.println("Ingrese 2 si usted desea ver informacion de su vuelo");
-        System.out.println("Ingrese 3 si usted desea ...");
-        opcion1 = lector.nextInt();
-        lector.nextLine();
 
-        switch (opcion1)
-        {
-            case 1:
-                System.out.println("Usted ingreso en el apartado de compra de vuelos");
-                System.out.println("Vuelos disponibles: ");
-                listavuelos.mostrar_paquetes_vuelos();
-        }
 
     }
 }

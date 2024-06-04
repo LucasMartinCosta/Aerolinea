@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="gson-2.8.6">
     <CLASSES>
-      <root url="jar://C:/Program Files/Librerias JSON/gson-2.8.6.jar!/" />
-      <root url="jar://C:/Program Files/Librerias JSON/jackson-annotations-2.15.2.jar!/" />
-      <root url="jar://C:/Program Files/Librerias JSON/jackson-core-2.15.2.jar!/" />
-      <root url="jar://C:/Program Files/Librerias JSON/jackson-databind-2.15.2.jar!/" />
-      <root url="jar://C:/Program Files/Librerias JSON/json-20220320.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/json/gson-2.8.6.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/json/jackson-annotations-2.15.2.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/json/jackson-core-2.15.2.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/json/jackson-databind-2.15.2.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/json/json-20220320.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

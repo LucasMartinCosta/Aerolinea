@@ -3,9 +3,12 @@ package Paquete_personas;
 import Aerolinea.Reserva;
 import Paquetes_vuelos.Vuelo;
 
+import java.io.Console;
+//import java.lang.classfile.Attribute;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Cliente extends Persona{
 
@@ -13,6 +16,7 @@ public class Cliente extends Persona{
     private LocalDate nacimiento;
     private int edad;
     private long numTelefono;
+    private String contrasenia;
     private ArrayList<Vuelo> vuelos_comprados = new ArrayList<>();
     private HashMap<Integer, Reserva> reservas = new HashMap<>();
 
@@ -25,6 +29,7 @@ public class Cliente extends Persona{
     }
 
 
+
     @Override
     public String toString() {
         return super.toString() +
@@ -34,8 +39,7 @@ public class Cliente extends Persona{
 
     }
 
-    //este metodo lo haria en una clase llamada gestion de clientes el cual engloba comprar vuelos, reservas( dentro de reservas
-    // encontramos modificar, ver pasaje,ver estado, eliminar reserva? cuando eliminas reserva tenes q devolver dinero
+
 
     public void comprarvuelo(int codigo, int cantidadcompras, Vuelo a)
     {
@@ -70,7 +74,18 @@ public class Cliente extends Persona{
 //        }
 //    }
 
-
+    //CONSOLE ES PARA QUE NO SE VEA LA CONTRA CUANDO INICIA SESION
+//    public void iniciarSesion(){
+//        Console console = System.console();
+//        Scanner scan = new Scanner(System.in);
+//        System.out.println("\nEMAIL: ");
+//        scan ;
+//        if ()
+//
+//            char[] passwordArray = console.readPassword("\nCONTRASEÑA=: ");
+//        this.contrasenia = new String(passwordArray);
+//
+//    }
 
 
 }

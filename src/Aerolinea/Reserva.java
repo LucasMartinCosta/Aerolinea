@@ -30,8 +30,8 @@ public class Reserva {
     }
 
     //muestra reserva no PASAJE
-    public void mostrarReserva(String apellidoCliente, Integer idCliente) {
-        if (cliente.getApellido().equalsIgnoreCase(apellidoCliente) && id==idCliente){
+    public void mostrarReserva(String apellidoCliente, Integer id1) {
+        if (cliente.getApellido().equalsIgnoreCase(apellidoCliente) && id==id1){
 
             System.out.println(""+cliente.getNombre() + " "+ cliente.getApellido());
             for (Vuelo vuelo: vuelos) {
@@ -62,10 +62,10 @@ public class Reserva {
     }
 
 
-    public void modificarReserva(String apellidoCliente, Integer idClient){
+    public void modificarReserva(String apellidoCliente, Integer id1){
         int opcion=0;
         Scanner scan = new Scanner(System.in);
-        if (cliente.getApellido().equalsIgnoreCase(apellidoCliente) && id==idClient){
+        if (cliente.getApellido().equalsIgnoreCase(apellidoCliente) && id==id1){
             System.out.println("\n1.MODIFICAR FECHA DE SALIDA= ");
             System.out.println("\n2.MODIFICAR FECHA DE LLEGADA= ");
             System.out.println("\nELIJA UNA OPCION= ");
@@ -100,8 +100,8 @@ public class Reserva {
 
 
            //ESTE MUESTRA EL PASAJE UNA VEZ HECHO EL CHECK IN
-    public void mostrarPasaje(String apellidoCliente, Integer idCliente){
-        if (cliente.getApellido().equalsIgnoreCase(apellidoCliente) && id==idCliente){
+    public void mostrarPasaje(String apellidoCliente, Integer id1){
+        if (cliente.getApellido().equalsIgnoreCase(apellidoCliente) && id==id1){
 
             System.out.println(""+ cliente.toString());
             System.out.println(""+vuelos.toString());
