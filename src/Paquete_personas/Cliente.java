@@ -19,7 +19,7 @@ public class Cliente extends Persona  {
     private long numTelefono;
     private String contrasenia;
     private ArrayList<Vuelo> vuelos_comprados = new ArrayList<>();
-    private HashMap<Integer, Reserva> reservas = new HashMap<>();
+    private HashMap<Integer, Reserva> reservas = new HashMap<>(); //arraylist con reservas de cada cliente
 
     public Cliente(String nombre, String apellido, String email, Integer pasaporte, LocalDate nacimiento, int edad,long numTelefono) {
         super(nombre, apellido, email);

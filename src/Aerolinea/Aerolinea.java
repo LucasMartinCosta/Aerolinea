@@ -7,25 +7,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Aerolinea {
-    private String nombre;
+
     private HashMap<Integer,Vuelo> vuelos_Aerolineas;
 
-    public Aerolinea(String nombre) {
-        this.nombre = nombre;
+    public Aerolinea() {
+
         this.vuelos_Aerolineas = new HashMap<>();
     }
 
 
 
-    public String getNombre() {
-        return nombre;
-    }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 
-    // equals para que no se repita la aerolinea o chequeamos?
+
 
 
 

@@ -22,6 +22,7 @@ public class Reserva {
     private ArrayList<Vuelo> vuelos;
     private Integer id;  // la vamos a usar de codigo
     private Double costoTotal;
+   private Scanner scan = new Scanner(System.in);
 
     public Reserva(Integer id, Cliente cliente) {
         this.id = id;
@@ -30,7 +31,18 @@ public class Reserva {
     }
 
     //muestra reserva no PASAJE
-    public void mostrarReserva(String apellidoCliente, Integer id1) {
+    public void mostrarReserva() {
+        String apellidoCliente=null;
+        Integer id1;
+
+
+
+        System.out.println("\n-------------------\n");
+        System.out.println("\nAPELLIDO:");
+        apellidoCliente = scan.nextLine();
+        System.out.println("\nCODIGO DE RESERVA:");
+        id1 = Integer.parseInt(scan.nextLine());
+
         if (cliente.getApellido().equalsIgnoreCase(apellidoCliente) && id==id1){
 
             System.out.println(""+cliente.getNombre() + " "+ cliente.getApellido());
@@ -45,7 +57,15 @@ public class Reserva {
 
     }
 
-    public void mostrarEstadoDelVuelo(String apellidoCliente, Integer id1){
+    public void mostrarEstadoDelVuelo(){
+        String apellidoCliente=null;
+        Integer id1;
+
+        System.out.println("\n-------------------\n");
+        System.out.println("\nAPELLIDO:");
+        apellidoCliente = scan.nextLine();
+        System.out.println("\nCODIGO DE RESERVA:");
+        id1 = Integer.parseInt(scan.nextLine());
 
         if (cliente.getApellido().equalsIgnoreCase(apellidoCliente) && id==id1){
 
@@ -53,7 +73,7 @@ public class Reserva {
 
 
 
-            System.out.println("\nEl estado de su vuelo es= "+ vuelo.getCondicionVuelo());}
+            System.out.println("\nEl estado de su vuelo es=:  "+ vuelo.getCondicionVuelo());}
 
         }else {
             System.out.println("\nNo tenes ninguna reserva");
@@ -62,17 +82,28 @@ public class Reserva {
     }
 
 
-    public void modificarReserva(String apellidoCliente, Integer id1){
+    public void modificarReserva(){
+        String apellidoCliente=null;
+        Integer id1;
         int opcion=0;
-        Scanner scan = new Scanner(System.in);
+
+
+
+        System.out.println("\n-------------------\n");
+        System.out.println("\nAPELLIDO:");
+        apellidoCliente = scan.nextLine();
+        System.out.println("\nCODIGO DE RESERVA:");
+        id1 = Integer.parseInt(scan.nextLine());
+
+
         if (cliente.getApellido().equalsIgnoreCase(apellidoCliente) && id==id1){
             System.out.println("\n1.MODIFICAR FECHA DE SALIDA= ");
             System.out.println("\n2.MODIFICAR FECHA DE LLEGADA= ");
-            System.out.println("\nELIJA UNA OPCION= ");
+            System.out.println("\n3.ELIJA UNA OPCION= ");
             opcion = scan.nextInt();
             switch (opcion) {
                 case 1:
-                    System.out.println("Ingrese la nueva fecha de salida (YYYY-MM-DD):");
+                    System.out.println("\nIngrese la nueva fecha de salida (YYYY-MM-DD):");
                     String nuevaFechaSalidaStr = scan.next();
                     LocalDate nuevaFechaSalida = LocalDate.parse(nuevaFechaSalidaStr);
                     for (Vuelo vuelo: vuelos) {
@@ -100,7 +131,16 @@ public class Reserva {
 
 
            //ESTE MUESTRA EL PASAJE UNA VEZ HECHO EL CHECK IN
-    public void mostrarPasaje(String apellidoCliente, Integer id1){
+    public void mostrarPasaje(){
+        String apellidoCliente=null;
+        Integer id1=0;
+
+        System.out.println("\n-------------------\n");
+        System.out.println("\nAPELLIDO:");
+        apellidoCliente = scan.nextLine();
+        System.out.println("\nCODIGO DE RESERVA:");
+        id1 = Integer.parseInt(scan.nextLine());
+
         if (cliente.getApellido().equalsIgnoreCase(apellidoCliente) && id==id1){
 
             System.out.println(""+ cliente.toString());
@@ -113,9 +153,18 @@ public class Reserva {
 
     }
 
-    public void eliminarReserva(String apellidoCliente, Integer id1){
+    public void eliminarReserva(){
+        String apellidoCliente= null;
+        Integer id1;
+        System.out.println("\n-------------------\n");
+        System.out.println("\nAPELLIDO:");
+        apellidoCliente = scan.nextLine();
+        System.out.println("\nCODIGO DE RESERVA:");
+        id1 = Integer.parseInt(scan.nextLine());
+
         if (cliente.getApellido().equalsIgnoreCase(apellidoCliente) && id==id1){
-            //funcion para eliminar una reserva ni idea como hacer
+
+
         }
     }
 

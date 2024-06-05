@@ -5,7 +5,7 @@ import Paquete_personas.Cliente;
 import Paquete_personas.Persona;
 import Paquetes_vuelos.Lista_vuelos;
 import Paquetes_vuelos.Vuelo;
-import paquete_archivos.Manejo_archivos;
+//import paquete_archivos.Manejo_archivos;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
@@ -16,7 +16,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        Manejo_archivos manejoarchi = new Manejo_archivos();
+        //Manejo_archivos manejoarchi = new Manejo_archivos();
 
 //        TreeSet<Persona> personas = new TreeSet<>();
 //        TreeSet<Persona> personasleidas = new TreeSet<>();

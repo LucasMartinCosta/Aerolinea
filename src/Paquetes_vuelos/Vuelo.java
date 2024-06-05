@@ -17,6 +17,7 @@ public class Vuelo implements Comparable<Vuelo> {
     private int estado; // Ok(1) - Retrasado(0) - Cancelado (-1)
     private Integer codigoVuelo;
     private String condicionVuelo;
+    private int numeroPasajeros;
 
     public Vuelo(String origen, String destino, Avion avion, Double tiempoVuelo, LocalDate fechaSalida,
                  LocalDate fechaLlegada, LocalDateTime horaSalida, LocalDateTime horaLlegada, int estado, int codigoVuelo) {
@@ -31,6 +32,25 @@ public class Vuelo implements Comparable<Vuelo> {
         this.horaLlegada = horaLlegada;
         this.estado = estado;
       setCondicionVuelo(condicionVuelo);
+
+
+    }
+
+
+
+//    public Vuelo(String origen, String destino, LocalDate fechaSalida, int numeroPasajeros){
+//        this.origen = origen;
+//        this.destino = destino;
+//        this.fechaSalida= fechaSalida;
+//        this.numeroPasajeros = numeroPasajeros;
+//
+//    }
+
+    public Vuelo(String origen, String destino, LocalDate fechaLlegada, int numeroPasajeros){
+        this.origen = origen;
+        this.destino = destino;
+        this.fechaLlegada = fechaLlegada;
+        this.numeroPasajeros = numeroPasajeros;
 
     }
 
