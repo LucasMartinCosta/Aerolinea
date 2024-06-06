@@ -17,7 +17,6 @@ public class Persona implements Comparable<Persona> {
         this.apellido = apellido;
         this.email = email;
 
-
     }
 
     public Persona() {
@@ -76,7 +75,6 @@ public class Persona implements Comparable<Persona> {
                 "\nEmail= " + email +"\n---------";
 
     }
-
 
     @Override
     public int compareTo(Persona o) {

@@ -83,6 +83,9 @@ public class Reserva {
 
 
     public void modificarReserva(){
+
+//tiene que recibir el apellido del cliente, el id de la reserva, verificar que exista y modificar los datos del vuelo con los setters
+
         String apellidoCliente=null;
         Integer id1;
         int opcion=0;

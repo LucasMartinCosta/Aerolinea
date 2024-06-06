@@ -29,14 +29,10 @@ public class Manejo_archivos {
     //hacer atributos de la clase archivo con todas las estructuras de datos que se creen y dsp
     //manejarlas con set y get. Gracias guille.
 
-
-
-    File archivo_personas = new File("C:\\Users\\Imanol\\Desktop\\archivos\\archivosPersona.txt");
-    File archivo_aviones = new File("C:\\Users\\Imanol\\Desktop\\archivos\\archivosAviones.txt");
-    File archivo_vuelos = new File("C:\\Users\\Imanol\\Desktop\\archivos\\archivosPaquetes.txt");
-    File archivo_reservas = new File("C:\\Users\\Imanol\\Desktop\\archivos\\archivosReserva.txt");
-
-
+    File archivo_personas = new File("ArchivoPersonas.txt");
+    File archivo_aviones = new File("ArchivoAviones.txt");
+    File archivo_vuelos = new File("ArchivoVuelos.txt");
+    File archivo_reservas = new File("ArchivoReservas.txt");
     ObjectMapper mapper = new ObjectMapper();
 
     ///CARGA ARCHIVO LISTA PERSONAS///
@@ -48,7 +44,6 @@ public class Manejo_archivos {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
 
     }
 
@@ -75,7 +70,6 @@ public class Manejo_archivos {
         catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public void leer_archivo_aviones()

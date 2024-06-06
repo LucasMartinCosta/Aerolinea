@@ -34,6 +34,9 @@ public class Cliente extends Persona  {
         super(nombre, apellido, email);
     }
 
+    public HashMap<Integer, Reserva> getReservas() {
+        return reservas;
+    }
 
     @Override
     public String toString() {
@@ -43,8 +46,6 @@ public class Cliente extends Persona  {
 
 
     }
-
-
 
     public void comprarvuelo(int codigo, int cantidadcompras, Vuelo a)
     {

@@ -26,8 +26,6 @@ public class Menu {
         this.empleado = empleado;
         this.lector = new Scanner(System.in);
         this.vuelos = vuelos;
-
-
     }
 
     public void iniciarSesion(){
@@ -41,14 +39,10 @@ public class Menu {
         }
         char[] passwordArray = console.readPassword("\nContrasenia: ");
         String password = new String(passwordArray);
-
     }
 
-
     public void menuCliente() {
-
-
-
+        Cliente cliente;
         boolean exit= false;
         int opcion1;
         while (!exit) {
@@ -71,6 +65,7 @@ public class Menu {
                     break;
 
                 case 2:
+                    //Mostrar todas las reservas que tiene el cliente, hacerlo elegir una reserva y esa es la que hay que modificar.
                    reserva.modificarReserva();
 
                     break;
@@ -98,9 +93,48 @@ public class Menu {
         }
 
        lector.close();
-
-
         }
+
+    public void menuEmpleado() {
+
+        boolean exit= false;
+        int opcion1;
+        while (!exit) {
+            System.out.println("\n-----------------------");
+            System.out.println("\n1.VER UN VUELO");
+            System.out.println("\n2.HACER VUELOS NUEVOS");
+            System.out.println("\n3.VER LISTA DE AVIONES COMPLETA");
+            System.out.println("\n4.VER LISTA DE VUELOS COMPLETA");
+            System.out.println("\n8.SALIR DEL MENU");
+            System.out.println("\n-----------------------");
+            opcion1 = lector.nextInt();
+            lector.nextLine();
+
+            switch (opcion1) {
+                case 1:
+                    //llama a una funcion que pasandole el numero de vuelo te muestre un vuelo en especifico,
+                    //con la lista de pasajeros y toda la info
+                    break;
+
+                case 2:
+                    //llama a una funcion que crea vuelos, juntando un avion(que tiene que estar disponible) un origen, y un destino
+
+                    break;
+                case 3:
+                    //mostrar todos los aviones cargados en el sistema
+                    break;
+                case 4:
+                    //mostrar todos los vuelos cargados en el sistema
+                case 5:
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("\nOpción no valida. Por favor, intente de nuevo.");
+            }
+        }
+
+        lector.close();
+    }
 
 
     public void menuCompraPasaje(){
@@ -114,8 +148,6 @@ public class Menu {
         System.out.print("\nFECHA  (yyyy-MM-dd): ");
         String fechaStr = lector.nextLine();
         LocalDate fechaIda = LocalDate.parse(fechaStr, DateTimeFormatter.ISO_LOCAL_DATE);
-
-
 
         System.out.print("Ingrese el número de pasajeros: ");
         int numeroPasajeros = lector.nextInt();
@@ -135,11 +167,7 @@ public class Menu {
 
             case 1:
                 menuCompraPasaje();
-
         }
-
-
-
 
     }
 
