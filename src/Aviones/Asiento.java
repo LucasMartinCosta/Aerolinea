@@ -47,7 +47,7 @@ public class Asiento {
     public void liberar ()
     {
         this.reservado=false;
-        cliente=new Cliente("", "", ""); // pisa el cliente con un constructor vacio
+        cliente=new Cliente("", "", "", ""); // pisa el cliente con un constructor vacio
     }
 
 

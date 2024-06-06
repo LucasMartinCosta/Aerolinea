@@ -18,7 +18,16 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
 
+
+        Menu menu = new Menu();
+        Manejo_archivos inicArchivos = new Manejo_archivos();
+
+        menu.inicio();
+
+
+
 //        Manejo_archivos manejoarchi = new Manejo_archivos();
+
 //
 //        TreeSet<Persona> personas = new TreeSet<>();
 //        manejoarchi.cargararchivo_personas(personas);
@@ -66,9 +75,8 @@ public class Main {
 //        System.out.println("\n");
 //        System.out.println("Mostrando archivo");
 
-        Menu menu = new Menu();
-
-        menu.menuCliente();
+//        Menu menu = new Menu();
+//        menu.menuCliente();
 
 
 
