@@ -133,7 +133,7 @@ public class Menu {
             lector.nextLine();
 
             switch (opcion1) {
-                case 1:
+                case 1: //confia//
                     menuCompraPasaje();
                     break;
 
