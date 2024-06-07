@@ -3,17 +3,16 @@ package Paquete_personas;
 import Aviones.Avion;
 import Paquetes_vuelos.Lista_vuelos;
 import Paquetes_vuelos.Vuelo;
+import Tipos_listas.Lista_Personas;
+import Tipos_listas.Lista_aviones;
 
 import java.util.Scanner;
 
 public class Empleado extends Persona{
 
-    private Vuelo vuelos;
-    private Lista_vuelos listaVuelo; //no entiendo bien como deberia funcionar este atributo el viernes pregunto =)
-    private Cliente clientes;
-    //private Lista_cliente listaCliente
-    private Avion aviones;
-    //private Lista_avione listaAvione;
+    private Lista_vuelos listaVuelo;
+    private Lista_Personas listaPersonas;
+    private Lista_aviones listaAviones;
 
 
 
@@ -28,38 +27,35 @@ public class Empleado extends Persona{
     //Constructor de Listas de Aviones y Pasajeros.
 
 
-    public Empleado(Vuelo vuelos, Cliente cliente, Avion avion) {
-        this.vuelos = vuelos;
-        this.listaVuelo = listaVuelo;
-        this.clientes = cliente;
-        //this.listaClientes= listaCliente
-        this.aviones = avion;
-        //this.listaAviones = listaAviones;
+    public Empleado() {
+
+        this.listaVuelo = new Lista_vuelos();
+        this.listaPersonas = new Lista_Personas();
+        this.listaAviones = new Lista_aviones();
     }
     //Buscar un vuelo puntual buscado por codigo de vuelo y devuelve ese vuelo puntual o null si no existe.
     //Lo hice de la forma que veniamos trabajando hasta ahora, esta sujeto a modificaciones.
     //Tambien estaba pensando en hacer Genericos aca, que reciba un codigo y una lista, y devuelva el objeto con su codigo.
-//    public Vuelo buscarVuelo(int codigoBuscado){
-//        Vuelo auxiliar = null;
-//        for (Vuelo v : listaVuelo){
-//            if (v.getCodigoVuelo() == codigoBuscado){
-//                auxiliar= v;
-//                break;
-//            }
-//        }
-//        return auxiliar;
-//    }
-//    public void modificarEstadoVuelo(int codigoVuelo){
-//        vuelos = buscarVuelo(codigoVuelo);
-//        if (vuelos != null){
-//            System.out.println("Ingresar estado del Vuelo (1= A Tiempo // 0= Retrasado // -1= Cancelado");
-//            Scanner estado= new Scanner(System.in);
-//            int e = estado.nextInt();
-//            vuelos.setEstado(e);
-//        }else {
-//            System.out.println("ERROR - Vuelo no encontrado.");
-//        }
-//    }
+
+    public Vuelo buscarVuelo(int vueloBuscado){
+        for (Vuelo v: listaVuelo.getLista_vuelos()) {
+            if(v.getCodigoVuelo().equals(vueloBuscado)) {
+                return v;
+            }
+        }
+        return null;
+    }
+    public void modificarEstadoVuelo(int buscado){
+        Vuelo encontrado = buscarVuelo(buscado);
+        if (encontrado != null){
+            System.out.println("Ingresar estado del Vuelo (1= A Tiempo // 0= Retrasado // -1= Cancelado");
+            Scanner estado= new Scanner(System.in);
+            int e = estado.nextInt();
+            encontrado.setEstado(e);
+        }else {
+            System.out.println("ERROR - Vuelo no encontrado.");
+        }
+    }
 //    public void mostrarUnCliente(int pasaporte){
 //        clientes = buscarCliente(pasaporte);
 //        if (clientes != null){
@@ -67,9 +63,9 @@ public class Empleado extends Persona{
 //        }else {
 //            System.out.println("ERROR - Vuelo no encontrado.");
 //        }
-//    }
+    }
 
 
 
 
-}
+

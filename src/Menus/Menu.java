@@ -186,6 +186,7 @@ public class Menu {
             System.out.println("\n2.HACER VUELOS NUEVOS");
             System.out.println("\n3.VER LISTA DE AVIONES COMPLETA");
             System.out.println("\n4.VER LISTA DE VUELOS COMPLETA");
+            System.out.println("\n5.MODIFICAR ESTADO DE VUELO");
             System.out.println("\n8.SALIR DEL MENU");
             System.out.println("\n-----------------------");
             opcion1 = lector.nextInt();
@@ -195,6 +196,12 @@ public class Menu {
                 case 1:
                     //llama a una funcion que pasandole el numero de vuelo te muestre un vuelo en especifico,
                     //con la lista de pasajeros y toda la info
+                    System.out.println("\n Ingrese el codigo de vuelo a buscar: ");
+                    Integer codigo1 = lector.nextInt();
+                    Vuelo aux = empleado.buscarVuelo(codigo1);
+                    //Falta el metodo de vuelo de mostrar todos los datos del vuelo.
+                    //System.out.println(aux.toString());
+
                     break;
                 case 2:
                     //llama a una funcion que crea vuelos, juntando un avion(que tiene que estar disponible) un origen, y un destino
@@ -205,6 +212,12 @@ public class Menu {
                 case 4:
                     //mostrar todos los vuelos cargados en el sistema
                 case 5:
+                    //modificar estado de vuelo.
+                    System.out.println("\n Ingrese el codigo de vuelo a buscar: ");
+                    Integer codigo2 = lector.nextInt();
+                    empleado.modificarEstadoVuelo(codigo2);
+                    break;
+                case 6:
                     exit = true;
                     break;
                 default:
