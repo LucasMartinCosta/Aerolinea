@@ -7,6 +7,8 @@ import Paquete_personas.Empleado;
 import Paquete_personas.Persona;
 import Paquetes_vuelos.Lista_vuelos;
 import Paquetes_vuelos.Vuelo;
+import Tipos_listas.Lista_Personas;
+import Tipos_listas.Lista_aviones;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -20,8 +22,8 @@ import java.util.TreeSet;
 
 public class Manejo_archivos {
 
-    private TreeSet<Persona> listaPersonas = new TreeSet<>();
-    private ArrayList<Avion>listaAvion;
+    private Lista_Personas lista_personas = new Lista_Personas();
+    private Lista_aviones lista_aviones = new Lista_aviones();
     private Lista_vuelos vuelos = new Lista_vuelos();
     private HashMap<Integer, Reserva> listaReservas;
 
@@ -32,36 +34,10 @@ public class Manejo_archivos {
     File archivo_reservas = new File("ArchivoReservas.txt");
     ObjectMapper mapper = new ObjectMapper();
 
-    ///CARGA ARCHIVO LISTA PERSONAS///
-
-    public void cargarPersonas (Persona dato)
-    {
-        this.listaPersonas.add(dato);
-    }
-
-    public void prueba () //funcion de prueba..... solo carga personas en el archivo, sirve para verificar
-    {
-        Cliente cliente = new Cliente("1", "2", "3", "");
-        Cliente cliente2 = new Cliente("asd", "dsa", "111", "cxz");
-        Cliente cliente3 = new Cliente("234", "", "", "gfdsss");
-
-        Empleado empleado = new Empleado("zxcr", "", "wtgfd", "", "");
-        Empleado empleado2 = new Empleado("", "rwe", "", "", "");
-        Empleado empleado3 = new Empleado("", "aaa", "", "aaa", "");
-
-        this.listaPersonas.add(cliente);
-        this.listaPersonas.add(cliente2);
-        this.listaPersonas.add(cliente3);
-        this.listaPersonas.add(empleado);
-        this.listaPersonas.add(empleado2);
-        this.listaPersonas.add(empleado3);
-
-        cargararchivo_personas(listaPersonas);
-    }
 
     public Persona buscarPersona (String apellido, String contra)
     {
-        for (Persona persona:listaPersonas)
+        for (Persona persona:lista_personas.getLista_personas())
         {
             if (persona.getApellido().equals(apellido) && persona.getContra().equals(contra))
             {
@@ -72,10 +48,13 @@ public class Manejo_archivos {
     }
 
 
-    public void cargararchivo_personas(TreeSet<Persona>lista){
+
+
+    ///CARGA ARCHIVO LISTA PERSONAS///
+    public void cargararchivo_personas(){
 
         try{
-            mapper.writeValue(archivo_personas,lista);
+            mapper.writeValue(archivo_personas,lista_personas.getLista_personas());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -84,20 +63,24 @@ public class Manejo_archivos {
     public void leer_todo_archivo_personas()
     {
         try {
-            this.listaPersonas= mapper.readValue(archivo_personas, new TypeReference<TreeSet<Persona>>() {
+            TreeSet<Persona>aux;
+            aux= mapper.readValue(archivo_personas, new TypeReference<TreeSet<Persona>>() {
             });
+
+            lista_personas.setLista_personas(aux);
         }
         catch (IOException e) {
-           throw new RuntimeException(e);
+            System.out.println("Error al querer leer el archivo");
+            throw new RuntimeException(e);
         }
     }
 
     ///Carga archivo aviones///
 
-    public void cargaarchivo_aviones(ArrayList<Avion> lista_aviones)
+    public void cargaarchivo_aviones()
     {
         try {
-            mapper.writeValue(archivo_aviones,lista_aviones);
+            mapper.writeValue(archivo_aviones,lista_aviones.getLista_aviones());
         }
         catch (IOException e) {
             throw new RuntimeException(e);
@@ -107,9 +90,10 @@ public class Manejo_archivos {
     public void leer_archivo_aviones()
     {
         try {
-            this.listaAvion = mapper.readValue(archivo_aviones, new TypeReference<ArrayList<Avion>>() {
+            ArrayList<Avion> aux;
+            aux= mapper.readValue(archivo_aviones, new TypeReference<ArrayList<Avion>>() {
             });
-            System.out.println("fue cargada papa");
+            lista_aviones.setLista_aviones(aux);
         }
         catch (IOException e)
         {
@@ -118,12 +102,12 @@ public class Manejo_archivos {
     }
 
     ///Carga FILES PAQUETE VUELOS///
-    public void cargararchivo_paquetes(HashSet<Vuelo>lista_vuelos)
+    public void cargararchivo_paquetes()
     {
         try {
-            System.out.println("entro");
-            mapper.writeValue(archivo_vuelos, lista_vuelos);
-            System.out.println("ANDA CHETO");
+
+            mapper.writeValue(archivo_vuelos, vuelos.getLista_vuelos());
+
         }
         catch (IOException e)
         {
@@ -141,7 +125,7 @@ public class Manejo_archivos {
         }
         catch (IOException e)
         {
-            System.out.println("Noo entro al try ptm");
+           throw new RuntimeException(e);
         }
     }
 
@@ -153,7 +137,9 @@ public class Manejo_archivos {
         }
         catch (IOException e)
         {
+            System.out.println("No se puede cargar el archivo");
             throw new RuntimeException(e);
+
         }
     }
 
@@ -165,38 +151,68 @@ public class Manejo_archivos {
         }
         catch (IOException e)
         {
-            System.out.println("Noo entro al try ptm");
+            System.out.println("No se puede leer el archivo de reservas");
         }
     }
 
-    public void mostrararchivopersonas()
-    {
-
-        for(Persona personita: listaPersonas)
-        {
-            System.out.println(personita.toString());
-        }
-    }
-
-    public void mostrararchivoAviones()
-    {
-        for (Avion a: this.listaAvion)
-        {
-            System.out.println(a);
-        }
-    }
-
-    public TreeSet<Persona> getListaPersonas() {
-        return listaPersonas;
+    public TreeSet<Persona> getListaPersonas() {return lista_personas.getLista_personas();
     }
 
     public ArrayList<Avion> getListaAvion() {
-        return listaAvion;
+        return lista_aviones.getLista_aviones();
     }
 
     public HashMap<Integer, Reserva> getListaReservas() {
         return listaReservas;
     }
 
+
+
+    public void prueba () //funcion de prueba..... solo carga personas en el archivo, sirve para verificar
+    {
+        Cliente cliente = new Cliente("imanol", "sayago", "ima@", "ima");
+        Cliente cliente2 = new Cliente("Lucas", "Costa", "lucas@", "lucas");
+        Cliente cliente3 = new Cliente("Laura", "nomeacuerdo", "laura@", "laura");
+
+        Empleado empleado = new Empleado("manuempleado", "abras?", "manu@", "manu");
+        Empleado empleado2 = new Empleado("imanolempleado", "sayago", "imanolempleado@", "imanolempleado");
+        Empleado empleado3 = new Empleado("lucasempleado", "costa", "lucasempleado@", "lucasempleado");
+
+        lista_personas.agregar_personas(cliente);
+        lista_personas.agregar_personas(cliente2);
+        lista_personas.agregar_personas(cliente3);
+        lista_personas.agregar_personas(empleado);
+        lista_personas.agregar_personas(empleado2);
+        lista_personas.agregar_personas(empleado3);
+        cargararchivo_personas();
+    }
+
+    public void prueba_aviones()
+    {
+        Avion avion1 = new Avion("a1",20,2.4,1,1);
+        Avion avion2 = new Avion("a2",20,2.4,1,1);
+        Avion avion3 = new Avion("a3",20,2.4,1,1);
+
+        lista_aviones.getLista_aviones().add(avion1);
+        lista_aviones.getLista_aviones().add(avion2);
+        lista_aviones.getLista_aviones().add(avion3);
+        cargaarchivo_aviones();
+    }
+
+    public void prueba_vuelos()
+    {
+        Avion a1 = new Avion();
+        Vuelo v1= new Vuelo("mar del plata","NY",a1,2.4,1,123);
+        Vuelo v2= new Vuelo("Coronel Vidal","NY",a1,2.4,1,123);
+        Vuelo v3= new Vuelo("CHACO","NY",a1,2.4,1,123);
+
+
+        vuelos.agregarvueloslista(v1);
+        vuelos.agregarvueloslista(v2);
+        vuelos.agregarvueloslista(v3);
+
+        cargararchivo_paquetes();
+
+    }
 
 }

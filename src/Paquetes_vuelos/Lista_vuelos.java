@@ -35,10 +35,10 @@ public class Lista_vuelos {  //en esta clase estan todos los metodos para maneja
 
     public void mostrar_paquetes_vuelos()
     {
-        int i=0;
-        for(i=0;i<lista_vuelos.size();i++)
+
+        for(Vuelo a: lista_vuelos)
         {
-            //System.out.println(lista_vuelos.get(i));
+            System.out.println(a);
         }
 
     }

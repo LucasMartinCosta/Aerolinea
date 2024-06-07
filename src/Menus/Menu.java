@@ -11,6 +11,7 @@ import paquete_archivos.Manejo_archivos;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 public class Menu {
 
@@ -36,8 +37,8 @@ public class Menu {
         boolean exit= false;
         int eleccion;
 
-        archivos.leer_todo_archivo_personas();
-        archivos.prueba();
+//        archivos.leer_todo_archivo_personas();
+//        archivos.prueba();
 
         while (!exit) {
             System.out.println("\n-----------AEROLINEAS UTN------------");
@@ -75,14 +76,23 @@ public class Menu {
 
         Persona persona = archivos.buscarPersona(apellido, contra);
 
-        if (persona!=null && persona.getClass() == Cliente.class)
+        if(persona!=null)
         {
-            menuCliente((Cliente) persona);
+            if (persona instanceof Cliente)
+            {
+                menuCliente((Cliente) persona);
+            }
+            else if(persona instanceof Empleado){
+
+                menuEmpleado((Empleado) persona);
+            }
+
         }
-        if (persona!=null && persona.getClass() == Empleado.class)
+        else
         {
-            menuEmpleado((Empleado) persona);
+            System.out.println("La persona no se encuentra dentro del sistema");
         }
+
     }
 
     public Cliente registrarCliente()
@@ -101,11 +111,11 @@ public class Menu {
 
         Cliente persona = new Cliente(nombre, apellido, mail, contra);
 
-        archivos.cargarPersonas(persona);
-        archivos.cargararchivo_personas(archivos.getListaPersonas());
+        archivos.getListaPersonas().add(persona);
+
+        archivos.cargararchivo_personas();
         return persona;
     }
-
 
 
     public void registrarUsuarioEmpleado() //SOLO DIOS // esta funcion tiene que poder permitirle al dios ingresar

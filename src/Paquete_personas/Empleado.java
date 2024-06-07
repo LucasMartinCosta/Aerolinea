@@ -18,8 +18,8 @@ public class Empleado extends Persona{
 
 
     //Constructor Persona.
-    public Empleado(String nombre, String apellido, String email) {
-        super(nombre, apellido, email);
+    public Empleado(String nombre, String apellido, String email, String contra) {
+        super(nombre, apellido, email, contra);
     }
     //Constructor de Usuario.
     public Empleado(String email, String contra) {

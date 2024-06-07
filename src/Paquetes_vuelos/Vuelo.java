@@ -10,26 +10,32 @@ public class Vuelo implements Comparable<Vuelo> {
     private String destino;
     private Avion avion;
     private Double tiempoVuelo;
-    private LocalDate fechaSalida;
-    private LocalDate fechaLlegada;
-    private LocalDateTime horaSalida;
-    private LocalDateTime horaLlegada;
+//    private LocalDate fechaSalida;
+//    private LocalDate fechaLlegada;
+//    private LocalDateTime horaSalida;
+//    private LocalDateTime horaLlegada;
     private int estado; // Ok(1) - Retrasado(0) - Cancelado (-1)
     private Integer codigoVuelo;
     private String condicionVuelo;
     private int numeroPasajeros;
 
-    public Vuelo(String origen, String destino, Avion avion, Double tiempoVuelo, LocalDate fechaSalida,
-                 LocalDate fechaLlegada, LocalDateTime horaSalida, LocalDateTime horaLlegada, int estado, int codigoVuelo) {
+//    LocalDate fechaSalida,
+//    LocalDate fechaLlegada, LocalDateTime horaSalida, LocalDateTime horaLlegada,
+
+
+    public Vuelo() {
+    }
+
+    public Vuelo(String origen, String destino, Avion avion, Double tiempoVuelo, int estado, int codigoVuelo) {
 
         this.origen = origen;
         this.destino = destino;
         this.avion = avion;
         this.tiempoVuelo = tiempoVuelo;
-        this.fechaSalida = fechaSalida;
-        this.fechaLlegada = fechaLlegada;
-        this.horaSalida = horaSalida;
-        this.horaLlegada = horaLlegada;
+//        this.fechaSalida = fechaSalida;
+//        this.fechaLlegada = fechaLlegada;
+//        this.horaSalida = horaSalida;
+//        this.horaLlegada = horaLlegada;
         this.estado = estado;
       setCondicionVuelo(condicionVuelo);
 
@@ -49,38 +55,38 @@ public class Vuelo implements Comparable<Vuelo> {
     public Vuelo(String origen, String destino, LocalDate fechaLlegada, int numeroPasajeros){
         this.origen = origen;
         this.destino = destino;
-        this.fechaLlegada = fechaLlegada;
+//        this.fechaLlegada = fechaLlegada;
         this.numeroPasajeros = numeroPasajeros;
 
     }
 
 
     //este to string lo usamos para imprimir el boleto de avion
-    @Override
-    public String toString() {
-        return "\nORG=" + origen +
-                "                    DES=" + destino  +
-                "\nDURACION= " + tiempoVuelo +
-                "\nSALIDA=" + fechaSalida +
-                "\n" +avion.getModelo() +
-                "      " + horaSalida +
-                "\nLLEGADA= " + fechaLlegada +
+//    @Override
+//    public String toString() {
+//        return "\nORG=" + origen +
+//                "                    DES=" + destino  +
+//                "\nDURACION= " + tiempoVuelo +
+//                "\nSALIDA=" + fechaSalida +
+//                "\n" +avion.getModelo() +
+//                "      " + horaSalida +
+//                "\nLLEGADA= " + fechaLlegada +
+//
+//                "       " + horaLlegada;
+//
+//    }
 
-                "       " + horaLlegada;
-
-    }
-
-    public String mostrarEnReserva(){
-
-        return "\nORG=" + origen +
-                "                    DES=" + destino  +
-                "\nSALIDA=" + fechaSalida +
-                "      " + horaSalida +
-                "\nLLEGADA= " + fechaLlegada +
-
-                "       " + horaLlegada;
-
-    }
+//    public String mostrarEnReserva(){
+//
+//        return "\nORG=" + origen +
+//                "                    DES=" + destino  +
+//                "\nSALIDA=" + fechaSalida +
+//                "      " + horaSalida +
+//                "\nLLEGADA= " + fechaLlegada +
+//
+//                "       " + horaLlegada;
+//
+//    }
 
 
 
@@ -143,37 +149,24 @@ public class Vuelo implements Comparable<Vuelo> {
         this.tiempoVuelo = tiempoVuelo;
     }
 
-    public LocalDate getFechaSalida() {
-        return fechaSalida;
-    }
-
-    public void setFechaSalida(LocalDate fechaSalida) {
-        this.fechaSalida = fechaSalida;
-    }
-
-    public LocalDate getFechaLlegada() {
-        return fechaLlegada;
-    }
-
-    public void setFechaLlegada(LocalDate fechaLlegada) {
-        this.fechaLlegada = fechaLlegada;
-    }
+//    public LocalDate getFechaSalida() {
+//        return fechaSalida;
+//    }
+//
+//    public void setFechaSalida(LocalDate fechaSalida) {
+//        this.fechaSalida = fechaSalida;
+//    }
+//
+//    public LocalDate getFechaLlegada() {
+//        return fechaLlegada;
+//    }
+//
+//    public void setFechaLlegada(LocalDate fechaLlegada) {
+//        this.fechaLlegada = fechaLlegada;
+//    }
 
     @Override
-    public int compareTo(Vuelo o) {
-        int flag=0;
-        if(this.codigoVuelo == o.codigoVuelo)
-        {
-            flag=1;
-        }
-        else if(this.codigoVuelo < o.codigoVuelo)
-        {
-            flag=-1;
-        }
-        else
-        {
-            flag=0;
-        }
-        return flag;
+     public int compareTo(Vuelo o) {
+        return Integer.compare(this.codigoVuelo, o.codigoVuelo);
     }
 }
