@@ -35,8 +35,6 @@ public class Reserva {
         String apellidoCliente=null;
         Integer id1;
 
-
-
         System.out.println("\n-------------------\n");
         System.out.println("\nAPELLIDO:");
         apellidoCliente = scan.nextLine();
@@ -82,7 +80,7 @@ public class Reserva {
     }
 
 
-    public void modificarReserva(){
+    public void modificarReserva(Cliente dato){
 
 //tiene que recibir el apellido del cliente, el id de la reserva, verificar que exista y modificar los datos del vuelo con los setters
 

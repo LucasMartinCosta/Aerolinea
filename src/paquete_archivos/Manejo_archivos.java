@@ -5,6 +5,7 @@ import Aviones.Avion;
 import Paquete_personas.Cliente;
 import Paquete_personas.Empleado;
 import Paquete_personas.Persona;
+import Paquetes_vuelos.Lista_vuelos;
 import Paquetes_vuelos.Vuelo;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,13 +20,11 @@ import java.util.TreeSet;
 
 public class Manejo_archivos {
 
-    private TreeSet<Persona> listaPersonas=new TreeSet<>();
+    private TreeSet<Persona> listaPersonas = new TreeSet<>();
     private ArrayList<Avion>listaAvion;
-    private HashSet<Vuelo> listaVuelos ;
+    private Lista_vuelos vuelos = new Lista_vuelos();
     private HashMap<Integer, Reserva> listaReservas;
 
-    //hacer atributos de la clase archivo con todas las estructuras de datos que se creen y dsp
-    //manejarlas con set y get. Gracias guille.
 
     File archivo_personas = new File("ArchivoPersonas.txt");
     File archivo_aviones = new File("ArchivoAviones.txt");
@@ -136,14 +135,14 @@ public class Manejo_archivos {
     {
         try
         {
-            this.listaVuelos =  mapper.readValue(archivo_vuelos, new TypeReference<HashSet<Vuelo>>() {
+            HashSet<Vuelo> aux  =  mapper.readValue(archivo_vuelos, new TypeReference<HashSet<Vuelo>>() {
             });
+            vuelos.setLista_vuelos(aux);
         }
         catch (IOException e)
         {
             System.out.println("Noo entro al try ptm");
         }
-
     }
 
     public void cargararchivo_reserva(HashMap<Integer,Reserva> lista_reservas) // tiene el id de reserva
@@ -193,10 +192,6 @@ public class Manejo_archivos {
 
     public ArrayList<Avion> getListaAvion() {
         return listaAvion;
-    }
-
-    public HashSet<Vuelo> getListaVuelos() {
-        return listaVuelos;
     }
 
     public HashMap<Integer, Reserva> getListaReservas() {

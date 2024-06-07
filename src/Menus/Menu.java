@@ -13,23 +13,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Menu {
-    private Reserva reserva;
-    private Cliente cliente;
-    private Empleado empleado;
-
-    private Aerolinea vuelos;
 
     Manejo_archivos archivos = new Manejo_archivos();
     private Scanner lector = new Scanner(System.in);
 
-
-
-    public Menu() {
-        this.reserva = reserva;
-        this.cliente = cliente;
-        this.empleado = empleado;
-        this.vuelos = vuelos;
-    }
 
 //    public void iniciarSesion(){
 //
@@ -127,11 +114,10 @@ public class Menu {
 
     }
 
-
-
     public void menuCliente(Cliente cliente) {
         boolean exit= false;
         int opcion1;
+
         while (!exit) {
             System.out.println("\n-----------------------");
             System.out.println("\n1.COMPRAR PASAJE");
@@ -153,20 +139,19 @@ public class Menu {
 
                 case 2:
                     //Mostrar todas las reservas que tiene el cliente, hacerlo elegir una reserva y esa es la que hay que modificar.
-                   reserva.modificarReserva();
+                   //cliente.getReservas().modificarReserva();
 
                     break;
                 case 3:
-                    reserva.mostrarReserva();
+                    //reserva.mostrarReserva();
                     break;
                 case 4:
-                    reserva.mostrarEstadoDelVuelo();
+                    //reserva.mostrarEstadoDelVuelo();
                 case 5:
-                    reserva.mostrarPasaje();
-
+                    //reserva.mostrarPasaje();
                     break;
                 case 6:
-                    reserva.comprarEquipaje();
+                    //reserva.comprarEquipaje();
                     break;
                 case 7:
                     break;
