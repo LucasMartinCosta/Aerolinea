@@ -7,6 +7,7 @@ import java.util.Map;
 
 public class Avion  {
 
+    //Manu: Habria que agregar un campo tipo ID o para eso es el modelo?
     private Map<Integer, Map <Character, Asiento>> asientos;
     private String modelo;
     private Integer capacidad_personas;
