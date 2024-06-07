@@ -21,19 +21,26 @@ public class Cliente extends Persona  {
     private ArrayList<Vuelo> vuelos_comprados = new ArrayList<>();
     private HashMap<Integer, Reserva> reservas = new HashMap<>(); //arraylist con reservas de cada cliente
 
-    public Cliente(String nombre, String apellido, String email, Integer pasaporte, LocalDate nacimiento, int edad,long numTelefono) {
-        super(nombre, apellido, email);
+    public Cliente(String nombre, String apellido, String email,String contra, Integer pasaporte, LocalDate nacimiento, int edad,long numTelefono) {
+        super(nombre, apellido, email, contra);
         this.pasaporte = pasaporte;
         this.nacimiento = nacimiento;
         this.edad = edad ;
         this.numTelefono = numTelefono;
     }
 
-    public Cliente(String nombre, String apellido, String email) {
-
-        super(nombre, apellido, email);
+    public Cliente(String nombre, String apellido, String email, String contra) {
+        super(nombre, apellido, email, contra);
     }
 
+    public Cliente(String nombre, String apellido, String email,String contra, Integer pasaporte) {
+        super(nombre, apellido, email, contra);
+        this.pasaporte = pasaporte;
+    }
+
+    public HashMap<Integer, Reserva> getReservas() {
+        return reservas;
+    }
 
     @Override
     public String toString() {
@@ -43,8 +50,6 @@ public class Cliente extends Persona  {
 
 
     }
-
-
 
     public void comprarvuelo(int codigo, int cantidadcompras, Vuelo a)
     {
@@ -64,6 +69,8 @@ public class Cliente extends Persona  {
             i++;
         }
     }
+
+
 
 
 

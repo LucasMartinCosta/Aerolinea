@@ -3,6 +3,7 @@ package paquete_archivos;
 import Aerolinea.Reserva;
 import Aviones.Avion;
 import Paquete_personas.Cliente;
+import Paquete_personas.Empleado;
 import Paquete_personas.Persona;
 import Paquetes_vuelos.Vuelo;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -18,45 +19,72 @@ import java.util.TreeSet;
 
 public class Manejo_archivos {
 
-    private TreeSet<Persona> listaPersonas;
-
-    private ArrayList<Avion>listaAvion ;
-
+    private TreeSet<Persona> listaPersonas=new TreeSet<>();
+    private ArrayList<Avion>listaAvion;
     private HashSet<Vuelo> listaVuelos ;
-
     private HashMap<Integer, Reserva> listaReservas;
 
     //hacer atributos de la clase archivo con todas las estructuras de datos que se creen y dsp
     //manejarlas con set y get. Gracias guille.
 
-
-
-    File archivo_personas = new File("C:\\Users\\Imanol\\Desktop\\archivos\\archivosPersona.txt");
-    File archivo_aviones = new File("C:\\Users\\Imanol\\Desktop\\archivos\\archivosAviones.txt");
-    File archivo_vuelos = new File("C:\\Users\\Imanol\\Desktop\\archivos\\archivosPaquetes.txt");
-    File archivo_reservas = new File("C:\\Users\\Imanol\\Desktop\\archivos\\archivosReserva.txt");
-
-
+    File archivo_personas = new File("ArchivoPersonas.txt");
+    File archivo_aviones = new File("ArchivoAviones.txt");
+    File archivo_vuelos = new File("ArchivoVuelos.txt");
+    File archivo_reservas = new File("ArchivoReservas.txt");
     ObjectMapper mapper = new ObjectMapper();
 
     ///CARGA ARCHIVO LISTA PERSONAS///
+
+    public void cargarPersonas (Persona dato)
+    {
+        this.listaPersonas.add(dato);
+    }
+
+    public void prueba () //funcion de prueba..... solo carga personas en el archivo, sirve para verificar
+    {
+        Cliente cliente = new Cliente("1", "2", "3", "");
+        Cliente cliente2 = new Cliente("asd", "dsa", "111", "cxz");
+        Cliente cliente3 = new Cliente("234", "", "", "gfdsss");
+
+        Empleado empleado = new Empleado("zxcr", "", "wtgfd", "", "");
+        Empleado empleado2 = new Empleado("", "rwe", "", "", "");
+        Empleado empleado3 = new Empleado("", "aaa", "", "aaa", "");
+
+        this.listaPersonas.add(cliente);
+        this.listaPersonas.add(cliente2);
+        this.listaPersonas.add(cliente3);
+        this.listaPersonas.add(empleado);
+        this.listaPersonas.add(empleado2);
+        this.listaPersonas.add(empleado3);
+
+        cargararchivo_personas(listaPersonas);
+    }
+
+    public Persona buscarPersona (String apellido, String contra)
+    {
+        for (Persona persona:listaPersonas)
+        {
+            if (persona.getApellido().equals(apellido) && persona.getContra().equals(contra))
+            {
+                return persona;
+            }
+        }
+        return null;
+    }
+
+
     public void cargararchivo_personas(TreeSet<Persona>lista){
 
         try{
             mapper.writeValue(archivo_personas,lista);
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 
     public void leer_todo_archivo_personas()
     {
-        TreeSet<Persona> personasleidas = new TreeSet<>();
         try {
-
             this.listaPersonas= mapper.readValue(archivo_personas, new TypeReference<TreeSet<Persona>>() {
             });
         }
@@ -75,7 +103,6 @@ public class Manejo_archivos {
         catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public void leer_archivo_aviones()

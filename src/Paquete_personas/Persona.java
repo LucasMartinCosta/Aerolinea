@@ -12,13 +12,13 @@ public class Persona implements Comparable<Persona> {
 
 
     // este constructor lo podemos usar a la hora de comprar vuelos cuando tenes que completar datos
-    public Persona(String nombre, String apellido,String email ) {
+    public Persona(String nombre, String apellido,String email, String contra ) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
-
-
+        this.contra = contra;
     }
+
 
     public Persona() {
     }
@@ -54,8 +54,11 @@ public class Persona implements Comparable<Persona> {
         this.apellido = apellido;
     }
 
+    public String getContra() {
+        return contra;
+    }
 
-//equals para que no se repitan los email
+    //equals para que no se repitan los email
 
     @Override
     public boolean equals(Object o) {
@@ -76,7 +79,6 @@ public class Persona implements Comparable<Persona> {
                 "\nEmail= " + email +"\n---------";
 
     }
-
 
     @Override
     public int compareTo(Persona o) {
