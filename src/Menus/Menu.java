@@ -10,6 +10,7 @@ import paquete_archivos.Manejo_archivos;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.TreeSet;
 
@@ -69,29 +70,31 @@ public class Menu {
 
     public void iniciarSesion () //falta agregar que si no te encuentra salte un error y te devuelva al menu principal
     {
-        System.out.println("Ingrese apellido:");
-        String apellido = lector.nextLine();
-        System.out.println("Ingrese contraseña:");
-        String contra = lector.nextLine();
+        boolean sesionExitosa = false;
+        do {
 
-        Persona persona = archivos.buscarPersona(apellido, contra);
+            try {
+                System.out.println("Ingrese apellido:");
+                String apellido = lector.nextLine();
+                System.out.println("Ingrese contraseña:");
+                String contra = lector.nextLine();
 
-        if(persona!=null)
-        {
-            if (persona instanceof Cliente)
-            {
-                menuCliente((Cliente) persona);
+                Persona persona = archivos.buscarPersona(apellido, contra);
+
+                if (persona != null) {
+                    if (persona instanceof Cliente) {
+                        menuCliente((Cliente) persona);
+                    } else if (persona instanceof Empleado) {
+
+                        menuEmpleado((Empleado) persona);
+                    }
+
+                }
+            } catch (NoSuchElementException e) {
+                throw new NoSuchElementException(e.getMessage());
+
             }
-            else if(persona instanceof Empleado){
-
-                menuEmpleado((Empleado) persona);
-            }
-
-        }
-        else
-        {
-            System.out.println("La persona no se encuentra dentro del sistema");
-        }
+        }while (!sesionExitosa);
 
     }
 
@@ -143,13 +146,13 @@ public class Menu {
             lector.nextLine();
 
             switch (opcion1) {
-                case 1: //confia//
+                case 1:
                     menuCompraPasaje();
                     break;
 
                 case 2:
                     //Mostrar todas las reservas que tiene el cliente, hacerlo elegir una reserva y esa es la que hay que modificar.
-                   //cliente.getReservas().modificarReserva();
+
 
                     break;
                 case 3:
@@ -161,9 +164,10 @@ public class Menu {
                     //reserva.mostrarPasaje();
                     break;
                 case 6:
-                    //reserva.comprarEquipaje();
+
                     break;
                 case 7:
+                    cliente.eliminarReserva();
                     break;
                 case 8:
 
