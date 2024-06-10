@@ -26,7 +26,7 @@ public class Vuelo implements Comparable<Vuelo> {
     public Vuelo() {
     }
 
-    public Vuelo(String origen, String destino, Avion avion, Double tiempoVuelo, int estado, int codigoVuelo) {
+    public Vuelo(String origen,String destino, Avion avion, Double tiempoVuelo, int estado, int codigoVuelo) {
 
         this.origen = origen;
         this.destino = destino;
@@ -124,6 +124,7 @@ public class Vuelo implements Comparable<Vuelo> {
           this.condicionVuelo = "CANCELADO";
       }
     }
+
 
     public String getOrigen() {
         return origen;

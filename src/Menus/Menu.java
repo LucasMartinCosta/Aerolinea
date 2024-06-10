@@ -68,7 +68,7 @@ public class Menu {
         lector.close();
     }
 
-    public void iniciarSesion () //falta agregar que si no te encuentra salte un error y te devuelva al menu principal
+    public void iniciarSesion () //falta agregar que si no te encuentra salte un error y te devuelva al menu principal // ya esta rey
     {
         boolean sesionExitosa = false;
         do {
@@ -100,16 +100,16 @@ public class Menu {
 
     public Cliente registrarCliente()
     {
-        System.out.println("Ingrese su nombre: ");
+        System.out.println("\nIngrese su nombre: ");
         String nombre = lector.nextLine();
 
-        System.out.println("Ingrese su apellido: ");
+        System.out.println("\nIngrese su apellido: ");
         String apellido = lector.nextLine();
 
-        System.out.println("Ingrese su mail: ");
+        System.out.println("]nIngrese su mail: ");
         String mail = lector.nextLine();
 
-        System.out.println("ingrese su contraseña");
+        System.out.println("\nIngrese su contraseña");
         String contra = lector.nextLine();
 
         Cliente persona = new Cliente(nombre, apellido, mail, contra);
@@ -151,15 +151,13 @@ public class Menu {
                     break;
 
                 case 2:
-                    //Mostrar todas las reservas que tiene el cliente, hacerlo elegir una reserva y esa es la que hay que modificar.
-
-
+                    cliente.modificarReserva();
                     break;
                 case 3:
-                    //reserva.mostrarReserva();
+
                     break;
                 case 4:
-                    //reserva.mostrarEstadoDelVuelo();
+                   //cliente
                 case 5:
                     //reserva.mostrarPasaje();
                     break;

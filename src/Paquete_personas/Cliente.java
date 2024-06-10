@@ -63,13 +63,13 @@ public class Cliente extends Persona  {
                 if (entry.getKey() == codigoReserva) {
 
                     iterator.remove();
-                    System.out.println("Reserva eliminada con éxito.");
+                    System.out.println("\nReserva eliminada con éxito.");
                     encontrada = true;
                     break;
                 }
             }
             if (!encontrada) {
-                System.out.println("No se encontró ninguna reserva con el código especificado. Vuelve a intentarlo.");
+                System.out.println("\nNo se encontró ninguna reserva con el código especificado. Vuelve a intentarlo.");
             }
         } while (!encontrada);
     }
@@ -122,7 +122,7 @@ public class Cliente extends Persona  {
     public void modificarReserva() {
         Scanner scan = new Scanner(System.in);
 
-        // Mostrar todas las reservas del cliente
+
         if (reservas.isEmpty()) {
             System.out.println("\nNo tiene reservas.");
             return;
@@ -132,28 +132,49 @@ public class Cliente extends Persona  {
             System.out.println("\nID: " + entry.getKey() + " - Reserva: " + entry.getValue());
         }
 
-        // Solicitar al cliente que ingrese el código de reserva que desea modificar
+
         System.out.println("\nIngrese el ID de la reserva que desea modificar:");
         int codigoReserva = Integer.parseInt(scan.nextLine());
 
-        // Obtener la reserva seleccionada por el cliente
         Reserva reserva = reservas.get(codigoReserva);
         if (reserva != null) {
-            // Aquí puedes implementar la lógica para modificar la reserva
-            // Por ejemplo, puedes permitir al usuario modificar la fecha, el asiento, etc.
-            System.out.println("\nReserva seleccionada:");
+            System.out.println("\nReserva seleccionada: " + reserva);
             System.out.println("\nMODIFICAR:");
             System.out.println("\n1.Salida");
             System.out.println("\n1.Llegada");
 
-            // Aquí puedes solicitar al usuario los cambios que desea realizar en la reserva
-            // Luego puedes actualizar la reserva con los nuevos valores
+//si modificamos la reseva tenemos q crear un nuevo vuelo si so ? no se como hacerlo
         } else {
-            System.out.println("No se encontró ninguna reserva con el ID especificado.");
+            System.out.println("\nNo se encontró ninguna reserva con el ID especificado.");
         }
+
     }
 
-    //si modificamos la reseva tenems q crear un nuevo vuelo si so ? no se como hacerlo
+
+     //muestra reserva  ESPECIFICA ENTRANDO CON UN ID OSEA LA KEY DE EL HASHMAP no PASAJE
+//    public void mostrarReserva() {
+//        Scanner scan = new Scanner(System.in);
+//
+//        System.out.println("\n-------------------\n");
+//        System.out.println("\nCODIGO DE RESERVA:");
+//           Integer id1 = Integer.parseInt(scan.nextLine());
+//        if (reservas.isEmpty()) {
+//            System.out.println("\nNo tiene reservas.");
+//            return;
+//        }
+//        for (Map.Entry<Integer, Reserva> entry : reservas.entrySet()) {
+//            Reserva reserva = entry.getValue();
+//
+//            if (entry.getKey().equals(id1)) {
+//                System.out.println("\nReserva encontrada:");
+//                System.out.println("ID: " + entry.getKey() + " " ); nose como mostrar la reserva
+//                return;
+//            }
+//        }
+//
+//        System.out.println("\nNo se encontró ninguna reserva con la ID y el apellido especificados.");
+//    }
+
 
 
 
