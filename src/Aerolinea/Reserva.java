@@ -8,19 +8,27 @@ import java.util.*;
 
 
 public class Reserva {
-
-    private String asiento;
     private Cliente cliente;
     private ArrayList<Vuelo> vuelos;
     private Integer id;  // la vamos a usar de codigo
     private Double costoTotal;
+
     private Scanner scan = new Scanner(System.in);
 
-    public Reserva(Integer id, Cliente cliente) {
-        this.id = id;
+    public Reserva(Cliente cliente) {
+        this.id = IDGenerator.generateID() ;
         this.cliente = cliente;
         this.vuelos = new ArrayList<>();
     }
+
+    public void agregaVuelo (Vuelo dato)
+    {
+        for (Vuelo vuelo:vuelos)
+        {
+            vuelos.add(dato);
+        }
+    }
+
 
 //    //muestra reserva no PASAJE
 //    public void mostrarReserva() {
@@ -64,8 +72,6 @@ public class Reserva {
     }
 
 
-
-
     //ESTE MUESTRA EL PASAJE UNA VEZ HECHO EL CHECK IN
     public void mostrarPasaje(Integer id1) {
 
@@ -79,6 +85,37 @@ public class Reserva {
         }
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public ArrayList<Vuelo> getVuelos() {
+        return vuelos;
+    }
+
+    public void setVuelos(ArrayList<Vuelo> vuelos) {
+        this.vuelos = vuelos;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Double getCostoTotal() {
+        return costoTotal;
+    }
+
+    public void setCostoTotal(Double costoTotal) {
+        this.costoTotal = costoTotal;
+    }
 }
 
 

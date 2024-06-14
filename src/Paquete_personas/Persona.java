@@ -1,14 +1,30 @@
 package Paquete_personas;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Persona implements Comparable<Persona> {
+
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "tipo"
+)
+
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Cliente.class, name = "cliente"),
+        @JsonSubTypes.Type(value = Admin.class, name = "admin"),
+        @JsonSubTypes.Type(value = Empleado.class, name = "empleado")
+})
+
+public class Persona implements Comparable<Persona>, Serializable {
     private String nombre;
     private String apellido;
     private String email;
     private String contra;
-
 
 
     // este constructor lo podemos usar a la hora de comprar vuelos cuando tenes que completar datos
@@ -79,9 +95,12 @@ public class Persona implements Comparable<Persona> {
                 "\nEmail= " + email +"\n---------";
 
     }
-
     @Override
     public int compareTo(Persona o) {
         return this.apellido.compareTo(o.apellido);
+    }
+
+    public void setContra(String contra) {
+        this.contra = contra;
     }
 }

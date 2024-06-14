@@ -12,9 +12,9 @@ import Tipos_listas.Lista_aviones;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -28,11 +28,12 @@ public class Manejo_archivos {
     private HashMap<Integer, Reserva> listaReservas;
 
 
-    File archivo_personas = new File("ArchivoPersonas.txt");
-    File archivo_aviones = new File("ArchivoAviones.txt");
-    File archivo_vuelos = new File("ArchivoVuelos.txt");
-    File archivo_reservas = new File("ArchivoReservas.txt");
+    File archivo_personas = new File("ArchivoPersonas.json");
+    File archivo_aviones = new File("ArchivoAviones.json");
+    File archivo_vuelos = new File("ArchivoVuelos.json");
+    File archivo_reservas = new File("ArchivoReservas.json");
     ObjectMapper mapper = new ObjectMapper();
+
 
 
     public Persona buscarPersona (String apellido, String contra)
@@ -46,9 +47,6 @@ public class Manejo_archivos {
         }
         return null;
     }
-
-
-
 
     ///CARGA ARCHIVO LISTA PERSONAS///
     public void cargararchivo_personas(){
@@ -102,7 +100,7 @@ public class Manejo_archivos {
     }
 
     ///Carga FILES PAQUETE VUELOS///
-    public void cargararchivo_paquetes()
+    public void cargararchivo_vuelos()
     {
         try {
 
@@ -115,7 +113,7 @@ public class Manejo_archivos {
         }
     }
 
-    public void leerarchivo_paquetes()
+    public void leerarchivo_vuelos()
     {
         try
         {
@@ -174,7 +172,7 @@ public class Manejo_archivos {
         Cliente cliente2 = new Cliente("Lucas", "Costa", "lucas@", "lucas");
         Cliente cliente3 = new Cliente("Laura", "nomeacuerdo", "laura@", "laura");
 
-        Empleado empleado = new Empleado("manuempleado", "abras?", "manu@", "manu");
+        Empleado empleado = new Empleado("manuempleado", "abras", "manu@", "manu");
         Empleado empleado2 = new Empleado("imanolempleado", "sayago", "imanolempleado@", "imanolempleado");
         Empleado empleado3 = new Empleado("lucasempleado", "costa", "lucasempleado@", "lucasempleado");
 
@@ -202,17 +200,24 @@ public class Manejo_archivos {
     public void prueba_vuelos()
     {
         Avion a1 = new Avion();
-        Vuelo v1= new Vuelo("mar del plata","NY",a1,2.4,1,123);
-        Vuelo v2= new Vuelo("Coronel Vidal","NY",a1,2.4,1,123);
-        Vuelo v3= new Vuelo("CHACO","NY",a1,2.4,1,123);
+        Vuelo v1= new Vuelo("mar del plata","NY",a1,2.4,1,123, 100.);
+        Vuelo v2= new Vuelo("Coronel Vidal","NY",a1,2.4,1,123, 150.);
+        Vuelo v3= new Vuelo("CHACO","NY",a1,2.4,1,123, 222.);
 
 
         vuelos.agregarvueloslista(v1);
         vuelos.agregarvueloslista(v2);
         vuelos.agregarvueloslista(v3);
 
-        cargararchivo_paquetes();
+        cargararchivo_vuelos();
 
     }
 
+    public Lista_vuelos getVuelos() {
+        return vuelos;
+    }
+
+    public void setVuelos(Lista_vuelos vuelos) {
+        this.vuelos = vuelos;
+    }
 }

@@ -6,15 +6,14 @@ import Paquetes_vuelos.Vuelo;
 import Tipos_listas.Lista_Personas;
 import Tipos_listas.Lista_aviones;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Empleado extends Persona{
+public class Empleado extends Persona implements Serializable {
 
     private Lista_vuelos listaVuelo;
     private Lista_Personas listaPersonas;
     private Lista_aviones listaAviones;
-
-
 
     //Constructor Persona.
     public Empleado(String nombre, String apellido, String email, String contra) {
@@ -28,7 +27,6 @@ public class Empleado extends Persona{
 
 
     public Empleado() {
-
         this.listaVuelo = new Lista_vuelos();
         this.listaPersonas = new Lista_Personas();
         this.listaAviones = new Lista_aviones();
@@ -56,6 +54,7 @@ public class Empleado extends Persona{
             System.out.println("ERROR - Vuelo no encontrado.");
         }
     }
+
 //    public void mostrarUnCliente(int pasaporte){
 //        clientes = buscarCliente(pasaporte);
 //        if (clientes != null){
@@ -63,7 +62,32 @@ public class Empleado extends Persona{
 //        }else {
 //            System.out.println("ERROR - Vuelo no encontrado.");
 //        }
+
+
+    public Lista_vuelos getListaVuelo() {
+        return listaVuelo;
     }
+
+    public void setListaVuelo(Lista_vuelos listaVuelo) {
+        this.listaVuelo = listaVuelo;
+    }
+
+    public Lista_Personas getListaPersonas() {
+        return listaPersonas;
+    }
+
+    public void setListaPersonas(Lista_Personas listaPersonas) {
+        this.listaPersonas = listaPersonas;
+    }
+
+    public Lista_aviones getListaAviones() {
+        return listaAviones;
+    }
+
+    public void setListaAviones(Lista_aviones listaAviones) {
+        this.listaAviones = listaAviones;
+    }
+}
 
 
 

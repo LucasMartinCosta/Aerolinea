@@ -23,7 +23,6 @@ public class Avion  {
         this.capacidad_personas = capacidad_personas;
         this.tiempo_vuelo = tiempo_vuelo;
         this.estado = estado;
-
         asientos = new HashMap<>(); // inicializador de filas.
 
         for (int i=1; i<= filas; i++)
@@ -38,7 +37,6 @@ public class Avion  {
             asientos.put(i, fila);
         }
     }
-
 
     @Override
     public String toString() {

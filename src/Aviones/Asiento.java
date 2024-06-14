@@ -12,6 +12,7 @@ public class Asiento {
         this.fila = fila;
         this.letra = letra;
         reservado = false;
+        cliente = new Cliente("","", "", "");
     }
 
     public int getFila() {
@@ -40,7 +41,7 @@ public class Asiento {
 
     public void reservar (Cliente dato)
     {
-        cliente=dato;
+        this.cliente=dato;
         this.reservado=true;
     }
 

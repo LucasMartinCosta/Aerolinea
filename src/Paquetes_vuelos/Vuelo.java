@@ -15,9 +15,10 @@ public class Vuelo implements Comparable<Vuelo> {
 //    private LocalDateTime horaSalida;
 //    private LocalDateTime horaLlegada;
     private int estado; // Ok(1) - Retrasado(0) - Cancelado (-1)
-    private Integer codigoVuelo;
+    private Integer codigoVuelo;  //capaz puede ser un String
     private String condicionVuelo;
     private int numeroPasajeros;
+    private Double precioVuelo;
 
 //    LocalDate fechaSalida,
 //    LocalDate fechaLlegada, LocalDateTime horaSalida, LocalDateTime horaLlegada,
@@ -26,7 +27,7 @@ public class Vuelo implements Comparable<Vuelo> {
     public Vuelo() {
     }
 
-    public Vuelo(String origen,String destino, Avion avion, Double tiempoVuelo, int estado, int codigoVuelo) {
+    public Vuelo(String origen,String destino, Avion avion, Double tiempoVuelo, int estado, int codigoVuelo, Double precioVuelo) {
 
         this.origen = origen;
         this.destino = destino;
@@ -38,6 +39,7 @@ public class Vuelo implements Comparable<Vuelo> {
 //        this.horaLlegada = horaLlegada;
         this.estado = estado;
       setCondicionVuelo(condicionVuelo);
+      this.precioVuelo=precioVuelo;
 
 
     }
@@ -75,20 +77,6 @@ public class Vuelo implements Comparable<Vuelo> {
 //                "       " + horaLlegada;
 //
 //    }
-
-//    public String mostrarEnReserva(){
-//
-//        return "\nORG=" + origen +
-//                "                    DES=" + destino  +
-//                "\nSALIDA=" + fechaSalida +
-//                "      " + horaSalida +
-//                "\nLLEGADA= " + fechaLlegada +
-//
-//                "       " + horaLlegada;
-//
-//    }
-
-
 
     public Integer getCodigoVuelo() {
         return codigoVuelo;
@@ -150,7 +138,15 @@ public class Vuelo implements Comparable<Vuelo> {
         this.tiempoVuelo = tiempoVuelo;
     }
 
-//    public LocalDate getFechaSalida() {
+    public Double getPrecioVuelo() {
+        return precioVuelo;
+    }
+
+    public void setPrecioVuelo(Double precioVuelo) {
+        this.precioVuelo = precioVuelo;
+    }
+
+    //    public LocalDate getFechaSalida() {
 //        return fechaSalida;
 //    }
 //
@@ -170,4 +166,23 @@ public class Vuelo implements Comparable<Vuelo> {
      public int compareTo(Vuelo o) {
         return Integer.compare(this.codigoVuelo, o.codigoVuelo);
     }
+
+    @Override
+    public String toString() {
+        return "Vuelo{" +
+                "origen='" + origen + '\'' +
+                ", destino='" + destino + '\'' +
+                ", avion=" + avion +
+                ", tiempoVuelo=" + tiempoVuelo +
+                ", estado=" + estado +
+                ", codigoVuelo=" + codigoVuelo +
+                ", condicionVuelo='" + condicionVuelo + '\'' +
+                ", numeroPasajeros=" + numeroPasajeros +
+                '}';
+    }
+
+
+
 }
+
+

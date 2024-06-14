@@ -20,6 +20,18 @@ public class Lista_Personas {
         }
     }
 
+//    public Persona buscarPersona (String apellido, String contra)
+//    {
+//        for (Persona persona:lista_personas)
+//        {
+//            if (persona.getApellido().equals(apellido) && persona.getContra().equals(contra))
+//            {
+//                return persona;
+//            }
+//        }
+//        return null;
+//    }
+
     public TreeSet<Persona> getLista_personas() {
         return lista_personas;
     }

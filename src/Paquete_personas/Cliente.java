@@ -1,53 +1,99 @@
 package Paquete_personas;
 
 import Aerolinea.Reserva;
+import Paquetes_vuelos.Lista_vuelos;
 import Paquetes_vuelos.Vuelo;
 
 import java.io.Console;
 //import java.lang.classfile.Attribute;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.*;
 
-public class Cliente extends Persona  {
-
+public class Cliente extends Persona implements Serializable {
     private Integer pasaporte;
-    private LocalDate nacimiento;
     private int edad;
     private long numTelefono;
     private String contrasenia;
-  private ArrayList<Vuelo> vuelos_comprados;
-   private HashMap<Integer, Reserva> reservas; //arraylist con reservas de cada cliente
+    private HashMap<Integer, Reserva> reservas; //hashMap con reservas de cada cliente
 
-    public Cliente(String nombre, String apellido, String email,String contra, Integer pasaporte, LocalDate nacimiento, int edad,long numTelefono) {
-        super(nombre, apellido, email, contra);
-        this.pasaporte = pasaporte;
-        this.nacimiento = nacimiento;
-        this.edad = edad ;
-        this.numTelefono = numTelefono;
-        this.reservas = new HashMap<>();
-        this.vuelos_comprados = new ArrayList<>();
+    private Scanner scan = new Scanner(System.in);
+
+    public Cliente() {
     }
 
     public Cliente(String nombre, String apellido, String email, String contra) {
         super(nombre, apellido, email, contra);
     }
 
-    public Cliente(String nombre, String apellido, String email,String contra, Integer pasaporte) {
+    public Cliente(String nombre, String apellido, String email,String contra, Integer pasaporte, int edad,long numTelefono) {
         super(nombre, apellido, email, contra);
         this.pasaporte = pasaporte;
+        this.edad = edad ;
+        this.numTelefono = numTelefono;
+        this.reservas = new HashMap<>();
+    }
+
+    public void agregarReserva (Reserva reserva)
+    {
+        reservas.put(reserva.getId(), reserva);
+    }
+
+    public Vuelo elegirVueloAComprar (Lista_vuelos listaVuelos)
+    {
+        for (Vuelo vuelo:listaVuelos)
+        {
+            System.out.println("CODIGO: " + vuelo.getCodigoVuelo() + "\n"+  //Capaz que se pueden agregar las fechas
+                    "ORIGEN: "+vuelo.getOrigen() +"\n"+
+                    "DESTINO: "+vuelo.getDestino());
+        }
+        System.out.println("Ingrese el codigo del vuelo a comprar");
+        String codigo = scan.nextLine();
+
+        Vuelo buscado=listaVuelos.getLista_vuelos().BUSCARVUELO (codigo); //HAY QUE AGREGAR LA FUNCION QUE BUSCA EL VUELO POR EL CODIGO
+        //funcion de buscar vuelo con el codigo leido
+
+        return buscado;
+    }
+
+    public Double comprarAsientos (Vuelo dato)
+    {
+        Integer continuar = 1;
+        Double totalCompra = 0.;
+
+        while (continuar==1)
+        {
+            dato.getAvion().mostrarAsientos();
+            int flag=0;
+            char letra='a';
+            System.out.println("Ingrese la fila del asiento");
+            int filaElegida =scan.nextInt();
+
+            while (flag==0)
+            {
+                System.out.println("Ingrese la letra del asiento");
+                String input = scan.next();
+                if (input.length() == 1) {
+                    letra = input.charAt(0);
+                    flag=1;
+                } else {
+                    System.out.println("Por favor, ingrese un solo carácter.");
+                }
+                scan.close();
+            }
+            dato.getAvion().comprarAsiento(this,filaElegida,letra);
+            totalCompra=totalCompra+dato.getPrecioVuelo();
+
+            System.out.println("ingrese 1 para comprar otro asiento o 0 para salir");
+            continuar= scan.nextInt();
+        }
+        return totalCompra;
     }
 
 
-    @Override
-    public String toString() {
-        return super.toString() +
-                "\nPasaporte= " + pasaporte +
-                "\nFecha de nacimiento= "+ nacimiento;
 
 
-    }
-
-    public void eliminarReserva() {
+    public void eliminarReserva() {  //Elimina una reserva pasandole el codigo.
         boolean encontrada = false;
         Scanner scan = new Scanner(System.in);
 
@@ -106,13 +152,6 @@ public class Cliente extends Persona  {
         this.contrasenia = contrasenia;
     }
 
-    public ArrayList<Vuelo> getVuelos_comprados() {
-        return vuelos_comprados;
-    }
-
-    public void setVuelos_comprados(ArrayList<Vuelo> vuelos_comprados) {
-        this.vuelos_comprados = vuelos_comprados;
-    }
 
     public HashMap<Integer, Reserva> getReservas() {
         return reservas;
@@ -122,7 +161,6 @@ public class Cliente extends Persona  {
     public void modificarReserva() {
         Scanner scan = new Scanner(System.in);
 
-
         if (reservas.isEmpty()) {
             System.out.println("\nNo tiene reservas.");
             return;
@@ -131,7 +169,6 @@ public class Cliente extends Persona  {
         for (Map.Entry<Integer, Reserva> entry : reservas.entrySet()) {
             System.out.println("\nID: " + entry.getKey() + " - Reserva: " + entry.getValue());
         }
-
 
         System.out.println("\nIngrese el ID de la reserva que desea modificar:");
         int codigoReserva = Integer.parseInt(scan.nextLine());
@@ -200,11 +237,6 @@ public class Cliente extends Persona  {
 
 
 
-
-
-
-
-
 //    // Método para comprar vuelos
 //    public void comprarVuelo(int codigo, int cantidadCompras, Vuelo vuelo) {
 //        // Verificar si el vuelo está disponible y hay suficientes asientos
@@ -220,18 +252,9 @@ public class Cliente extends Persona  {
 //        }
 //    }
 
-    //CONSOLE ES PARA QUE NO SE VEA LA CONTRA CUANDO INICIA SESION
-//    public void iniciarSesion(){
-//        Console console = System.console();
-//        Scanner scan = new Scanner(System.in);
-//        System.out.println("\nEMAIL: ");
-//        scan ;
-//        if ()
-//
-//            char[] passwordArray = console.readPassword("\nCONTRASEÑA=: ");
-//        this.contrasenia = new String(passwordArray);
-//
-//    }
 
 
+    public void setReservas(HashMap<Integer, Reserva> reservas) {
+        this.reservas = reservas;
+    }
 }

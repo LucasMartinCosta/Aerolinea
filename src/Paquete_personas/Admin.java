@@ -1,9 +1,15 @@
 package Paquete_personas;
 
-public class Admin extends Empleado{
+import java.io.Serializable;
 
+public class Admin extends Empleado implements Serializable {
 
-    public Admin(String nombre, String apellido, String email, String contra, String genero) {
-        super(nombre, apellido, email, contra, genero);
+    public Admin(String nombre, String apellido, String email, String contra) {
+        super(nombre, apellido, email, contra);
     }
+
+    public Admin() {
+    }
+
+
 }

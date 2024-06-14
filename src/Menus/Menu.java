@@ -19,20 +19,6 @@ public class Menu {
     Manejo_archivos archivos = new Manejo_archivos();
     private Scanner lector = new Scanner(System.in);
 
-
-//    public void iniciarSesion(){
-//
-//        Console console =System.console();
-//        System.out.println("\n--SKYCODING AIRLINE--");
-//        System.out.println("Email: ");
-//        if (console == null) {
-//            System.out.println("\nNo se puede obtener la consola.");
-//            return;
-//        }
-//        char[] passwordArray = console.readPassword("\nContrasenia: ");
-//        String password = new String(passwordArray);
-//    }
-
     public void inicio ()
     {
         boolean exit= false;
@@ -72,7 +58,6 @@ public class Menu {
     {
         boolean sesionExitosa = false;
         do {
-
             try {
                 System.out.println("Ingrese apellido:");
                 String apellido = lector.nextLine();
@@ -85,7 +70,6 @@ public class Menu {
                     if (persona instanceof Cliente) {
                         menuCliente((Cliente) persona);
                     } else if (persona instanceof Empleado) {
-
                         menuEmpleado((Empleado) persona);
                     }
 
@@ -139,7 +123,7 @@ public class Menu {
             System.out.println("\n4.ESTADO DE VUELO");
             System.out.println("\n5.VER PASAJES DISPONIBLES");
             System.out.println("\n6.COMPRAR EQUIPAJE");
-            System.out.println("\n7.DEVOLUCION/ CANCELACION DE VUELOS");
+            System.out.println("\n7.DEVOLUCION / CANCELACION DE VUELOS");
             System.out.println("\n8.SALIR DEL MENU");
             System.out.println("\n-----------------------");
             opcion1 = lector.nextInt();
@@ -147,7 +131,17 @@ public class Menu {
 
             switch (opcion1) {
                 case 1:
-                    menuCompraPasaje();
+                    //LUCAS: COMPRAR PASAJE tiene que mostrar una lista de todos los vuelos disponibles para poder hacer una compra, el cliente
+                    //toca el numero del pasaje que quiere comprar y se añade a su lista
+
+                    Reserva nuevaReserva = new Reserva(cliente); //creo una nueva reserva
+
+                    Vuelo vueloAComprar=cliente.elegirVueloAComprar(archivos.getVuelos()); //el cliente elige que vuelo comprar
+
+                    Double costo = cliente.comprarAsientos(vueloAComprar); //compra los asientos de ese vuelo
+                    nuevaReserva.agregaVuelo(vueloAComprar);// se carga ese vuelo a su array de vuelos en la reserva
+                    nuevaReserva.setCostoTotal(costo); //cargo el costo a la reserva
+                    cliente.agregarReserva(nuevaReserva); //agrego la reserva a la lista de reservas del cliente
                     break;
 
                 case 2:
@@ -264,20 +258,6 @@ public class Menu {
 
     }
 
-//    public Vuelo mostrarPasajesDisponiblesCompra(Vuelo vuelo){
-//
-//
-//
-//
-//    }
-//
-//    public boolean encontrarVuelo(Vuelo vuelo){
-//        boolean flag= false;
-//        for (Vuelo vuelo1: vuelos)
-//            flag= true;
-//        }
-//
-//    }
 
 
 

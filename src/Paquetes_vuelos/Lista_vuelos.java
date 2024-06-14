@@ -1,11 +1,9 @@
 package Paquetes_vuelos;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Objects;
+import java.util.*;
+import java.util.function.Consumer;
 
-public class Lista_vuelos {  //en esta clase estan todos los metodos para manejar la lista de vuelos
+public class Lista_vuelos implements Iterable<Vuelo> {  //en esta clase estan todos los metodos para manejar la lista de vuelos
     HashSet<Vuelo> lista_vuelos = new HashSet<>();
 
     public void agregarvueloslista(Vuelo a)
@@ -35,11 +33,31 @@ public class Lista_vuelos {  //en esta clase estan todos los metodos para maneja
 
     public void mostrar_paquetes_vuelos()
     {
-
         for(Vuelo a: lista_vuelos)
         {
             System.out.println(a);
         }
+    }
 
+    @Override
+    public String toString() {
+        return "Lista_vuelos{" +
+                "lista_vuelos=" + lista_vuelos +
+                '}';
+    }
+
+    @Override
+    public Iterator<Vuelo> iterator() {
+        return null;
+    }
+
+    @Override
+    public void forEach(Consumer<? super Vuelo> action) {
+        Iterable.super.forEach(action);
+    }
+
+    @Override
+    public Spliterator<Vuelo> spliterator() {
+        return Iterable.super.spliterator();
     }
 }
