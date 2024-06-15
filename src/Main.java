@@ -1,5 +1,6 @@
 import Aviones.Avion;
 import Menus.Menu;
+import Paquete_personas.Admin;
 import Paquete_personas.Cliente;
 import Paquete_personas.Genero;
 import Paquetes_vuelos.Lista_vuelos;
@@ -20,25 +21,23 @@ public class Main {
         Menu menu = new Menu();
         Manejo_archivos inicArchivos = new Manejo_archivos();
 
+            inicArchivos.prueba();
+//          inicArchivos.leerarchivo_personas();
+//
+//          inicArchivos.prueba_aviones();
+//          inicArchivos.leer_archivo_aviones();
+//
+//          inicArchivos.prueba_vuelos();
+//          inicArchivos.leerarchivo_vuelos();
 
 
-   inicArchivos.prueba();
-  inicArchivos.leerarchivo_personas();
-
-        inicArchivos.prueba_aviones();
-        inicArchivos.leer_archivo_aviones();
-
-        inicArchivos.prueba_vuelos();
-        inicArchivos.leerarchivo_vuelos();
+       menu.inicio(); //Funciona, excepto el salir del menu principal(cerrar el programa)
 
 
-        menu.inicio(); //NO FUNCIONA - CICLO INFINITO - ARREGLAR
+        Admin a = new Admin();
 
-
-
-
-
-
+       a.crearAvion();
+       a.crearAvion();
 
 
 
