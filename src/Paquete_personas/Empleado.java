@@ -31,17 +31,16 @@ public class Empleado extends Persona implements Serializable {
     }
     //Constructor de Listas de Aviones y Pasajeros.
 
-
+    //constructor basico para manejo de listas.
     public Empleado() {
 
         this.listaVuelo = new Lista_vuelos();
         this.listaPersonas = new Lista_Personas();
         this.listaAviones = new Lista_aviones();
     }
-        //Buscar un vuelo puntual buscado por codigo de vuelo y devuelve ese vuelo puntual o null si no existe.
-        //Lo hice de la forma que veniamos trabajando hasta ahora, esta sujeto a modificaciones.
 
-    public Vuelo buscarVuelo(int vueloBuscado) {
+        //Buscar un vuelo puntual buscado por codigo de vuelo y devuelve ese vuelo puntual o null si no existe.
+    public Vuelo buscarVuelo(String vueloBuscado) {
         for (Vuelo v : listaVuelo.getLista_vuelos()) {
             if (v.getCodigoVuelo().equals(vueloBuscado)) {
                 return v;
@@ -50,7 +49,8 @@ public class Empleado extends Persona implements Serializable {
         return null;
     }
 
-    public void modificarEstadoVuelo(int buscado) {
+    //Buscar un vuelo puntual por su codigo y modifica su estado.
+    public void modificarEstadoVuelo(String buscado) {
         Vuelo encontrado = buscarVuelo(buscado);
         if (encontrado != null) {
             System.out.println("Ingresar estado del Vuelo (1= A Tiempo // 0= Retrasado // -1= Cancelado");
@@ -61,6 +61,7 @@ public class Empleado extends Persona implements Serializable {
             System.out.println("ERROR - Vuelo no encontrado.");
         }
     }
+
     public void mostrarListaClientes(){
         for(Persona p : listaPersonas.getLista_personas()){
             if (p instanceof Cliente){
@@ -86,7 +87,7 @@ public class Empleado extends Persona implements Serializable {
         listaVuelo.mostrar_paquetes_vuelos();
     }
 
-    public void verPasajerosXVuelo(Integer codBuscar){
+    public void verPasajerosXVuelo(String codBuscar){
         for(Vuelo vuelo : listaVuelo.getLista_vuelos()){
             if(vuelo.getCodigoVuelo().equals(codBuscar)){
                 //Segun chat gpt son 3 bucles for para acceder a asientos, segun Intellij son 2.

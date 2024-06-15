@@ -189,9 +189,10 @@ public class Menu {
             System.out.println("\n1.VER UN VUELO");
             System.out.println("\n2.HACER VUELOS NUEVOS");
             System.out.println("\n3.VER LISTA DE AVIONES COMPLETA");
-            System.out.println("\n4.VER LISTA DE VUELOS COMPLETA");
-            System.out.println("\n5.VER LISTA DE PASAJEROS POR VUELO");
-            System.out.println("\n6.MODIFICAR ESTADO DE VUELO");
+            System.out.println("\n4.VER LISTA COMPLETA DE CLIENTES");
+            System.out.println("\n5.VER LISTA DE VUELOS COMPLETA");
+            System.out.println("\n6.VER LISTA DE PASAJEROS POR VUELO");
+            System.out.println("\n7.MODIFICAR ESTADO DE VUELO");
             System.out.println("\n8.SALIR DEL MENU");
             System.out.println("\n-----------------------");
             opcion1 = lector.nextInt();
@@ -202,7 +203,7 @@ public class Menu {
                     //llama a una funcion que pasandole el numero de vuelo te muestre un vuelo en especifico,
                     //con la lista de pasajeros y toda la info
                     System.out.println("\n Ingrese el codigo de vuelo a buscar: ");
-                    Integer codigo1 = lector.nextInt();
+                    String codigo1 = lector.nextLine();
                     Vuelo aux = empleado.buscarVuelo(codigo1);
                     //Falta el metodo de vuelo de mostrar todos los datos del vuelo.
                     //System.out.println(aux.toString());
@@ -215,19 +216,23 @@ public class Menu {
                     empleado.mostrarListaAviones();
                     break;
                 case 4:
-                    empleado.mostrarListaVuelos();
+                    //Muestra solo los clientes de la lista Personas.
+                    empleado.mostrarListaClientes();
                 case 5:
-                    System.out.println("\n Ingrese el codigo de vuelo que desea ver: ");
-                    Integer codigo2 = lector.nextInt();
-                    empleado.verPasajerosXVuelo(codigo2);
+                    empleado.mostrarListaVuelos();
                     break;
                 case 6:
-                    //modificar estado de vuelo.
-                    System.out.println("\n Ingrese el codigo de vuelo a buscar: ");
-                    Integer codigo3 = lector.nextInt();
-                    empleado.modificarEstadoVuelo(codigo3);
+                    System.out.println("\n Ingrese el codigo de vuelo que desea ver: ");
+                    String codigo2 = lector.nextLine();
+                    empleado.verPasajerosXVuelo(codigo2);
                     break;
                 case 7:
+                    //modificar estado de vuelo.
+                    System.out.println("\n Ingrese el codigo de vuelo a buscar: ");
+                    String codigo3 = lector.nextLine();
+                    empleado.modificarEstadoVuelo(codigo3);
+                    break;
+                case 8:
                     exit = true;
                     break;
                 default:
