@@ -20,6 +20,7 @@ public class Menu {
     Manejo_archivos archivos = new Manejo_archivos();
     private Scanner lector = new Scanner(System.in);
 
+    //Probar bien el menu///
     public void inicio ()
     {
         boolean exit= false;
