@@ -7,6 +7,7 @@ import Paquete_personas.Cliente;
 import Paquete_personas.Empleado;
 import Paquete_personas.Genero;
 import Paquete_personas.Persona;
+import Paquetes_vuelos.Destinos;
 import Paquetes_vuelos.Lista_vuelos;
 import Paquetes_vuelos.Vuelo;
 import Tipos_listas.Lista_Personas;
@@ -237,9 +238,9 @@ public class Manejo_archivos {
     public void prueba_vuelos()
     {
         Avion a1 = new Avion();
-        Vuelo v1= new Vuelo("mar del plata","NY",a1,2.4,1,"mdp.ny.a1", 100.);
-        Vuelo v2= new Vuelo("Coronel Vidal","NY",a1,2.4,1,"cv.ny.a1", 150.);
-        Vuelo v3= new Vuelo("CHACO","NY",a1,2.4,1,"ch.ny.a1", 222.);
+        Vuelo v1= new Vuelo(Destinos.CORDOBA,Destinos.MISIONES,a1,2.4,1,"mdp.ny.a1", 100.);
+        Vuelo v2= new Vuelo(Destinos.BUENOSAIRES,Destinos.MENDOZA,a1,2.4,1,"cv.ny.a1", 150.);
+        Vuelo v3= new Vuelo(Destinos.BARILOCHE,Destinos.CORDOBA,a1,2.4,1,"ch.ny.a1", 222.);
 
 
         vuelos.agregarvueloslista(v1);

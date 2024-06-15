@@ -3,12 +3,11 @@ package Paquetes_vuelos;
 import Aviones.Avion;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Vuelo implements Comparable<Vuelo> {
-    private String origen;
-    private String destino;
+    private Destinos origen;
+    private Destinos destino;
     private Avion avion;
     private Double tiempoVuelo;
 //    private LocalDate fechaSalida;
@@ -28,7 +27,7 @@ public class Vuelo implements Comparable<Vuelo> {
     public Vuelo() {
     }
 
-    public Vuelo(String origen,String destino, Avion avion, Double tiempoVuelo, int estado, String codigoVuelo, Double precioVuelo) {
+    public Vuelo(Destinos origen,Destinos destino, Avion avion, Double tiempoVuelo, int estado, String codigoVuelo, Double precioVuelo) {
 
         this.origen = origen;
         this.destino = destino;
@@ -56,7 +55,7 @@ public class Vuelo implements Comparable<Vuelo> {
 //
 //    }
 
-    public Vuelo(String origen, String destino, LocalDate fechaLlegada, int numeroPasajeros){
+    public Vuelo(Destinos origen, Destinos destino, LocalDate fechaLlegada, int numeroPasajeros){
         this.origen = origen;
         this.destino = destino;
 //        this.fechaLlegada = fechaLlegada;
@@ -115,19 +114,19 @@ public class Vuelo implements Comparable<Vuelo> {
       }
     }
 
-    public String getOrigen() {
+    public Destinos getOrigen() {
         return origen;
     }
 
-    public void setOrigen(String origen) {
+    public void setOrigen(Destinos origen) {
         this.origen = origen;
     }
 
-    public String getDestino() {
+    public Destinos getDestino() {
         return destino;
     }
 
-    public void setDestino(String destino) {
+    public void setDestino(Destinos destino) {
         this.destino = destino;
     }
 
