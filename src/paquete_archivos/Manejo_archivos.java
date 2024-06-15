@@ -68,7 +68,7 @@ public class Manejo_archivos {
         }
     }
 
-    public void leerarchivo_personas() {
+    public Lista_Personas leerarchivo_personas() {
         try {
             JsonNode rootNode = mapper.readTree(archivo_personas);
             JsonNode listaPersonasNode = rootNode.get("lista_personas");
@@ -87,6 +87,7 @@ public class Manejo_archivos {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        return lista_personas;
     }
 
 //    public void leer_todo_archivo_personas()
@@ -117,7 +118,7 @@ public class Manejo_archivos {
         }
     }
 
-    public void leer_archivo_aviones()
+    public Lista_aviones leer_archivo_aviones()
     {
         try {
             ArrayList<Avion> aux;
@@ -128,6 +129,15 @@ public class Manejo_archivos {
         catch (IOException e)
         {
            throw new RuntimeException(e);
+        }
+        return lista_aviones;
+    }
+
+    public void mostraraviones()
+    {
+        for(Avion a: lista_aviones.getLista_aviones())
+        {
+            System.out.println(a.toString());
         }
     }
 
@@ -253,5 +263,25 @@ public class Manejo_archivos {
 
     public void setVuelos(Lista_vuelos vuelos) {
         this.vuelos = vuelos;
+    }
+
+    public Lista_Personas getLista_personas() {
+        return lista_personas;
+    }
+
+    public void setLista_personas(Lista_Personas lista_personas) {
+        this.lista_personas = lista_personas;
+    }
+
+    public Lista_aviones getLista_aviones() {
+        return lista_aviones;
+    }
+
+    public void setLista_aviones(Lista_aviones lista_aviones) {
+        this.lista_aviones = lista_aviones;
+    }
+
+    public void setListaReservas(HashMap<Integer, Reserva> listaReservas) {
+        this.listaReservas = listaReservas;
     }
 }
