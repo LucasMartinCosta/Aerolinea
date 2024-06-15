@@ -11,6 +11,7 @@ import Paquetes_vuelos.Vuelo;
 import Tipos_listas.Lista_Personas;
 import Tipos_listas.Lista_aviones;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
@@ -40,6 +41,7 @@ public class Manejo_archivos {
 
 
 
+
     public Persona buscarPersona (String apellido, String contra)
     {
         for (Persona persona:lista_personas.getLista_personas())
@@ -57,26 +59,53 @@ public class Manejo_archivos {
 
         try{
             mapper.enable(SerializationFeature.INDENT_OUTPUT);
-            mapper.writeValue(archivo_personas,lista_personas.getLista_personas());
+            mapper.writeValue(archivo_personas,lista_personas);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public void leer_todo_archivo_personas()
-    {
+    public void leerarchivo_personas() {
         try {
-            TreeSet<Persona>aux;
-            aux= mapper.readValue(archivo_personas, new TypeReference<TreeSet<Persona>>() {
-            });
+            JsonNode rootNode = mapper.readTree(archivo_personas);
+            JsonNode listaPersonasNode = rootNode.get("lista_personas");
 
+            TreeSet<Persona> personas = mapper.readValue(listaPersonasNode.toString(), new TypeReference<TreeSet<Persona>>() {});
+
+            // Deserializar el array de personas en un TreeSet
+            TreeSet<Persona> aux = mapper.readValue(
+                    listaPersonasNode.toString(),
+                    new TypeReference<TreeSet<Persona>>() {}
+            );
+
+            // Asignar el TreeSet al campo setListaPersonas
             lista_personas.setLista_personas(aux);
-        }
-        catch (IOException e) {
-            System.out.println("Error al querer leer el archivo");
+
+            for(Persona a : lista_personas.getLista_personas())
+            {
+                System.out.println(a.toString());
+            }
+
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
+//    public void leer_todo_archivo_personas()
+//    {
+//        try {
+//            TreeSet<Persona>aux;
+//            aux = mapper.readValue(archivo_personas, new TypeReference<TreeSet<Persona>>() {
+//            });
+//            System.out.println("Ya leyo el archivo, hasta aca todo bien");
+//
+//            lista_personas.setLista_personas(aux);
+//        }
+//        catch (IOException e) {
+//            System.out.println("Error al querer leer el archivo");
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     ///Carga archivo aviones///
 
@@ -100,7 +129,7 @@ public class Manejo_archivos {
         }
         catch (IOException e)
         {
-            System.out.println("No entro al try ptm");
+           throw new RuntimeException(e);
         }
     }
 
@@ -176,6 +205,7 @@ public class Manejo_archivos {
         Cliente cliente = new Cliente("imanol", "sayago", "ima@", "ima");
         Cliente cliente2 = new Cliente("Lucas", "Costa", "lucas@", "lucas");
         Cliente cliente3 = new Cliente("Laura", "nomeacuerdo", "laura@", "laura");
+        Persona a = new Persona("persona","prueba","persona@","aaaa");
 
         Empleado empleado = new Empleado("manuempleado", "abras", "manu@", "manu");
         Empleado empleado2 = new Empleado("imanolempleado", "sayago", "imanolempleado@", "imanolempleado");
@@ -187,6 +217,7 @@ public class Manejo_archivos {
         lista_personas.agregar_personas(empleado);
         lista_personas.agregar_personas(empleado2);
         lista_personas.agregar_personas(empleado3);
+        lista_personas.agregar_personas(a);
         cargararchivo_personas();
     }
 

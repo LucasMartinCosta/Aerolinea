@@ -8,6 +8,9 @@ public class Asiento {
     private boolean reservado;
     private Cliente cliente;
 
+    public Asiento() {
+    }
+
     public Asiento(int fila, char letra) {
         this.fila = fila;
         this.letra = letra;

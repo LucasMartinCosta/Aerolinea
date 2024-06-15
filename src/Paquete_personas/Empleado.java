@@ -6,11 +6,13 @@ import Paquetes_vuelos.Lista_vuelos;
 import Paquetes_vuelos.Vuelo;
 import Tipos_listas.Lista_Personas;
 import Tipos_listas.Lista_aviones;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import java.io.Serializable;
 import java.util.Map;
 import java.util.Scanner;
 
+@JsonTypeName("Empleado")
 public class Empleado extends Persona implements Serializable {
 
     private Lista_vuelos listaVuelo;
@@ -101,5 +103,6 @@ public class Empleado extends Persona implements Serializable {
         }
 
     }
+
 
 }

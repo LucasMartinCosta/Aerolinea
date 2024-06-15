@@ -3,6 +3,7 @@ package Paquete_personas;
 import Aerolinea.Reserva;
 import Paquetes_vuelos.Lista_vuelos;
 import Paquetes_vuelos.Vuelo;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import java.io.Console;
 //import java.lang.classfile.Attribute;
@@ -10,6 +11,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.*;
 
+@JsonTypeName("Cliente")
 public class Cliente extends Persona implements Serializable {
     private Integer pasaporte;
     private int edad;
@@ -26,7 +28,9 @@ public class Cliente extends Persona implements Serializable {
         super(nombre, apellido, email, contra);
     }
 
-    public Cliente(String nombre, String apellido, String email,String contra, Integer pasaporte, int edad,long numTelefono) {
+
+
+    public Cliente(String nombre, String apellido, String email, String contra, Integer pasaporte, int edad, long numTelefono) {
         super(nombre, apellido, email, contra);
         this.pasaporte = pasaporte;
         this.edad = edad ;
@@ -151,6 +155,11 @@ public class Cliente extends Persona implements Serializable {
         this.contrasenia = contrasenia;
     }
 
+
+
+    public void setScan(Scanner scan) {
+        this.scan = scan;
+    }
 
     public HashMap<Integer, Reserva> getReservas() {
         return reservas;

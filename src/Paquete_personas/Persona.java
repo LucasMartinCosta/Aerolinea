@@ -9,15 +9,16 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 
+
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
         property = "tipo"
 )
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = Cliente.class, name = "cliente"),
-        @JsonSubTypes.Type(value = Empleado.class, name = "empleado"),
-        @JsonSubTypes.Type(value = Admin.class, name = "admin")
+        @JsonSubTypes.Type(value = Cliente.class, name = "Cliente"),
+        @JsonSubTypes.Type(value = Empleado.class, name = "Empleado"),
+        @JsonSubTypes.Type(value = Admin.class, name = "Admin")
 })
 
 public class Persona implements Comparable<Persona>, Serializable {

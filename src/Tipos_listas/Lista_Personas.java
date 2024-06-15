@@ -16,6 +16,7 @@ public class Lista_Personas implements Serializable {
     public Lista_Personas() {
     }
 
+
     public void mostrar_lista_personas()
     {
         for(Persona a: lista_personas)

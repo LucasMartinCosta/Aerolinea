@@ -9,6 +9,9 @@ import java.util.function.Consumer;
 public class Lista_vuelos implements Iterable<Vuelo> {
     HashSet<Vuelo> lista_vuelos = new HashSet<>();
 
+    public Lista_vuelos() {
+    }
+
     public void agregarvueloslista(Vuelo a)
     {
         lista_vuelos.add(a);
