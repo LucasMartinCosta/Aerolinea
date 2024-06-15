@@ -20,6 +20,8 @@ public class Main {
         Menu menu = new Menu();
         Manejo_archivos inicArchivos = new Manejo_archivos();
 
+
+
    inicArchivos.prueba();
   inicArchivos.leerarchivo_personas();
 
@@ -34,7 +36,7 @@ public class Main {
 
 
 
-        menu.menuCliente(cliente2);
+
 
 
 

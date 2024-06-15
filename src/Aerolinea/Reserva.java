@@ -30,29 +30,6 @@ public class Reserva {
     }
 
 
-//    //muestra reserva no PASAJE
-//    public void mostrarReserva() {
-//        try {
-//            System.out.println("\n-------------------\n");
-//            System.out.println("\nAPELLIDO:");
-//            String apellidoCliente = scan.nextLine();
-//            System.out.println("\nCODIGO DE RESERVA:");
-//            Integer id1 = Integer.parseInt(scan.nextLine());
-//
-//            if (cliente.getApellido().equalsIgnoreCase(apellidoCliente) && id.equals(id1)) {
-//                System.out.println(cliente.getNombre() + " " + cliente.getApellido());
-//                for (Vuelo vuelo : vuelos) {
-//                    System.out.println(vuelo.mostrarEnReserva());
-//                }
-//            } else {
-//                throw new NoSuchElementException("No tienes ninguna reserva.");
-//            }
-//        } catch (NoSuchElementException e) {
-//            System.out.println(e.getMessage());
-//        } catch (NumberFormatException e) {
-//            System.out.println("Formato de código de reserva no válido.");
-//        }
-//    }
 
     //MUESTRA EL ESTADO DEL VUELO
     public void mostrarEstadoDelVuelo(Integer id1) {

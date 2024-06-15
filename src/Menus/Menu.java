@@ -6,6 +6,8 @@ import Paquete_personas.Cliente;
 import Paquete_personas.Empleado;
 import Paquete_personas.Genero;
 import Paquete_personas.Persona;
+import Paquetes_vuelos.Destinos;
+import Paquetes_vuelos.Lista_vuelos;
 import Paquetes_vuelos.Vuelo;
 import paquete_archivos.Manejo_archivos;
 
@@ -21,9 +23,8 @@ public class Menu {
     private Scanner lector = new Scanner(System.in);
 
     //Probar bien el menu///
-    public void inicio ()
-    {
-        boolean exit= false;
+    public void inicio() {
+        boolean exit = false;
         int eleccion;
 
 
@@ -31,7 +32,7 @@ public class Menu {
         archivos.leerarchivo_personas();
 
         while (!exit) {
-            System.out.println("\n-----------AEROLINEAS UTN------------");
+            System.out.println("\n-----------SKYCODE AIRLINE------------");
             System.out.println("\n1.INICIAR SESION");
             System.out.println("\n2.REGISTRARSE");
             System.out.println("\n3.SALIR");
@@ -57,7 +58,7 @@ public class Menu {
         lector.close();
     }
 
-    public void iniciarSesion () //falta agregar que si no te encuentra salte un error y te devuelva al menu principal // ya esta rey
+    public void iniciarSesion() //falta agregar que si no te encuentra salte un error y te devuelva al menu principal // ya esta rey
     {
         boolean sesionExitosa = false;
 
@@ -70,15 +71,13 @@ public class Menu {
             Persona persona = archivos.buscarPersona(apellido, contra);
 
             if (persona != null) {
-                sesionExitosa=true;
+                sesionExitosa = true;
                 if (persona instanceof Cliente) {
                     menuCliente((Cliente) persona);
                 } else if (persona instanceof Empleado) {
                     menuEmpleado((Empleado) persona);
                 }
-            }
-            else
-            {
+            } else {
                 System.out.println("La persona no existe dentro del sistema, tendra que registrarla");
                 System.out.println("Volviendo al inicio...");
                 inicio();
@@ -90,8 +89,9 @@ public class Menu {
 
     }
 
-    public Cliente registrarCliente()
-    {
+    public Cliente registrarCliente() {
+
+
         System.out.println("\nIngrese su nombre: ");
         String nombre = lector.nextLine();
 
@@ -104,13 +104,46 @@ public class Menu {
         System.out.println("\nIngrese su contraseña");
         String contra = lector.nextLine();
 
-        Cliente persona = new Cliente(nombre, apellido, mail, contra, Genero.MASCULINO);
+        //MUESTRA LAS OPCIONES DE GENERO
+        //use un bucle para que ingrese ocpiones validas y que vuelva a ingresar si se equivoca
 
-        archivos.getListaPersonas().add(persona);
 
-        archivos.cargararchivo_personas();
-        return persona;
-    }
+        boolean seleccionValida = false;
+         Genero genero= null;
+        while (!seleccionValida) {
+
+            System.out.println("\nGenero: ");
+            for (Genero genero1 : Genero.values()) {
+                System.out.println(genero1.getCodigo() + "." + genero1);
+            }
+            System.out.println("\nIngrese una opcion: ");
+
+            if (lector.hasNextInt()) {
+                int opcion = lector.nextInt();
+                lector.nextLine();
+                genero = Genero.getByCodigo(opcion);
+
+                if (genero != null) {
+                    seleccionValida = true;
+                } else {
+                    System.out.println("\nGenero no válido. Por favor, seleccione una opcion valida.");
+                    lector.nextLine();
+                }
+            } else {
+                System.out.println("\nEntrada inválida. Por favor, ingrese un numero valido.");
+                lector.nextLine();
+            }
+        }
+
+
+            Cliente persona = new Cliente(nombre, apellido, mail, contra, genero);
+
+            archivos.getListaPersonas().add(persona);
+
+            archivos.cargararchivo_personas();
+            return persona;
+        }
+
 
 
     public void registrarUsuarioEmpleado() //SOLO DIOS // esta funcion tiene que poder permitirle al dios ingresar
@@ -120,31 +153,34 @@ public class Menu {
     }
 
     public void menuCliente(Cliente cliente) {
-        boolean exit= false;
+        boolean exit = false;
         int opcion1;
 
         while (!exit) {
             System.out.println("\n-----------------------");
             System.out.println("\n1.COMPRAR PASAJE");
-            System.out.println("\n2.MODIFICAR MI RESERVA");
-            System.out.println("\n3.MOSTRAR MI RESERVA");
-            System.out.println("\n4.ESTADO DE VUELO");
-            System.out.println("\n5.VER PASAJES DISPONIBLES");
-            System.out.println("\n6.COMPRAR EQUIPAJE");
-            System.out.println("\n7.DEVOLUCION / CANCELACION DE VUELOS");
-            System.out.println("\n8.SALIR DEL MENU");
+            System.out.println("\n2.ESTADO DE VUELO");
+            System.out.println("\n3.VER PASAJE"); // mostramos de a un pasaje
+            System.out.println("\n4.VER RESERVAS");
+            System.out.println("\n5.DEVOLUCION / CANCELACION DE VUELOS");
+            System.out.println("\n6.SALIR DEL MENU");
             System.out.println("\n-----------------------");
             opcion1 = lector.nextInt();
             lector.nextLine();
 
             switch (opcion1) {
                 case 1:
+
+//                    Lista_vuelos auxiliar= archivos.getVuelos();
+//                    System.out.println(auxiliar);  teoricamente esto deberia mostrar los vuelos que hay en el archivo pero para
+                    //sopresa de nadie no lo muestra
+
                     //LUCAS: COMPRAR PASAJE tiene que mostrar una lista de todos los vuelos disponibles para poder hacer una compra, el cliente
                     //toca el numero del pasaje que quiere comprar y se añade a su lista
 
                     Reserva nuevaReserva = new Reserva(cliente); //creo una nueva reserva
 
-                    Vuelo vueloAComprar=cliente.elegirVueloAComprar(archivos.getVuelos()); //el cliente elige que vuelo comprar
+                    Vuelo vueloAComprar = cliente.elegirVueloAComprar(archivos.getVuelos()); //el cliente elige que vuelo comprar
 
                     Double costo = cliente.comprarAsientos(vueloAComprar); //compra los asientos de ese vuelo
                     nuevaReserva.agregaVuelo(vueloAComprar);// se carga ese vuelo a su array de vuelos en la reserva
@@ -153,7 +189,11 @@ public class Menu {
                     break;
 
                 case 2:
-                    cliente.modificarReserva();
+                    Reserva reserva = new Reserva(cliente); // En cada caso tenes q hacer una nueva reserva
+                    System.out.print("Ingrese el ID del vuelo para ver su estado: ");
+                    int idVuelo = lector.nextInt();
+                    lector.nextLine();
+                    reserva.mostrarEstadoDelVuelo(idVuelo);
                     break;
                 case 3:
 
@@ -161,15 +201,12 @@ public class Menu {
                 case 4:
                     //cliente
                 case 5:
-                    //reserva.mostrarPasaje();
+                    //en este caso eliminamos el vuelo ingresndo a traves del scanner luego lo pasamos a reserva.eliminarReserva
+                   // System.out.print("Ingrese el ID para eliminar/cancelar su vuelo: ");
+//                   Integer idVuelo = lector.nextInt();
+//                   reserva.eliminarReserva(idVuelo);
                     break;
                 case 6:
-
-                    break;
-                case 7:
-                    cliente.eliminarReserva();
-                    break;
-                case 8:
                     inicio();
                     exit = true;
                     break;
@@ -182,7 +219,7 @@ public class Menu {
 
     public void menuEmpleado(Empleado empleado) {
 
-        boolean exit= false;
+        boolean exit = false;
         int opcion1;
         while (!exit) {
             System.out.println("\n-----------------------");
@@ -192,7 +229,7 @@ public class Menu {
             System.out.println("\n4.VER LISTA DE VUELOS COMPLETA");
             System.out.println("\n5.VER LISTA DE PASAJEROS POR VUELO");
             System.out.println("\n6.MODIFICAR ESTADO DE VUELO");
-            System.out.println("\n8.SALIR DEL MENU");
+            System.out.println("\n7.SALIR DEL MENU");
             System.out.println("\n-----------------------");
             opcion1 = lector.nextInt();
             lector.nextLine();
@@ -236,41 +273,10 @@ public class Menu {
         }
         lector.close();
     }
+}
 
 
-//    public void menuCompraPasaje(){
-//
-//        System.out.print("\nORIGEN: ");
-//        String lugarSalida = lector.nextLine();
-//
-//        System.out.print("   DESTINO: ");
-//        String lugarLlegada =lector.nextLine();
-//
-//        System.out.print("\nFECHA  (yyyy-MM-dd): ");
-//        String fechaStr = lector.nextLine();
-//        LocalDate fechaIda = LocalDate.parse(fechaStr, DateTimeFormatter.ISO_LOCAL_DATE);
-//
-//        System.out.print("Ingrese el número de pasajeros: ");
-//        int numeroPasajeros = lector.nextInt();
-//        lector.nextLine();
-//
-//        System.out.println("\n-----------------------");
-//
-//        Vuelo vuelo = new Vuelo(lugarSalida, lugarLlegada, fechaIda,  numeroPasajeros);
-//
-//        //mostrarPasajesDisponiblesCompra(vuelo);
-//
-//        System.out.println("\nPasaje comprado exitosamente: " + vuelo);
-//
-//        System.out.println("\nDesea ver mas pasajes?");
-//        int opcion=0;
-//        switch (opcion){
-//
-//            case 1:
-//                menuCompraPasaje();
-//        }
 
-    }
 
 
 

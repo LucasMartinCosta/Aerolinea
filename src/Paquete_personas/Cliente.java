@@ -62,7 +62,7 @@ public class Cliente extends Persona implements Serializable {
     public Double comprarAsientos (Vuelo dato)
     {
         Integer continuar = 1;
-        Double totalCompra = 0.;
+        double totalCompra = 0.;
 
         while (continuar==1)
         {
@@ -96,20 +96,13 @@ public class Cliente extends Persona implements Serializable {
 
 
 
-    public void eliminarReserva() {  //Elimina una reserva pasandole el codigo.
+    public void eliminarReserva(Integer id) {  //Elimina una reserva pasandole el codigo.
+
         boolean encontrada = false;
-        Scanner scan = new Scanner(System.in);
-
-        do {
-            System.out.println("\n-------------------\n");
-            System.out.println("\nCODIGO DE RESERVA:");
-            int codigoReserva = Integer.parseInt(scan.nextLine());
-
-
             Iterator<Map.Entry<Integer, Reserva>> iterator = reservas.entrySet().iterator();
             while (iterator.hasNext()) {
                 Map.Entry<Integer, Reserva> entry = iterator.next();
-                if (entry.getKey() == codigoReserva) {
+                if (entry.getKey().equals(id)) {
 
                     iterator.remove();
                     System.out.println("\nReserva eliminada con éxito.");
@@ -120,7 +113,7 @@ public class Cliente extends Persona implements Serializable {
             if (!encontrada) {
                 System.out.println("\nNo se encontró ninguna reserva con el código especificado. Vuelve a intentarlo.");
             }
-        } while (!encontrada);
+
     }
 
     public Integer getPasaporte() {
