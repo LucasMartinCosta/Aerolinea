@@ -1,0 +1,53 @@
+{
+  "lista_personas" : [ {
+    "tipo" : "Cliente",
+    "nombre" : "Lucas",
+    "apellido" : "Costa",
+    "email" : "lucas@",
+    "contra" : "lucas",
+    "genero" : "MASCULINO",
+    "pasaporte" : null,
+    "edad" : 0,
+    "numTelefono" : 0,
+    "contrasenia" : null,
+    "reservas" : null
+  }, {
+    "tipo" : "Empleado",
+    "nombre" : "manuempleado",
+    "apellido" : "abras",
+    "email" : "manu@",
+    "contra" : "manu",
+    "genero" : "MASCULINO"
+  }, {
+    "tipo" : "Empleado",
+    "nombre" : "lucasempleado",
+    "apellido" : "costa",
+    "email" : "lucasempleado@",
+    "contra" : "lucasempleado",
+    "genero" : "MASCULINO"
+  }, {
+    "tipo" : "Cliente",
+    "nombre" : "Laura",
+    "apellido" : "nomeacuerdo",
+    "email" : "laura@",
+    "contra" : "laura",
+    "genero" : "FEMENINO",
+    "pasaporte" : null,
+    "edad" : 0,
+    "numTelefono" : 0,
+    "contrasenia" : null,
+    "reservas" : null
+  }, {
+    "tipo" : "Cliente",
+    "nombre" : "imanol",
+    "apellido" : "sayago",
+    "email" : "ima@",
+    "contra" : "ima",
+    "genero" : "MASCULINO",
+    "pasaporte" : null,
+    "edad" : 0,
+    "numTelefono" : 0,
+    "contrasenia" : null,
+    "reservas" : null
+  } ]
+}
