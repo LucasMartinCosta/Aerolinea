@@ -19,17 +19,11 @@ public class Main {
         Menu menu = new Menu();
         Manejo_archivos inicArchivos = new Manejo_archivos();
 
-   inicArchivos.prueba();
-  inicArchivos.leerarchivo_personas();
+        inicArchivos.prueba();
+        inicArchivos.prueba_aviones();
+        inicArchivos.prueba_vuelos();
 
-//        inicArchivos.prueba_aviones();
-//        inicArchivos.leer_archivo_aviones();
-
-//        inicArchivos.prueba_vuelos();
-//        inicArchivos.leerarchivo_vuelos();
-
-
-        //menu.inicio(); //NO FUNCIONA - CICLO INFINITO - ARREGLAR
+        menu.inicio(); //NO FUNCIONA - CICLO INFINITO - ARREGLAR //Ima: arreglado pa :)(creo)
 
 
         //menu.menuCliente(cliente2);

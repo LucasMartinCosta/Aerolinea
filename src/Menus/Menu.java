@@ -24,8 +24,9 @@ public class Menu {
         boolean exit= false;
         int eleccion;
 
-//        archivos.leer_todo_archivo_personas();
-//        archivos.prueba();
+
+       archivos.prueba();
+        archivos.leerarchivo_personas();
 
         while (!exit) {
             System.out.println("\n-----------AEROLINEAS UTN------------");
@@ -57,7 +58,7 @@ public class Menu {
     public void iniciarSesion () //falta agregar que si no te encuentra salte un error y te devuelva al menu principal // ya esta rey
     {
         boolean sesionExitosa = false;
-        do {
+
             try {
                 System.out.println("Ingrese apellido:");
                 String apellido = lector.nextLine();
@@ -74,11 +75,17 @@ public class Menu {
                         menuEmpleado((Empleado) persona);
                     }
                 }
+                else
+                {
+                    System.out.println("La persona no existe dentro del sistema, tendra que registrarla");
+                    System.out.println("Volviendo al inicio...");
+                    inicio();
+                }
             } catch (NoSuchElementException e) {
                 throw new NoSuchElementException(e.getMessage());
 
             }
-        }while (!sesionExitosa);
+
     }
 
     public Cliente registrarCliente()
@@ -161,7 +168,7 @@ public class Menu {
                     cliente.eliminarReserva();
                     break;
                 case 8:
-
+                        inicio();
                 exit = true;
                 break;
                 default:
