@@ -20,13 +20,15 @@ public class Menu {
     Manejo_archivos archivos = new Manejo_archivos();
     private Scanner lector = new Scanner(System.in);
 
+    //Probar bien el menu///
     public void inicio ()
     {
         boolean exit= false;
         int eleccion;
 
-//        archivos.leer_todo_archivo_personas();
-//        archivos.prueba();
+
+        archivos.prueba();
+        archivos.leerarchivo_personas();
 
         while (!exit) {
             System.out.println("\n-----------AEROLINEAS UTN------------");
@@ -58,28 +60,34 @@ public class Menu {
     public void iniciarSesion () //falta agregar que si no te encuentra salte un error y te devuelva al menu principal // ya esta rey
     {
         boolean sesionExitosa = false;
-        do {
-            try {
-                System.out.println("Ingrese apellido:");
-                String apellido = lector.nextLine();
-                System.out.println("Ingrese contraseña:");
-                String contra = lector.nextLine();
 
-                Persona persona = archivos.buscarPersona(apellido, contra);
+        try {
+            System.out.println("Ingrese apellido:");
+            String apellido = lector.nextLine();
+            System.out.println("Ingrese contraseña:");
+            String contra = lector.nextLine();
 
-                if (persona != null) {
-                    sesionExitosa=true;
-                    if (persona instanceof Cliente) {
-                        menuCliente((Cliente) persona);
-                    } else if (persona instanceof Empleado) {
-                        menuEmpleado((Empleado) persona);
-                    }
+            Persona persona = archivos.buscarPersona(apellido, contra);
+
+            if (persona != null) {
+                sesionExitosa=true;
+                if (persona instanceof Cliente) {
+                    menuCliente((Cliente) persona);
+                } else if (persona instanceof Empleado) {
+                    menuEmpleado((Empleado) persona);
                 }
-            } catch (NoSuchElementException e) {
-                throw new NoSuchElementException(e.getMessage());
-
             }
-        }while (!sesionExitosa);
+            else
+            {
+                System.out.println("La persona no existe dentro del sistema, tendra que registrarla");
+                System.out.println("Volviendo al inicio...");
+                inicio();
+            }
+        } catch (NoSuchElementException e) {
+            throw new NoSuchElementException(e.getMessage());
+
+        }
+
     }
 
     public Cliente registrarCliente()
@@ -151,7 +159,7 @@ public class Menu {
 
                     break;
                 case 4:
-                   //cliente
+                    //cliente
                 case 5:
                     //reserva.mostrarPasaje();
                     break;
@@ -162,15 +170,15 @@ public class Menu {
                     cliente.eliminarReserva();
                     break;
                 case 8:
-
-                exit = true;
-                break;
+                    inicio();
+                    exit = true;
+                    break;
                 default:
                     System.out.println("\nOpción no valida. Por favor, intente de nuevo.");
             }
         }
-       lector.close();
-        }
+        lector.close();
+    }
 
     public void menuEmpleado(Empleado empleado) {
 
@@ -230,37 +238,37 @@ public class Menu {
     }
 
 
-    public void menuCompraPasaje(){
-
-        System.out.print("\nORIGEN: ");
-        String lugarSalida = lector.nextLine();
-
-        System.out.print("   DESTINO: ");
-        String lugarLlegada =lector.nextLine();
-
-        System.out.print("\nFECHA  (yyyy-MM-dd): ");
-        String fechaStr = lector.nextLine();
-        LocalDate fechaIda = LocalDate.parse(fechaStr, DateTimeFormatter.ISO_LOCAL_DATE);
-
-        System.out.print("Ingrese el número de pasajeros: ");
-        int numeroPasajeros = lector.nextInt();
-        lector.nextLine();
-
-        System.out.println("\n-----------------------");
-
-        Vuelo vuelo = new Vuelo(lugarSalida, lugarLlegada, fechaIda,  numeroPasajeros);
-
-        //mostrarPasajesDisponiblesCompra(vuelo);
-
-        System.out.println("\nPasaje comprado exitosamente: " + vuelo);
-
-        System.out.println("\nDesea ver mas pasajes?");
-        int opcion=0;
-        switch (opcion){
-
-            case 1:
-                menuCompraPasaje();
-        }
+//    public void menuCompraPasaje(){
+//
+//        System.out.print("\nORIGEN: ");
+//        String lugarSalida = lector.nextLine();
+//
+//        System.out.print("   DESTINO: ");
+//        String lugarLlegada =lector.nextLine();
+//
+//        System.out.print("\nFECHA  (yyyy-MM-dd): ");
+//        String fechaStr = lector.nextLine();
+//        LocalDate fechaIda = LocalDate.parse(fechaStr, DateTimeFormatter.ISO_LOCAL_DATE);
+//
+//        System.out.print("Ingrese el número de pasajeros: ");
+//        int numeroPasajeros = lector.nextInt();
+//        lector.nextLine();
+//
+//        System.out.println("\n-----------------------");
+//
+//        Vuelo vuelo = new Vuelo(lugarSalida, lugarLlegada, fechaIda,  numeroPasajeros);
+//
+//        //mostrarPasajesDisponiblesCompra(vuelo);
+//
+//        System.out.println("\nPasaje comprado exitosamente: " + vuelo);
+//
+//        System.out.println("\nDesea ver mas pasajes?");
+//        int opcion=0;
+//        switch (opcion){
+//
+//            case 1:
+//                menuCompraPasaje();
+//        }
 
     }
 
@@ -268,4 +276,4 @@ public class Menu {
 
 
 
-}
+
