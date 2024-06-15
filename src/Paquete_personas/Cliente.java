@@ -24,14 +24,14 @@ public class Cliente extends Persona implements Serializable {
     public Cliente() {
     }
 
-    public Cliente(String nombre, String apellido, String email, String contra) {
-        super(nombre, apellido, email, contra);
+    public Cliente(String nombre, String apellido, String email, String contra,Genero genero) {
+        super(nombre, apellido, email, contra,genero);
     }
 
 
 
-    public Cliente(String nombre, String apellido, String email, String contra, Integer pasaporte, int edad, long numTelefono) {
-        super(nombre, apellido, email, contra);
+    public Cliente(String nombre, String apellido, String email, String contra,Genero genero, Integer pasaporte, int edad, long numTelefono) {
+        super(nombre, apellido, email, contra,genero);
         this.pasaporte = pasaporte;
         this.edad = edad ;
         this.numTelefono = numTelefono;

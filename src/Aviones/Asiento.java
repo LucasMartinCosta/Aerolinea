@@ -1,6 +1,7 @@
 package Aviones;
 
 import Paquete_personas.Cliente;
+import Paquete_personas.Genero;
 
 public class Asiento {
     private int fila;
@@ -15,7 +16,7 @@ public class Asiento {
         this.fila = fila;
         this.letra = letra;
         reservado = false;
-        cliente = new Cliente("","", "", "");
+        cliente = new Cliente("","", "", "", Genero.FEMENINO);
     }
 
     public int getFila() {
@@ -55,7 +56,7 @@ public class Asiento {
     public void liberar ()
     {
         this.reservado=false;
-        cliente=new Cliente("", "", "", ""); // pisa el cliente con un constructor vacio
+        cliente=new Cliente("", "", "", "",Genero.MASCULINO); // pisa el cliente con un constructor vacio
     }
 
 

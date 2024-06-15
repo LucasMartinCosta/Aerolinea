@@ -26,14 +26,16 @@ public class Persona implements Comparable<Persona>, Serializable {
     private String apellido;
     private String email;
     private String contra;
+    private Genero genero;
 
 
     // este constructor lo podemos usar a la hora de comprar vuelos cuando tenes que completar datos
-    public Persona(String nombre, String apellido,String email, String contra ) {
+    public Persona(String nombre, String apellido,String email, String contra,Genero genero ) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.contra = contra;
+        this.genero = genero;
     }
 
 
@@ -103,5 +105,13 @@ public class Persona implements Comparable<Persona>, Serializable {
 
     public void setContra(String contra) {
         this.contra = contra;
+    }
+
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
     }
 }

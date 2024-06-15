@@ -5,6 +5,7 @@ import Aerolinea.Reserva;
 import Aviones.Avion;
 import Paquete_personas.Cliente;
 import Paquete_personas.Empleado;
+import Paquete_personas.Genero;
 import Paquete_personas.Persona;
 import Paquetes_vuelos.Lista_vuelos;
 import Paquetes_vuelos.Vuelo;
@@ -202,14 +203,14 @@ public class Manejo_archivos {
 
     public void prueba () //funcion de prueba..... solo carga personas en el archivo, sirve para verificar
     {
-        Cliente cliente = new Cliente("imanol", "sayago", "ima@", "ima");
-        Cliente cliente2 = new Cliente("Lucas", "Costa", "lucas@", "lucas");
-        Cliente cliente3 = new Cliente("Laura", "nomeacuerdo", "laura@", "laura");
-        Persona a = new Persona("persona","prueba","persona@","aaaa");
+        Cliente cliente = new Cliente("imanol", "sayago", "ima@", "ima", Genero.MASCULINO);
+        Cliente cliente2 = new Cliente("Lucas", "Costa", "lucas@", "lucas",Genero.MASCULINO);
+        Cliente cliente3 = new Cliente("Laura", "nomeacuerdo", "laura@", "laura",Genero.FEMENINO);
+        Persona a = new Persona("persona","prueba","persona@","aaaa",Genero.MASCULINO);
 
-        Empleado empleado = new Empleado("manuempleado", "abras", "manu@", "manu");
-        Empleado empleado2 = new Empleado("imanolempleado", "sayago", "imanolempleado@", "imanolempleado");
-        Empleado empleado3 = new Empleado("lucasempleado", "costa", "lucasempleado@", "lucasempleado");
+        Empleado empleado = new Empleado("manuempleado", "abras", "manu@", "manu",Genero.MASCULINO);
+        Empleado empleado2 = new Empleado("imanolempleado", "sayago", "imanolempleado@", "imanolempleado",Genero.MASCULINO);
+        Empleado empleado3 = new Empleado("lucasempleado", "costa", "lucasempleado@", "lucasempleado",Genero.MASCULINO);
 
         lista_personas.agregar_personas(cliente);
         lista_personas.agregar_personas(cliente2);
