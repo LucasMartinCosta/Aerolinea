@@ -21,8 +21,8 @@ public class Empleado extends Persona implements Serializable {
 
 
     //Constructor Persona.
-    public Empleado(String nombre, String apellido, String email, String contra) {
-    super(nombre, apellido, email, contra);
+    public Empleado(String nombre, String apellido, String email, String contra,Genero genero) {
+    super(nombre, apellido, email, contra,genero);
     }
 
     //Constructor de Usuario.

@@ -4,6 +4,7 @@ import Aerolinea.Aerolinea;
 import Aerolinea.Reserva;
 import Paquete_personas.Cliente;
 import Paquete_personas.Empleado;
+import Paquete_personas.Genero;
 import Paquete_personas.Persona;
 import Paquetes_vuelos.Vuelo;
 import paquete_archivos.Manejo_archivos;
@@ -33,7 +34,7 @@ public class Menu {
             System.out.println("\n1.INICIAR SESION");
             System.out.println("\n2.REGISTRARSE");
             System.out.println("\n3.SALIR");
-            System.out.println("\n-----------------------");
+            System.out.println("\n---------------------------------------");
             eleccion = lector.nextInt();
             lector.nextLine();
 
@@ -102,7 +103,7 @@ public class Menu {
         System.out.println("\nIngrese su contraseña");
         String contra = lector.nextLine();
 
-        Cliente persona = new Cliente(nombre, apellido, mail, contra);
+        Cliente persona = new Cliente(nombre, apellido, mail, contra, Genero.MASCULINO);
 
         archivos.getListaPersonas().add(persona);
 
