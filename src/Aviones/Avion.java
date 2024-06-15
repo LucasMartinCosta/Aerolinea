@@ -2,10 +2,11 @@ package Aviones;
 
 import Paquete_personas.Cliente;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Avion  {
+public class Avion implements Serializable {
 
     //Manu: Habria que agregar un campo tipo ID o para eso es el modelo?
     private Map<Integer, Map <Character, Asiento>> asientos;
@@ -16,6 +17,10 @@ public class Avion  {
     private int estado;    /*Disponi|ble(1) - Ocupado (0) - Reparacion (-1) */
 
     public Avion() {
+    }
+
+    public void setAsientos(Map<Integer, Map<Character, Asiento>> asientos) {
+        this.asientos = asientos;
     }
 
     public Avion(String modelo, Integer capacidad_personas, double tiempo_vuelo, int estado, int filas) {

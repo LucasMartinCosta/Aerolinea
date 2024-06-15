@@ -2,10 +2,7 @@ package Menus;
 
 import Aerolinea.Aerolinea;
 import Aerolinea.Reserva;
-import Paquete_personas.Cliente;
-import Paquete_personas.Empleado;
-import Paquete_personas.Genero;
-import Paquete_personas.Persona;
+import Paquete_personas.*;
 import Paquetes_vuelos.Vuelo;
 import paquete_archivos.Manejo_archivos;
 
@@ -16,7 +13,6 @@ import java.util.Scanner;
 import java.util.TreeSet;
 
 public class Menu {
-
     Manejo_archivos archivos = new Manejo_archivos();
     private Scanner lector = new Scanner(System.in);
 
@@ -25,7 +21,6 @@ public class Menu {
     {
         boolean exit= false;
         int eleccion;
-
 
         archivos.prueba();
         archivos.leerarchivo_personas();
@@ -73,6 +68,8 @@ public class Menu {
                 sesionExitosa=true;
                 if (persona instanceof Cliente) {
                     menuCliente((Cliente) persona);
+                } else if (persona instanceof Admin) {
+                    menuAdmin((Admin) persona);
                 } else if (persona instanceof Empleado) {
                     menuEmpleado((Empleado) persona);
                 }
@@ -85,11 +82,8 @@ public class Menu {
             }
         } catch (NoSuchElementException e) {
             throw new NoSuchElementException(e.getMessage());
-
         }
-
     }
-
     public Cliente registrarCliente()
     {
         System.out.println("\nIngrese su nombre: ");
@@ -116,7 +110,6 @@ public class Menu {
     public void registrarUsuarioEmpleado() //SOLO DIOS // esta funcion tiene que poder permitirle al dios ingresar
     // todos los datos de un empleado, generarle una contraseña y guardarlo en el treeset de personas.
     {
-
     }
 
     public void menuCliente(Cliente cliente) {
@@ -153,6 +146,7 @@ public class Menu {
                     break;
 
                 case 2:
+
                     cliente.modificarReserva();
                     break;
                 case 3:
@@ -206,8 +200,8 @@ public class Menu {
                     Vuelo aux = empleado.buscarVuelo(codigo1);
                     //Falta el metodo de vuelo de mostrar todos los datos del vuelo.
                     //System.out.println(aux.toString());
-
                     break;
+
                 case 2:
                     //llama a una funcion que crea vuelos, juntando un avion(que tiene que estar disponible) un origen, y un destino
                     break;
@@ -237,40 +231,59 @@ public class Menu {
         lector.close();
     }
 
+    public void menuAdmin(Admin admin) {
 
-//    public void menuCompraPasaje(){
-//
-//        System.out.print("\nORIGEN: ");
-//        String lugarSalida = lector.nextLine();
-//
-//        System.out.print("   DESTINO: ");
-//        String lugarLlegada =lector.nextLine();
-//
-//        System.out.print("\nFECHA  (yyyy-MM-dd): ");
-//        String fechaStr = lector.nextLine();
-//        LocalDate fechaIda = LocalDate.parse(fechaStr, DateTimeFormatter.ISO_LOCAL_DATE);
-//
-//        System.out.print("Ingrese el número de pasajeros: ");
-//        int numeroPasajeros = lector.nextInt();
-//        lector.nextLine();
-//
-//        System.out.println("\n-----------------------");
-//
-//        Vuelo vuelo = new Vuelo(lugarSalida, lugarLlegada, fechaIda,  numeroPasajeros);
-//
-//        //mostrarPasajesDisponiblesCompra(vuelo);
-//
-//        System.out.println("\nPasaje comprado exitosamente: " + vuelo);
-//
-//        System.out.println("\nDesea ver mas pasajes?");
-//        int opcion=0;
-//        switch (opcion){
-//
-//            case 1:
-//                menuCompraPasaje();
-//        }
+        boolean exit= false;
+        int opcion1;
+        while (!exit) {
+            System.out.println("\n----------MENU ADMINISTRADOR-------------");
+            System.out.println("\n1.CREAR UN AVION");
+            System.out.println("\n2.CREAR USER DE EMPLEADO");
+            System.out.println("\n3.VER LISTA DE AVIONES COMPLETA");
+            System.out.println("\n4.VER LISTA DE VUELOS COMPLETA");
+            System.out.println("\n5.VER LISTA DE PASAJEROS POR VUELO");
+            System.out.println("\n6.MODIFICAR ESTADO DE VUELO");
+            System.out.println("\n8.SALIR DEL MENU");
+            System.out.println("\n-----------------------");
+            opcion1 = lector.nextInt();
+            lector.nextLine();
 
+            switch (opcion1) {
+                case 1:
+                    archivos.leer_archivo_aviones();
+                    admin.crearAvion(archivos);
+                    archivos.cargaarchivo_aviones();
+                    break;
+                case 2:
+                    admin.crearEmpleado(archivos);
+                    break;
+                case 3:
+                    //empleado.mostrarListaAviones();
+                    break;
+                case 4:
+                    //empleado.mostrarListaVuelos();
+                case 5:
+                    //System.out.println("\n Ingrese el codigo de vuelo que desea ver: ");
+                   // Integer codigo2 = lector.nextInt();
+                    //empleado.verPasajerosXVuelo(codigo2);
+                    break;
+                case 6:
+                    //modificar estado de vuelo.
+                    //System.out.println("\n Ingrese el codigo de vuelo a buscar: ");
+                    //Integer codigo3 = lector.nextInt();
+                    //empleado.modificarEstadoVuelo(codigo3);
+                    break;
+                case 7:
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("\nOpción no valida. Por favor, intente de nuevo.");
+            }
+        }
+        lector.close();
     }
+
+}
 
 
 

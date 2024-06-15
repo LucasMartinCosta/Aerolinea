@@ -3,11 +3,12 @@ package Aerolinea;
 import Paquete_personas.Cliente;
 import Paquetes_vuelos.Vuelo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.*;
 
 
-public class Reserva {
+public class Reserva implements Serializable {
     private Cliente cliente;
     private ArrayList<Vuelo> vuelos;
     private Integer id;  // la vamos a usar de codigo
@@ -20,6 +21,11 @@ public class Reserva {
         this.cliente = cliente;
         this.vuelos = new ArrayList<>();
     }
+
+    public Reserva() {
+    }
+
+
 
     public void agregaVuelo (Vuelo dato)
     {

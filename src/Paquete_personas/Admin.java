@@ -17,7 +17,7 @@ import java.util.TreeSet;
 
 @JsonTypeName("Admin")
 public class Admin extends Empleado implements Serializable {
-    Manejo_archivos manejoarchi = new Manejo_archivos();
+
     Scanner lector = new Scanner(System.in);
 
     public Admin(String nombre, String apellido, String email, String contra,Genero genero) {
@@ -32,7 +32,7 @@ public class Admin extends Empleado implements Serializable {
         return "Admin{}";
     }
 
-    public void crearAvion() //Ima: Creas un avion, lo sube a la lista y luego lo guarda en el archivo//
+    public void crearAvion(Manejo_archivos archivo) //Ima: Creas un avion, lo sube a la lista y luego lo guarda en el archivo//
     {
         String modelo;
         System.out.println("Ingrese el modelo del avion");
@@ -44,11 +44,11 @@ public class Admin extends Empleado implements Serializable {
         lector.nextLine();
 
         double tiempovuelo;
-        System.out.println("Ingrese la capacidad de tiempo de vuelo maximo del avion");
+        System.out.println("Ingrese las horas de tiempo de vuelo maximo del avion");
         tiempovuelo=lector.nextDouble();
 
         int estado;
-        System.out.println("Ingrese el estado del vuelo");
+        System.out.println("Ingrese el estado del vuelo Disponi|ble (1) - Ocupado (0) - Reparacion (-1) ");
         estado=lector.nextInt();
         lector.nextLine();
 
@@ -57,18 +57,16 @@ public class Admin extends Empleado implements Serializable {
         filas=lector.nextInt();
         lector.nextLine();
 
-
         Avion avion = new Avion(modelo,capacidad,tiempovuelo,estado,filas);
 
-        manejoarchi.getListaAvion().add(avion);
-        manejoarchi.cargaarchivo_aviones();
+        archivo.getLista_aviones().agregar_aviones_lista(avion);
     }
 
-    public void crearEmpleado()  //Ima: Creas un empleado siendo administrador, lo guarda en la lista y lo sube al archivo///
+    public void crearEmpleado(Manejo_archivos archivos)  //Ima: Creas un empleado siendo administrador, lo guarda en la lista y lo sube al archivo///
     {
 
         Lista_Personas listapersonasaux;
-        listapersonasaux=manejoarchi.leerarchivo_personas();
+        listapersonasaux=archivos.leerarchivo_personas();
 
 
         String nombre;
@@ -87,7 +85,6 @@ public class Admin extends Empleado implements Serializable {
         System.out.println("Ingrese la contraseña del empleado: ");
         contra=lector.nextLine();
 
-
         int opcion;
 
         Genero genero=null;
@@ -101,8 +98,7 @@ public class Admin extends Empleado implements Serializable {
         switch (opcion)
         {
             case 1:
-
-                        genero= Genero.MASCULINO;
+                    genero= Genero.MASCULINO;
             break;
 
             case 2:
@@ -117,14 +113,14 @@ public class Admin extends Empleado implements Serializable {
         Empleado nuevo = new Empleado(nombre,apellido,email,contra,genero);
 
         listapersonasaux.agregar_personas(nuevo);
-        manejoarchi.setLista_personas(listapersonasaux);
-        manejoarchi.cargararchivo_personas();
+        archivos.setLista_personas(listapersonasaux);
+        archivos.cargararchivo_personas();
     }
 
-    public void eliminaavionModoIma(Avion dato)//Ima: busca el avion, lo elimina, setea la nueva lista a la lista del avion y carga el archivo
+    public void eliminaavionModoIma(Avion dato, Manejo_archivos archivos)//Ima: busca el avion, lo elimina, setea la nueva lista a la lista del avion y carga el archivo
     {
         Lista_aviones aux;
-        aux= manejoarchi.leer_archivo_aviones();
+        aux= archivos.leer_archivo_aviones();
         for(Avion avi : aux.getLista_aviones())
         {
             if(avi.equals(dato))
@@ -133,14 +129,13 @@ public class Admin extends Empleado implements Serializable {
                 System.out.println("Avion eliminado con exito");
             }
         }
-        manejoarchi.setLista_aviones(aux);
-        manejoarchi.cargaarchivo_aviones();
-
+        archivos.setLista_aviones(aux);
+        archivos.cargaarchivo_aviones();
     }
 
-    public void eliminaAvion(Avion avionAEliminar) //Ima: esto me tiro chatgpt
+    public void eliminaAvion(Avion avionAEliminar, Manejo_archivos archivos) //Ima: esto me tiro chatgpt
     {
-        Lista_aviones listaAviones = manejoarchi.leer_archivo_aviones();
+        Lista_aviones listaAviones = archivos.leer_archivo_aviones();
 
         Iterator<Avion> iterator = listaAviones.getLista_aviones().iterator();
         while (iterator.hasNext()) {
@@ -153,8 +148,8 @@ public class Admin extends Empleado implements Serializable {
         }
 
         // Actualiza la lista de aviones en el archivo
-        manejoarchi.setLista_aviones(listaAviones);
-        manejoarchi.cargaarchivo_aviones();
+        archivos.setLista_aviones(listaAviones);
+        archivos.cargaarchivo_aviones();
     }
 
 

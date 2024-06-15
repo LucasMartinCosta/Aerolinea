@@ -33,7 +33,7 @@ public class Cliente extends Persona implements Serializable {
     public Cliente(String nombre, String apellido, String email, String contra,Genero genero, Integer pasaporte, int edad, long numTelefono) {
         super(nombre, apellido, email, contra,genero);
         this.pasaporte = pasaporte;
-        this.edad = edad ;
+        this.edad = edad;
         this.numTelefono = numTelefono;
         this.reservas = new HashMap<>();
     }

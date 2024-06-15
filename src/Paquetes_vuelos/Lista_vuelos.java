@@ -1,16 +1,15 @@
 package Paquetes_vuelos;
 
+import java.io.Serializable;
 import java.util.*;
 import java.util.function.Consumer;
 
 //en esta clase estan todos los metodos para manejar la lista de vuelos
 //Implementa iterable para poder hacer que la lista_vuelos itere.
 
-public class Lista_vuelos implements Iterable<Vuelo> {
+public class Lista_vuelos implements Serializable, Iterable<Vuelo> {
     HashSet<Vuelo> lista_vuelos = new HashSet<>();
 
-    public Lista_vuelos() {
-    }
 
     public void agregarvueloslista(Vuelo a)
     {

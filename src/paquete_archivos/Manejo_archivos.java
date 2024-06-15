@@ -3,10 +3,7 @@ package paquete_archivos;
 
 import Aerolinea.Reserva;
 import Aviones.Avion;
-import Paquete_personas.Cliente;
-import Paquete_personas.Empleado;
-import Paquete_personas.Genero;
-import Paquete_personas.Persona;
+import Paquete_personas.*;
 import Paquetes_vuelos.Destinos;
 import Paquetes_vuelos.Lista_vuelos;
 import Paquetes_vuelos.Vuelo;
@@ -16,7 +13,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-
 
 import java.io.File;
 import java.io.IOException;
@@ -32,16 +28,11 @@ public class Manejo_archivos {
     private Lista_vuelos vuelos = new Lista_vuelos();
     private HashMap<Integer, Reserva> listaReservas;
 
-
     File archivo_personas = new File("ArchivoPersonas.json");
     File archivo_aviones = new File("ArchivoAviones.json");
     File archivo_vuelos = new File("ArchivoVuelos.json");
     File archivo_reservas = new File("ArchivoReservas.json");
     ObjectMapper mapper = new ObjectMapper();
-
-
-
-
 
 
     public Persona buscarPersona (String apellido, String contra)
@@ -219,12 +210,18 @@ public class Manejo_archivos {
         Empleado empleado2 = new Empleado("imanolempleado", "sayago", "imanolempleado@", "imanolempleado",Genero.MASCULINO);
         Empleado empleado3 = new Empleado("lucasempleado", "costa", "lucasempleado@", "lucasempleado",Genero.MASCULINO);
 
+
+        Admin admin = new Admin("lucasempleado", "costa", "lucasempleado@", "lucasempleado",Genero.MASCULINO);
+        Admin admin1 = new Admin("lucasempleado", "admin", "lucasempleado@", "1",Genero.MASCULINO);
+
         lista_personas.agregar_personas(cliente);
         lista_personas.agregar_personas(cliente2);
         lista_personas.agregar_personas(cliente3);
         lista_personas.agregar_personas(empleado);
         lista_personas.agregar_personas(empleado2);
         lista_personas.agregar_personas(empleado3);
+        lista_personas.agregar_personas(admin1);
+        lista_personas.agregar_personas(admin);
 
         cargararchivo_personas();
     }
@@ -235,10 +232,10 @@ public class Manejo_archivos {
         Avion avion2 = new Avion("a2",20,2.4,1,1);
         Avion avion3 = new Avion("a3",20,2.4,1,1);
 
-        lista_aviones.getLista_aviones().add(avion1);
-        lista_aviones.getLista_aviones().add(avion2);
-        lista_aviones.getLista_aviones().add(avion3);
-        cargaarchivo_aviones();
+        lista_aviones.agregar_aviones_lista(avion1);
+        lista_aviones.agregar_aviones_lista(avion2);
+        lista_aviones.agregar_aviones_lista(avion3);
+       // cargaarchivo_aviones();
     }
 
     public void prueba_vuelos()

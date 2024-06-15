@@ -14,7 +14,6 @@ import java.util.Scanner;
 
 @JsonTypeName("Empleado")
 public class Empleado extends Persona implements Serializable {
-
     private Lista_vuelos listaVuelo;
     private Lista_Personas listaPersonas;
     private Lista_aviones listaAviones;
@@ -33,7 +32,6 @@ public class Empleado extends Persona implements Serializable {
 
 
     public Empleado() {
-
         this.listaVuelo = new Lista_vuelos();
         this.listaPersonas = new Lista_Personas();
         this.listaAviones = new Lista_aviones();

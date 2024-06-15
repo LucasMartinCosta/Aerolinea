@@ -3,13 +3,25 @@ package Aviones;
 import Paquete_personas.Cliente;
 import Paquete_personas.Genero;
 
-public class Asiento {
+import java.io.Serializable;
+
+public class Asiento implements Serializable {
     private int fila;
     private char letra;
     private boolean reservado;
     private Cliente cliente;
 
-    public Asiento() {
+
+    public boolean isReservado() {
+        return reservado;
+    }
+
+    public void setReservado(boolean reservado) {
+        this.reservado = reservado;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public Asiento(int fila, char letra) {
@@ -59,6 +71,8 @@ public class Asiento {
         cliente=new Cliente("", "", "", "",Genero.MASCULINO); // pisa el cliente con un constructor vacio
     }
 
+    public Asiento() {
+    }
 
     @Override
     public String toString() {

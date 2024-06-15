@@ -11,35 +11,33 @@ import paquete_archivos.Manejo_archivos;
 import java.io.IOException;
 
 //ANOTACIONES GENERALES//
-//LUCAS: En los archivos solamente vamos a guardar datos Personas, vuelos y aviones
+//LUCAS: IMPORTANTE; acordarse de que trabajamos con las estructuras que estan instanciadas en Manejo_archivos en la clase menu!!!
+//desde esa variable accedemos a todas las listas. Una vez inicializado el programa leemos todos los archivos y se cargan las listas
+//cuando terminamos de usar el programa hay que guardar las listas en los archivos y asi no vamos a tener problemas con los datos.
 
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        Cliente cliente2 = new Cliente("Lucas", "Costa", "lucas@", "lucas", Genero.MASCULINO);
-
         Menu menu = new Menu();
         Manejo_archivos inicArchivos = new Manejo_archivos();
 
-            inicArchivos.prueba();
-//          inicArchivos.leerarchivo_personas();
+        inicArchivos.prueba();
+        inicArchivos.leerarchivo_personas();
+
+        inicArchivos.prueba_aviones();
+        //inicArchivos.leer_archivo_aviones();
+
+        inicArchivos.prueba_vuelos();
+        inicArchivos.leerarchivo_vuelos();
+
+
+        menu.inicio(); //Funciona, excepto el salir del menu principal(cerrar el programa)
+
+
+//            Admin a = new Admin();
 //
-//          inicArchivos.prueba_aviones();
-//          inicArchivos.leer_archivo_aviones();
-//
-//          inicArchivos.prueba_vuelos();
-//          inicArchivos.leerarchivo_vuelos();
-
-
-       menu.inicio(); //Funciona, excepto el salir del menu principal(cerrar el programa)
-
-
-        Admin a = new Admin();
-
-       a.crearAvion();
-       a.crearAvion();
-
-
+//            a.crearAvion();
+//            a.crearAvion();
 
     }
 }

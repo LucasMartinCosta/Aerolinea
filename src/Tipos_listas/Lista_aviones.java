@@ -2,11 +2,15 @@ package Tipos_listas;
 
 import Aviones.Avion;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Lista_aviones {
+public class Lista_aviones implements Serializable {
 
     ArrayList<Avion> lista_aviones = new ArrayList<>();
+
+    public Lista_aviones() {
+    }
 
     public void agregar_aviones_lista(Avion dato)
     {
