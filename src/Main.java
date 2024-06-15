@@ -1,5 +1,8 @@
+import Aviones.Avion;
 import Menus.Menu;
 import Paquete_personas.Cliente;
+import Paquetes_vuelos.Lista_vuelos;
+import Paquetes_vuelos.Vuelo;
 import paquete_archivos.Manejo_archivos;
 //import paquete_archivos.Manejo_archivos;
 
@@ -19,15 +22,17 @@ public class Main {
         inicArchivos.prueba();
         //inicArchivos.leer_todo_archivo_personas();
 
-        inicArchivos.prueba_aviones();
-        inicArchivos.leer_archivo_aviones();
+        //inicArchivos.prueba_aviones();
+        //inicArchivos.leer_archivo_aviones();
 
-        inicArchivos.prueba_vuelos();
-        inicArchivos.leerarchivo_vuelos();
+        //inicArchivos.prueba_vuelos();
+        //inicArchivos.leerarchivo_vuelos();
 
 
-        //menu.inicio();
-        menu.menuCliente(cliente2);
+        //menu.inicio(); //NO FUNCIONA - CICLO INFINITO - ARREGLAR
+
+
+        //menu.menuCliente(cliente2);
 
 
 

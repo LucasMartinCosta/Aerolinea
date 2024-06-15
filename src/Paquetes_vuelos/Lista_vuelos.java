@@ -3,12 +3,30 @@ package Paquetes_vuelos;
 import java.util.*;
 import java.util.function.Consumer;
 
-public class Lista_vuelos implements Iterable<Vuelo> {  //en esta clase estan todos los metodos para manejar la lista de vuelos
+//en esta clase estan todos los metodos para manejar la lista de vuelos
+//Implementa iterable para poder hacer que la lista_vuelos itere.
+
+public class Lista_vuelos implements Iterable<Vuelo> {
     HashSet<Vuelo> lista_vuelos = new HashSet<>();
 
     public void agregarvueloslista(Vuelo a)
     {
         lista_vuelos.add(a);
+    }
+
+    public Vuelo buscarVuelo(String codigo)
+    {
+        Vuelo buscado = null;
+
+        for (Vuelo dato:lista_vuelos)
+        {
+            if (dato.getCodigoVuelo().equals(codigo))
+            {
+                buscado=dato;
+            }
+        }
+
+        return buscado;
     }
 
     public HashSet<Vuelo> getLista_vuelos() {
@@ -48,16 +66,16 @@ public class Lista_vuelos implements Iterable<Vuelo> {  //en esta clase estan to
 
     @Override
     public Iterator<Vuelo> iterator() {
-        return null;
+        return lista_vuelos.iterator();
     }
 
     @Override
     public void forEach(Consumer<? super Vuelo> action) {
-        Iterable.super.forEach(action);
+        lista_vuelos.forEach(action);
     }
 
     @Override
     public Spliterator<Vuelo> spliterator() {
-        return Iterable.super.spliterator();
+        return lista_vuelos.spliterator();
     }
 }

@@ -3,6 +3,7 @@ package Paquete_personas;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -13,11 +14,10 @@ import java.util.Objects;
         include = JsonTypeInfo.As.PROPERTY,
         property = "tipo"
 )
-
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Cliente.class, name = "cliente"),
-        @JsonSubTypes.Type(value = Admin.class, name = "admin"),
-        @JsonSubTypes.Type(value = Empleado.class, name = "empleado")
+        @JsonSubTypes.Type(value = Empleado.class, name = "empleado"),
+        @JsonSubTypes.Type(value = Admin.class, name = "admin")
 })
 
 public class Persona implements Comparable<Persona>, Serializable {

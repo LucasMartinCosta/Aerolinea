@@ -4,6 +4,7 @@ import Aviones.Avion;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class Vuelo implements Comparable<Vuelo> {
     private String origen;
@@ -15,7 +16,7 @@ public class Vuelo implements Comparable<Vuelo> {
 //    private LocalDateTime horaSalida;
 //    private LocalDateTime horaLlegada;
     private int estado; // Ok(1) - Retrasado(0) - Cancelado (-1)
-    private Integer codigoVuelo;  //capaz puede ser un String
+    private String codigoVuelo;  //capaz puede ser un String
     private String condicionVuelo;
     private int numeroPasajeros;
     private Double precioVuelo;
@@ -27,10 +28,11 @@ public class Vuelo implements Comparable<Vuelo> {
     public Vuelo() {
     }
 
-    public Vuelo(String origen,String destino, Avion avion, Double tiempoVuelo, int estado, int codigoVuelo, Double precioVuelo) {
+    public Vuelo(String origen,String destino, Avion avion, Double tiempoVuelo, int estado, String codigoVuelo, Double precioVuelo) {
 
         this.origen = origen;
         this.destino = destino;
+        this.codigoVuelo=codigoVuelo;
         this.avion = avion;
         this.tiempoVuelo = tiempoVuelo;
 //        this.fechaSalida = fechaSalida;
@@ -78,7 +80,7 @@ public class Vuelo implements Comparable<Vuelo> {
 //
 //    }
 
-    public Integer getCodigoVuelo() {
+    public String getCodigoVuelo() {
         return codigoVuelo;
     }
 
@@ -112,7 +114,6 @@ public class Vuelo implements Comparable<Vuelo> {
           this.condicionVuelo = "CANCELADO";
       }
     }
-
 
     public String getOrigen() {
         return origen;
@@ -164,7 +165,20 @@ public class Vuelo implements Comparable<Vuelo> {
 
     @Override
      public int compareTo(Vuelo o) {
-        return Integer.compare(this.codigoVuelo, o.codigoVuelo);
+        return this.codigoVuelo.compareTo(o.getCodigoVuelo());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vuelo vuelo = (Vuelo) o;
+        return Objects.equals(codigoVuelo, vuelo.codigoVuelo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(codigoVuelo);
     }
 
     @Override
@@ -180,6 +194,8 @@ public class Vuelo implements Comparable<Vuelo> {
                 ", numeroPasajeros=" + numeroPasajeros +
                 '}';
     }
+
+
 
 
 

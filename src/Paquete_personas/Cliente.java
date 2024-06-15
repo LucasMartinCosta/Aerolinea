@@ -50,9 +50,8 @@ public class Cliente extends Persona implements Serializable {
         System.out.println("Ingrese el codigo del vuelo a comprar");
         String codigo = scan.nextLine();
 
-        Vuelo buscado=listaVuelos.getLista_vuelos().BUSCARVUELO (codigo); //HAY QUE AGREGAR LA FUNCION QUE BUSCA EL VUELO POR EL CODIGO
+        Vuelo buscado=listaVuelos.buscarVuelo(codigo);
         //funcion de buscar vuelo con el codigo leido
-
         return buscado;
     }
 

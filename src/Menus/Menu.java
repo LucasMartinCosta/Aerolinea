@@ -67,19 +67,18 @@ public class Menu {
                 Persona persona = archivos.buscarPersona(apellido, contra);
 
                 if (persona != null) {
+                    sesionExitosa=true;
                     if (persona instanceof Cliente) {
                         menuCliente((Cliente) persona);
                     } else if (persona instanceof Empleado) {
                         menuEmpleado((Empleado) persona);
                     }
-
                 }
             } catch (NoSuchElementException e) {
                 throw new NoSuchElementException(e.getMessage());
 
             }
         }while (!sesionExitosa);
-
     }
 
     public Cliente registrarCliente()

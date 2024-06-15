@@ -1,5 +1,6 @@
 package paquete_archivos;
 
+
 import Aerolinea.Reserva;
 import Aviones.Avion;
 import Paquete_personas.Cliente;
@@ -11,6 +12,7 @@ import Tipos_listas.Lista_Personas;
 import Tipos_listas.Lista_aviones;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 
 import java.io.File;
@@ -36,6 +38,8 @@ public class Manejo_archivos {
 
 
 
+
+
     public Persona buscarPersona (String apellido, String contra)
     {
         for (Persona persona:lista_personas.getLista_personas())
@@ -52,6 +56,7 @@ public class Manejo_archivos {
     public void cargararchivo_personas(){
 
         try{
+            mapper.enable(SerializationFeature.INDENT_OUTPUT);
             mapper.writeValue(archivo_personas,lista_personas.getLista_personas());
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -200,9 +205,9 @@ public class Manejo_archivos {
     public void prueba_vuelos()
     {
         Avion a1 = new Avion();
-        Vuelo v1= new Vuelo("mar del plata","NY",a1,2.4,1,123, 100.);
-        Vuelo v2= new Vuelo("Coronel Vidal","NY",a1,2.4,1,123, 150.);
-        Vuelo v3= new Vuelo("CHACO","NY",a1,2.4,1,123, 222.);
+        Vuelo v1= new Vuelo("mar del plata","NY",a1,2.4,1,"mdp.ny.a1", 100.);
+        Vuelo v2= new Vuelo("Coronel Vidal","NY",a1,2.4,1,"cv.ny.a1", 150.);
+        Vuelo v3= new Vuelo("CHACO","NY",a1,2.4,1,"ch.ny.a1", 222.);
 
 
         vuelos.agregarvueloslista(v1);
