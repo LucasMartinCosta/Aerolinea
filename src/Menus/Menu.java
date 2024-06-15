@@ -6,7 +6,6 @@ import Paquete_personas.Cliente;
 import Paquete_personas.Empleado;
 import Paquete_personas.Genero;
 import Paquete_personas.Persona;
-import Paquetes_vuelos.Destinos;
 import Paquetes_vuelos.Vuelo;
 import paquete_archivos.Manejo_archivos;
 
@@ -119,12 +118,13 @@ public class Menu {
         while (!exit) {
             System.out.println("\n-----------------------");
             System.out.println("\n1.COMPRAR PASAJE");
-            System.out.println("\n2.MOSTRAR MI RESERVA");
-            System.out.println("\n3.ESTADO DE VUELO");
-            System.out.println("\n4.VER PASAJES DISPONIBLES");
-            System.out.println("\n5.COMPRAR EQUIPAJE");
-            System.out.println("\n6.DEVOLUCION / CANCELACION DE VUELOS");
-            System.out.println("\n7.SALIR DEL MENU");
+            System.out.println("\n2.MODIFICAR MI RESERVA");
+            System.out.println("\n3.MOSTRAR MI RESERVA");
+            System.out.println("\n4.ESTADO DE VUELO");
+            System.out.println("\n5.VER PASAJES DISPONIBLES");
+            System.out.println("\n6.COMPRAR EQUIPAJE");
+            System.out.println("\n7.DEVOLUCION / CANCELACION DE VUELOS");
+            System.out.println("\n8.SALIR DEL MENU");
             System.out.println("\n-----------------------");
             opcion1 = lector.nextInt();
             lector.nextLine();
@@ -145,7 +145,7 @@ public class Menu {
                     break;
 
                 case 2:
-
+                    cliente.modificarReserva();
                     break;
                 case 3:
 
@@ -156,12 +156,15 @@ public class Menu {
                     //reserva.mostrarPasaje();
                     break;
                 case 6:
-                    cliente.eliminarReserva();
 
                     break;
                 case 7:
-                    exit = true;
+                    cliente.eliminarReserva();
                     break;
+                case 8:
+
+                exit = true;
+                break;
                 default:
                     System.out.println("\nOpción no valida. Por favor, intente de nuevo.");
             }
@@ -245,7 +248,7 @@ public class Menu {
 
         System.out.println("\n-----------------------");
 
-        Vuelo vuelo = new Vuelo(Destinos.BARILOCHE, Destinos.MENDOZA, fechaIda,  numeroPasajeros);
+        Vuelo vuelo = new Vuelo(lugarSalida, lugarLlegada, fechaIda,  numeroPasajeros);
 
         //mostrarPasajesDisponiblesCompra(vuelo);
 

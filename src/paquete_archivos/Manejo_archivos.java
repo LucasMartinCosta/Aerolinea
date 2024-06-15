@@ -53,6 +53,7 @@ public class Manejo_archivos {
                 return persona;
             }
         }
+
         return null;
     }
 
@@ -82,11 +83,6 @@ public class Manejo_archivos {
 
             // Asignar el TreeSet al campo setListaPersonas
             lista_personas.setLista_personas(aux);
-
-            for(Persona a : lista_personas.getLista_personas())
-            {
-                System.out.println(a.toString());
-            }
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -207,7 +203,7 @@ public class Manejo_archivos {
         Cliente cliente = new Cliente("imanol", "sayago", "ima@", "ima", Genero.MASCULINO);
         Cliente cliente2 = new Cliente("Lucas", "Costa", "lucas@", "lucas",Genero.MASCULINO);
         Cliente cliente3 = new Cliente("Laura", "nomeacuerdo", "laura@", "laura",Genero.FEMENINO);
-        Persona a = new Persona("persona","prueba","persona@","aaaa",Genero.MASCULINO);
+
 
         Empleado empleado = new Empleado("manuempleado", "abras", "manu@", "manu",Genero.MASCULINO);
         Empleado empleado2 = new Empleado("imanolempleado", "sayago", "imanolempleado@", "imanolempleado",Genero.MASCULINO);
@@ -219,7 +215,7 @@ public class Manejo_archivos {
         lista_personas.agregar_personas(empleado);
         lista_personas.agregar_personas(empleado2);
         lista_personas.agregar_personas(empleado3);
-        lista_personas.agregar_personas(a);
+
         cargararchivo_personas();
     }
 
