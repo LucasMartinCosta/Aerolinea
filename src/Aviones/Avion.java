@@ -90,6 +90,9 @@ public class Avion  {
         this.estado = estado;
     }
 
+    public Map<Integer, Map<Character, Asiento>> getAsientos() {
+        return asientos;
+    }
 
     public boolean comprarAsiento (Cliente dato, int fila, char letra)
     {

@@ -1,5 +1,6 @@
 package Paquete_personas;
 
+import Aviones.Asiento;
 import Aviones.Avion;
 import Paquetes_vuelos.Lista_vuelos;
 import Paquetes_vuelos.Vuelo;
@@ -7,6 +8,7 @@ import Tipos_listas.Lista_Personas;
 import Tipos_listas.Lista_aviones;
 
 import java.io.Serializable;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Empleado extends Persona implements Serializable {
@@ -15,10 +17,12 @@ public class Empleado extends Persona implements Serializable {
     private Lista_Personas listaPersonas;
     private Lista_aviones listaAviones;
 
+
     //Constructor Persona.
     public Empleado(String nombre, String apellido, String email, String contra) {
-        super(nombre, apellido, email, contra);
+    super(nombre, apellido, email, contra);
     }
+
     //Constructor de Usuario.
     public Empleado(String email, String contra) {
         super(email, contra);
@@ -27,69 +31,75 @@ public class Empleado extends Persona implements Serializable {
 
 
     public Empleado() {
+
         this.listaVuelo = new Lista_vuelos();
         this.listaPersonas = new Lista_Personas();
         this.listaAviones = new Lista_aviones();
     }
-    //Buscar un vuelo puntual buscado por codigo de vuelo y devuelve ese vuelo puntual o null si no existe.
-    //Lo hice de la forma que veniamos trabajando hasta ahora, esta sujeto a modificaciones.
-    //Tambien estaba pensando en hacer Genericos aca, que reciba un codigo y una lista, y devuelva el objeto con su codigo.
+        //Buscar un vuelo puntual buscado por codigo de vuelo y devuelve ese vuelo puntual o null si no existe.
+        //Lo hice de la forma que veniamos trabajando hasta ahora, esta sujeto a modificaciones.
 
-    public Vuelo buscarVuelo(int vueloBuscado){
-        for (Vuelo v: listaVuelo.getLista_vuelos()) {
-            if(v.getCodigoVuelo().equals(vueloBuscado)) {
+    public Vuelo buscarVuelo(int vueloBuscado) {
+        for (Vuelo v : listaVuelo.getLista_vuelos()) {
+            if (v.getCodigoVuelo().equals(vueloBuscado)) {
                 return v;
             }
         }
         return null;
     }
-    public void modificarEstadoVuelo(int buscado){
+
+    public void modificarEstadoVuelo(int buscado) {
         Vuelo encontrado = buscarVuelo(buscado);
-        if (encontrado != null){
+        if (encontrado != null) {
             System.out.println("Ingresar estado del Vuelo (1= A Tiempo // 0= Retrasado // -1= Cancelado");
-            Scanner estado= new Scanner(System.in);
+            Scanner estado = new Scanner(System.in);
             int e = estado.nextInt();
             encontrado.setEstado(e);
-        }else {
+        } else {
             System.out.println("ERROR - Vuelo no encontrado.");
         }
     }
-
-//    public void mostrarUnCliente(int pasaporte){
-//        clientes = buscarCliente(pasaporte);
-//        if (clientes != null){
-//            System.out.println(clientes.toString());
-//        }else {
-//            System.out.println("ERROR - Vuelo no encontrado.");
+    public void mostrarListaClientes(){
+        for(Persona p : listaPersonas.getLista_personas()){
+            if (p instanceof Cliente){
+                System.out.println(p);
+            }
+        }
+    }
+        //Este metodo va a trabajar SOLO con Clientes porque tienen el atributo pasaporte para poder buscar.
+        //Lo hice ahora aca pero lo voy a agregar como un metodo de admin.
+//    public Persona buscarPersona(Integer buscar){
+//        for(Persona p : listaPersonas.getLista_personas()){
+//            if(p instanceof Cliente && ((Cliente) p).getPasaporte().equals(buscar)){
+//                return p;
+//            }
 //        }
+//        return null;
+//    }
 
-
-    public Lista_vuelos getListaVuelo() {
-        return listaVuelo;
+    public void mostrarListaAviones(){
+        listaAviones.mostrar_lista_aviones();
+    }
+    public void mostrarListaVuelos(){
+        listaVuelo.mostrar_paquetes_vuelos();
     }
 
-    public void setListaVuelo(Lista_vuelos listaVuelo) {
-        this.listaVuelo = listaVuelo;
+    public void verPasajerosXVuelo(Integer codBuscar){
+        for(Vuelo vuelo : listaVuelo.getLista_vuelos()){
+            if(vuelo.getCodigoVuelo().equals(codBuscar)){
+                //Segun chat gpt son 3 bucles for para acceder a asientos, segun Intellij son 2.
+                //for (Map<Integer, Map<Character, Asiento>> filaMap : vuelo.getAvion().getAsientos().values()){
+                for(Map<Character, Asiento> asientoMap : vuelo.getAvion().getAsientos().values()){
+                    for (Asiento a : asientoMap.values()){
+                        if (a.isDisponible() && a.getCliente() != null){
+                            System.out.println(a);
+                        }
+                    }
+                    //}
+                }
+            }
+        }
+
     }
 
-    public Lista_Personas getListaPersonas() {
-        return listaPersonas;
-    }
-
-    public void setListaPersonas(Lista_Personas listaPersonas) {
-        this.listaPersonas = listaPersonas;
-    }
-
-    public Lista_aviones getListaAviones() {
-        return listaAviones;
-    }
-
-    public void setListaAviones(Lista_aviones listaAviones) {
-        this.listaAviones = listaAviones;
-    }
 }
-
-
-
-
-

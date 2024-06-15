@@ -39,6 +39,10 @@ public class Asiento {
         this.reservado = disponible;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
     public void reservar (Cliente dato)
     {
         this.cliente=dato;
