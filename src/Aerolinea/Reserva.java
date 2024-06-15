@@ -23,43 +23,34 @@ public class Reserva {
 
     public void agregaVuelo (Vuelo dato)
     {
-        for (Vuelo vuelo:vuelos)
-        {
+
             vuelos.add(dato);
-        }
+
     }
 
 
 
     //MUESTRA EL ESTADO DEL VUELO
-    public void mostrarEstadoDelVuelo(Integer id1) {
-        if (id.equals(id1)) {
-            boolean vueloEncontrado = false;
+    public void mostrarEstadoDeTodosLosVuelos() {
+        if (!vuelos.isEmpty()) {
             for (Vuelo vuelo : vuelos) {
-                vueloEncontrado = true;
                 System.out.println("\nEl estado de su vuelo es: " + vuelo.getCondicionVuelo());
             }
-            if (!vueloEncontrado) {
-                throw new NoSuchElementException("\nNo se encontró ningún vuelo con el ID proporcionado.");
-            }
         } else {
-            throw new NoSuchElementException("\nNo se encontró ninguna reserva con el ID proporcionado.");
+            System.out.println("\nNo hay vuelos asociados a esta reserva.");
         }
-
     }
 
-
-    //ESTE MUESTRA EL PASAJE UNA VEZ HECHO EL CHECK IN
-    public void mostrarPasaje(Integer id1) {
-
-        if (id.equals(id1)) {
-            System.out.println(cliente.toString());
+    //ESTE MUESTRA EL PASAJE
+    public void mostrarPasaje() {
+        if (!vuelos.isEmpty()) {
             for (Vuelo vuelo : vuelos) {
                 System.out.println(vuelo.toString());
             }
-        } else {
-            throw new NoSuchElementException("No se encontró ninguna reserva con el ID proporcionado.");
+        }else {
+            System.out.println("\nNo hay vuelos asociados a esta reserva.");
         }
+
     }
 
     public Cliente getCliente() {

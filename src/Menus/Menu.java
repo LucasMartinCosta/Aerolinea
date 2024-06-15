@@ -172,8 +172,7 @@ public class Menu {
                 case 1:
 
 //                    Lista_vuelos auxiliar= archivos.getVuelos();
-//                    System.out.println(auxiliar);  teoricamente esto deberia mostrar los vuelos que hay en el archivo pero para
-                    //sopresa de nadie no lo muestra
+//                    System.out.println(auxiliar);  teoricamente esto deberia mostrar los vuelos que hay en el archivo pero solo muestra listavacia
 
                     //LUCAS: COMPRAR PASAJE tiene que mostrar una lista de todos los vuelos disponibles para poder hacer una compra, el cliente
                     //toca el numero del pasaje que quiere comprar y se añade a su lista
@@ -189,17 +188,24 @@ public class Menu {
                     break;
 
                 case 2:
-                    Reserva reserva = new Reserva(cliente); // En cada caso tenes q hacer una nueva reserva
+                    //mostras reserva
+                    cliente.mostrarReservas();
+                    //pide que ingreses el id de la reserva
                     System.out.print("Ingrese el ID del vuelo para ver su estado: ");
                     int idVuelo = lector.nextInt();
-                    lector.nextLine();
-                    reserva.mostrarEstadoDelVuelo(idVuelo);
+                    //accede a el estado de el/los vuelos que tengas y su estado en esa reserva
+                    cliente.mostrarEstadoDelVuelo(idVuelo);
+
+
                     break;
                 case 3:
+                    //MOSTRAMOS PASAJES DEL CLIENTE
+                   // cliente.mostrarPasajes();
 
                     break;
                 case 4:
-                    //cliente
+                    //mostramos reserva del cliente
+                  //  cliente.mostrarReservas();
                 case 5:
                     //en este caso eliminamos el vuelo ingresndo a traves del scanner luego lo pasamos a reserva.eliminarReserva
                    // System.out.print("Ingrese el ID para eliminar/cancelar su vuelo: ");

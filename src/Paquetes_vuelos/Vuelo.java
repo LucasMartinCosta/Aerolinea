@@ -56,8 +56,7 @@ public class Vuelo implements Comparable<Vuelo> {
     }
 
 
-
-    //este to string lo usamos para imprimir el boleto de avion
+//este to string lo usamos para imprimir el boleto de avion
 //    @Override
 //    public String toString() {
 //        return "\nORG=" + origen +
