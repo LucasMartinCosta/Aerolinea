@@ -3,9 +3,12 @@ package Tipos_listas;
 import Paquete_personas.Persona;
 
 import java.io.Serializable;
+import java.util.Iterator;
+import java.util.Spliterator;
 import java.util.TreeSet;
+import java.util.function.Consumer;
 
-public class Lista_Personas implements Serializable {
+public class Lista_Personas implements Serializable, Iterable<Persona> {
     TreeSet<Persona> lista_personas = new TreeSet<>();
 
     public void agregar_personas(Persona dato)
@@ -25,17 +28,17 @@ public class Lista_Personas implements Serializable {
         }
     }
 
-//    public Persona buscarPersona (String apellido, String contra)
-//    {
-//        for (Persona persona:lista_personas)
-//        {
-//            if (persona.getApellido().equals(apellido) && persona.getContra().equals(contra))
-//            {
-//                return persona;
-//            }
-//        }
-//        return null;
-//    }
+    public Persona buscarPersona (String apellido, String contra)
+    {
+        for (Persona persona:lista_personas)
+        {
+            if (persona.getApellido().equals(apellido) && persona.getContra().equals(contra))
+            {
+                return persona;
+            }
+        }
+        return null;
+    }
 
     public TreeSet<Persona> getLista_personas() {
         return lista_personas;
@@ -46,4 +49,18 @@ public class Lista_Personas implements Serializable {
     }
 
 
+    @Override
+    public Iterator<Persona> iterator() {
+        return lista_personas.iterator();
+    }
+
+    @Override
+    public void forEach(Consumer<? super Persona> action) {
+        lista_personas.forEach(action);
+    }
+
+    @Override
+    public Spliterator<Persona> spliterator() {
+        return lista_personas.spliterator();
+    }
 }

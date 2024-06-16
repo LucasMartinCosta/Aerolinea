@@ -15,6 +15,9 @@ import java.io.IOException;
 //desde esa variable accedemos a todas las listas. Una vez inicializado el programa leemos todos los archivos y se cargan las listas
 //cuando terminamos de usar el programa hay que guardar las listas en los archivos y asi no vamos a tener problemas con los datos.
 
+//LUCAS: Si ven las lista_aviones, Lista_Personas y Lista_Vuelos implementan la interfaz Iterator. Al final hay tres funciones sobreescritas
+// de esa interfaz. Eso lo hice para que podamos iterar directamente sobre esas listas.
+
 public class Main {
     public static void main(String[] args) throws IOException {
 
@@ -25,13 +28,13 @@ public class Main {
         inicArchivos.leerarchivo_personas();
 
         inicArchivos.prueba_aviones();
-        //inicArchivos.leer_archivo_aviones();
+        inicArchivos.leer_archivo_aviones();
 
         inicArchivos.prueba_vuelos();
         inicArchivos.leerarchivo_vuelos();
 
 
-        menu.inicio(); //Funciona, excepto el salir del menu principal(cerrar el programa)
+        menu.inicio();
 
 
 //            Admin a = new Admin();

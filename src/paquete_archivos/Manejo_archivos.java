@@ -34,7 +34,7 @@ public class Manejo_archivos {
 
     public Persona buscarPersona (String apellido, String contra)
     {
-        for (Persona persona:lista_personas.getLista_personas())
+        for (Persona persona:lista_personas)
         {
             if (persona.getApellido().equals(apellido) && persona.getContra().equals(contra))
             {
@@ -173,32 +173,6 @@ public class Manejo_archivos {
         }
     }
 
-    public TreeSet<Persona> getListaPersonas() {return lista_personas.getLista_personas();
-    }
-
-    public Lista_Personas getLista_personas() {
-        return lista_personas;
-    }
-
-    public void setLista_personas(Lista_Personas lista_personas) {
-        this.lista_personas = lista_personas;
-    }
-
-    public ArrayList<Avion> getListaAvion() {
-        return lista_aviones.getLista_aviones();
-    }
-
-    public HashMap<Integer, Reserva> getListaReservas() {
-        return listaReservas;
-    }
-
-    public Lista_aviones getLista_aviones() {
-        return lista_aviones;
-    }
-
-    public void setLista_aviones(Lista_aviones lista_aviones) {
-        this.lista_aviones = lista_aviones;
-    }
 
     public void prueba () //funcion de prueba..... solo carga personas en el archivo, sirve para verificar
     {
@@ -254,8 +228,23 @@ public class Manejo_archivos {
 
     }
 
+        //GETTERS Y SETTERS:
+    public Lista_Personas getLista_personas() {
+        return lista_personas;
+    }
+
+    public void setLista_personas(Lista_Personas lista_personas) {
+        this.lista_personas = lista_personas;
+    }
 
 
+    public Lista_aviones getLista_aviones() {
+        return lista_aviones;
+    }
+
+    public void setLista_aviones(Lista_aviones lista_aviones) {
+        this.lista_aviones = lista_aviones;
+    }
     public Lista_vuelos getVuelos() {
         return vuelos;
     }

@@ -41,7 +41,7 @@ public class Menu {
                     iniciarSesion();
                     break;
                 case 2:
-                    Cliente cliente1 = registrarCliente(); //aca accede siempre un cliente.
+                    Cliente cliente1 = registrarCliente(); //aca accede siempre un cliente. Los empleados son siempre creados por el admin
                     menuCliente(cliente1);
                     break;
                 case 3:
@@ -54,7 +54,7 @@ public class Menu {
         lector.close();
     }
 
-    public void iniciarSesion () //falta agregar que si no te encuentra salte un error y te devuelva al menu principal // ya esta rey
+    public void iniciarSesion ()
     {
         boolean sesionExitosa = false;
 
@@ -64,7 +64,7 @@ public class Menu {
             System.out.println("Ingrese contraseña:");
             String contra = lector.nextLine();
 
-            Persona persona = archivos.buscarPersona(apellido, contra);
+            Persona persona = archivos.getLista_personas().buscarPersona(apellido, contra);
 
             if (persona != null) {
                 sesionExitosa=true;
@@ -89,7 +89,7 @@ public class Menu {
 
     }
 
-    //en registrar cliente hay que hacer un return de que?
+    //en registrar cliente hay que hacer un return de que? LUCAS: hace el return de la persona que se registra para dsp poder pasarla al menu
 
     public Cliente registrarCliente() {
 
@@ -108,7 +108,6 @@ public class Menu {
 
         //MUESTRA LAS OPCIONES DE GENERO
         //use un bucle para que ingrese ocpiones validas y que vuelva a ingresar si se equivoca
-
 
         boolean seleccionValida = false;
         Genero genero = null;
@@ -137,20 +136,14 @@ public class Menu {
             }
 
         }
-Cliente persona = new Cliente(nombre, apellido, mail, contra, Genero.MASCULINO);
+            Cliente persona = new Cliente(nombre, apellido, mail, contra, Genero.MASCULINO);
 
-        archivos.getListaPersonas().add(persona);
-
-        archivos.cargararchivo_personas();
+        archivos.getLista_personas().agregar_personas(persona);
+        //archivos.cargararchivo_personas(); //LUCAS: No hay que cargar el archivo en todas las funciones, en las funciones  solamente trabajamos
+        //con la estructura y al final lo que cargamos al archivo es la estructura cargada
         return persona;
 }
 
-
-    public void registrarUsuarioEmpleado() //SOLO DIOS // esta funcion tiene que poder permitirle al dios ingresar
-    // todos los datos de un empleado, generarle una contraseña y guardarlo en el treeset de personas.
-    {
-
-    }
 
     public void menuCliente(Cliente cliente) {
         boolean exit = false;
@@ -171,8 +164,8 @@ Cliente persona = new Cliente(nombre, apellido, mail, contra, Genero.MASCULINO);
             switch (opcion1) {
                 case 1:
 
-//                    Lista_vuelos auxiliar= archivos.getVuelos();
-//                    System.out.println(auxiliar);  teoricamente esto deberia mostrar los vuelos que hay en el archivo pero solo muestra listavacia
+//                  Lista_vuelos auxiliar= archivos.getVuelos();
+//                  System.out.println(auxiliar);  teoricamente esto deberia mostrar los vuelos que hay en el archivo pero solo muestra listavacia
 
                     //LUCAS: COMPRAR PASAJE tiene que mostrar una lista de todos los vuelos disponibles para poder hacer una compra, el cliente
                     //toca el numero del pasaje que quiere comprar y se añade a su lista
@@ -189,13 +182,12 @@ Cliente persona = new Cliente(nombre, apellido, mail, contra, Genero.MASCULINO);
 
                 case 2:
                     //mostras reserva
-                    //cliente.mostrarReservas();
+                    cliente.mostrarReservas();
                     //pide que ingreses el id de la reserva
-                    //System.out.print("Ingrese el ID del vuelo para ver su estado: ");
-                    //int idVuelo = lector.nextInt();
+                    System.out.print("Ingrese el ID del vuelo para ver su estado: ");
+                    int idVuelo = lector.nextInt();
                     //accede a el estado de el/los vuelos que tengas y su estado en esa reserva
-                   // cliente.mostrarEstadoDelVuelo(idVuelo);
-
+                    cliente.mostrarEstadoDelVuelo(idVuelo);
 
                     break;
                 case 3:
