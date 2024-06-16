@@ -29,7 +29,7 @@ public class Admin extends Empleado implements Serializable {
 
     @Override
     public String toString() {
-        return "Admin{}";
+        return super.toString()+"Admin{}";
     }
 
     public void crearAvion(Manejo_archivos archivo) //Ima: Creas un avion, lo sube a la lista y luego lo guarda en el archivo//
@@ -98,15 +98,15 @@ public class Admin extends Empleado implements Serializable {
         switch (opcion)
         {
             case 1:
-                    genero= Genero.MASCULINO;
-            break;
+                genero= Genero.MASCULINO;
+                break;
 
             case 2:
-                    genero= Genero.FEMENINO;
-            break;
+                genero= Genero.FEMENINO;
+                break;
 
             case 3:
-                    genero= Genero.OTROS;
+                genero= Genero.OTROS;
                 break;
         }
 
@@ -148,6 +148,25 @@ public class Admin extends Empleado implements Serializable {
 //        // Actualiza la lista de aviones en el archivo
 //        archivos.setLista_aviones(listaAviones);
 //        archivos.cargaarchivo_aviones();
+    }
+
+    public void verempleados(Manejo_archivos archi)
+    {
+        for (Persona ar: archi.getLista_personas().getLista_personas())
+        {
+            if(ar instanceof Empleado)
+            {
+
+                if(ar instanceof Admin)
+                {
+
+                }
+                else
+                {
+                    System.out.println(ar.toString());
+                }
+            }
+        }
     }
 
 

@@ -102,8 +102,17 @@ public class Cliente extends Persona implements Serializable {
     }
 
     public void mostrarReservas(){
-        for (Map.Entry<Integer, Reserva> entry : reservas.entrySet()) {
-            Reserva reserva = entry.getValue();
+        if(reservas.isEmpty())
+        {
+            System.out.println("El cliente no tiene reservas");
+        }
+
+        else{
+            for (Map.Entry<Integer, Reserva> entry : reservas.entrySet()) {
+                Integer clave = entry.getKey();
+                Reserva reserva = entry.getValue();
+                System.out.println("Clave: " + clave + ", Reserva: " + reserva.toString());
+            }
         }
 
     }
@@ -112,12 +121,15 @@ public class Cliente extends Persona implements Serializable {
     public void mostrarPasajes() {
         if (reservas.isEmpty()) {
             System.out.println("\nNo hay reservas registradas para este cliente.");
-            return;
+        }
+        else
+        {
+            for (Map.Entry<Integer, Reserva> entry : reservas.entrySet()) {
+                Reserva reserva = entry.getValue();
+                System.out.println("Reserva: " + reserva.toString());
+            }
         }
 
-        for (Reserva reserva : reservas.values()) {
-            reserva.mostrarPasaje();
-        }
     }
 
 
@@ -125,20 +137,20 @@ public class Cliente extends Persona implements Serializable {
     public void eliminarReserva(Integer id) {  //Elimina una reserva pasandole el codigo.
 
         boolean encontrada = false;
-            Iterator<Map.Entry<Integer, Reserva>> iterator = reservas.entrySet().iterator();
-            while (iterator.hasNext()) {
-                Map.Entry<Integer, Reserva> entry = iterator.next();
-                if (entry.getKey().equals(id)) {
+        Iterator<Map.Entry<Integer, Reserva>> iterator = reservas.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<Integer, Reserva> entry = iterator.next();
+            if (entry.getKey().equals(id)) {
 
-                    iterator.remove();
-                    System.out.println("\nReserva eliminada con éxito.");
-                    encontrada = true;
-                    break;
-                }
+                iterator.remove();
+                System.out.println("\nReserva eliminada con éxito.");
+                encontrada = true;
+                break;
             }
-            if (!encontrada) {
-                System.out.println("\nNo se encontró ninguna reserva con el código especificado. Vuelve a intentarlo.");
-            }
+        }
+        if (!encontrada) {
+            System.out.println("\nNo se encontró ninguna reserva con el código especificado. Vuelve a intentarlo.");
+        }
 
     }
 

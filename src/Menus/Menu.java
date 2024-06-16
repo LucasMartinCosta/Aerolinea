@@ -3,11 +3,13 @@ package Menus;
 import Aerolinea.Aerolinea;
 import Aerolinea.Reserva;
 import Paquete_personas.*;
+import Paquetes_vuelos.Lista_vuelos;
 import Paquetes_vuelos.Vuelo;
 import paquete_archivos.Manejo_archivos;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.HashSet;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.TreeSet;
@@ -26,6 +28,8 @@ public class Menu {
 
         archivos.prueba();
         archivos.leerarchivo_personas();
+        archivos.leer_archivo_aviones();
+        archivos.leerarchivo_vuelos();
 
         while (!exit) {
             System.out.println("\n-----------AEROLINEAS UTN------------");
@@ -136,13 +140,13 @@ public class Menu {
             }
 
         }
-            Cliente persona = new Cliente(nombre, apellido, mail, contra, Genero.MASCULINO);
+        Cliente persona = new Cliente(nombre, apellido, mail, contra, Genero.MASCULINO);
 
         archivos.getLista_personas().agregar_personas(persona);
         //archivos.cargararchivo_personas(); //LUCAS: No hay que cargar el archivo en todas las funciones, en las funciones  solamente trabajamos
         //con la estructura y al final lo que cargamos al archivo es la estructura cargada
         return persona;
-}
+    }
 
 
     public void menuCliente(Cliente cliente) {
@@ -164,8 +168,7 @@ public class Menu {
             switch (opcion1) {
                 case 1:
 
-//                  Lista_vuelos auxiliar= archivos.getVuelos();
-//                  System.out.println(auxiliar);  teoricamente esto deberia mostrar los vuelos que hay en el archivo pero solo muestra listavacia
+
 
                     //LUCAS: COMPRAR PASAJE tiene que mostrar una lista de todos los vuelos disponibles para poder hacer una compra, el cliente
                     //toca el numero del pasaje que quiere comprar y se añade a su lista
@@ -173,7 +176,7 @@ public class Menu {
                     Reserva nuevaReserva = new Reserva(cliente); //creo una nueva reserva
 
                     Vuelo vueloAComprar = cliente.elegirVueloAComprar(archivos.getVuelos()); //el cliente elige que vuelo comprar
-
+//
                     Double costo = cliente.comprarAsientos(vueloAComprar); //compra los asientos de ese vuelo
                     nuevaReserva.agregaVuelo(vueloAComprar);// se carga ese vuelo a su array de vuelos en la reserva
                     nuevaReserva.setCostoTotal(costo); //cargo el costo a la reserva
@@ -192,12 +195,12 @@ public class Menu {
                     break;
                 case 3:
                     //MOSTRAMOS PASAJES DEL CLIENTE
-                    // cliente.mostrarPasajes();
+                    cliente.mostrarReservas();
 
                     break;
                 case 4:
                     //mostramos reserva del cliente
-                    //  cliente.mostrarReservas();
+                    cliente.mostrarReservas();
                 case 5:
                     //en este caso eliminamos el vuelo ingresndo a traves del scanner luego lo pasamos a reserva.eliminarReserva
                     // System.out.print("Ingrese el ID para eliminar/cancelar su vuelo: ");
@@ -289,8 +292,9 @@ public class Menu {
             System.out.println("\n2.CREAR USER DE EMPLEADO");
             System.out.println("\n3.VER LISTA DE AVIONES COMPLETA");
             System.out.println("\n4.VER LISTA DE VUELOS COMPLETA");
-            System.out.println("\n5.VER LISTA DE PASAJEROS POR VUELO");
-            System.out.println("\n6.MODIFICAR ESTADO DE VUELO");
+            System.out.println("\n5.VER LISTA EMPLEADOS COMPLETA");
+            System.out.println("\n6.VER LISTA DE PASAJEROS POR VUELO");
+            System.out.println("\n7.MODIFICAR ESTADO DE VUELO");
             System.out.println("\n8.SALIR DEL MENU");
             System.out.println("\n-----------------------");
             opcion1 = lector.nextInt();
@@ -298,30 +302,43 @@ public class Menu {
 
             switch (opcion1) {
                 case 1:
-                    archivos.leer_archivo_aviones();
+
                     admin.crearAvion(archivos);
-                    archivos.cargaarchivo_aviones();
+
                     break;
                 case 2:
+
                     admin.crearEmpleado(archivos);
+
                     break;
                 case 3:
-                    //empleado.mostrarListaAviones();
+
+                    admin.mostrarListaAviones(archivos);
+
                     break;
                 case 4:
-                    //empleado.mostrarListaVuelos();
+
+                    admin.mostrarListaVuelos(archivos);
+
                 case 5:
-                    //System.out.println("\n Ingrese el codigo de vuelo que desea ver: ");
-                   // Integer codigo2 = lector.nextInt();
-                    //empleado.verPasajerosXVuelo(codigo2);
+
+                    admin.verempleados(archivos);
+
                     break;
                 case 6:
+                    //System.out.println("\n Ingrese el codigo de vuelo que desea ver: ");
+                    // Integer codigo2 = lector.nextInt();
+                    //empleado.verPasajerosXVuelo(codigo2);
+                    break;
+                case 7:
                     //modificar estado de vuelo.
                     //System.out.println("\n Ingrese el codigo de vuelo a buscar: ");
                     //Integer codigo3 = lector.nextInt();
                     //empleado.modificarEstadoVuelo(codigo3);
                     break;
-                case 7:
+                case 8:
+                    archivos.cargaarchivo_aviones();
+                    archivos.cargararchivo_personas();
                     exit = true;
                     break;
                 default:
@@ -330,10 +347,14 @@ public class Menu {
         }
         lector.close();
     }
+
+    public void mostrarlistavuelos(HashSet<Vuelo> lista)
+    {
+        for(Vuelo aux: lista)
+        {
+            System.out.println(aux.toString());
+        }
+    }
 }
-
-
-
-
 
 

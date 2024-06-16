@@ -35,7 +35,7 @@ public class Main {
 
 
         menu.inicio();
-
+        System.out.println("kasjdhasiudhasiudnasf");
 
 //            Admin a = new Admin();
 //
