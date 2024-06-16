@@ -65,8 +65,8 @@ public class Admin extends Empleado implements Serializable {
     public void crearEmpleado(Manejo_archivos archivos)  //Ima: Creas un empleado siendo administrador, lo guarda en la lista y lo sube al archivo///
     {
 
-        Lista_Personas listapersonasaux;
-        listapersonasaux=archivos.leerarchivo_personas();
+//        Lista_Personas listapersonasaux;
+//        listapersonasaux = archivos.leerarchivo_personas();
 
 
         String nombre;
@@ -112,44 +112,42 @@ public class Admin extends Empleado implements Serializable {
 
         Empleado nuevo = new Empleado(nombre,apellido,email,contra,genero);
 
-        listapersonasaux.agregar_personas(nuevo);
-        archivos.setLista_personas(listapersonasaux);
-        archivos.cargararchivo_personas();
+        archivos.getLista_personas().agregar_personas(nuevo);
+        //archivos.cargararchivo_personas();
     }
 
     public void eliminaavionModoIma(Avion dato, Manejo_archivos archivos)//Ima: busca el avion, lo elimina, setea la nueva lista a la lista del avion y carga el archivo
     {
-        Lista_aviones aux;
-        aux= archivos.leer_archivo_aviones();
-        for(Avion avi : aux.getLista_aviones())
-        {
-            if(avi.equals(dato))
-            {
-                aux.getLista_aviones().remove(avi);
-                System.out.println("Avion eliminado con exito");
-            }
-        }
-        archivos.setLista_aviones(aux);
-        archivos.cargaarchivo_aviones();
+
+        //for(Avion avi : archivos.getLista_aviones()) //LUCAS: creo que para solucionar este error hay que implementar la interfaz iterable en la clase Lista_Aviones como hice en la clase Lista_vuelos. Preguntar cualquier cosa
+//        {
+//            if(avi.equals(dato))
+//            {
+//                aux.getLista_aviones().remove(avi);
+//                System.out.println("Avion eliminado con exito");
+//            }
+//        }
+//        archivos.setLista_aviones(aux);
+//        archivos.cargaarchivo_aviones();
     }
 
     public void eliminaAvion(Avion avionAEliminar, Manejo_archivos archivos) //Ima: esto me tiro chatgpt
     {
-        Lista_aviones listaAviones = archivos.leer_archivo_aviones();
+        //Lista_aviones listaAviones = archivos.leer_archivo_aviones();
 
-        Iterator<Avion> iterator = listaAviones.getLista_aviones().iterator();
-        while (iterator.hasNext()) {
-            Avion avion = iterator.next();
-            if (avion.equals(avionAEliminar)) {
-                iterator.remove();
-                System.out.println("Avión eliminado con éxito");
-                break;  // Termina el bucle una vez que se elimina el avión
-            }
-        }
-
-        // Actualiza la lista de aviones en el archivo
-        archivos.setLista_aviones(listaAviones);
-        archivos.cargaarchivo_aviones();
+//        Iterator<Avion> iterator = listaAviones.getLista_aviones().iterator();
+//        while (iterator.hasNext()) {
+//            Avion avion = iterator.next();
+//            if (avion.equals(avionAEliminar)) {
+//                iterator.remove();
+//                System.out.println("Avión eliminado con éxito");
+//                break;  // Termina el bucle una vez que se elimina el avión
+//            }
+//        }
+//
+//        // Actualiza la lista de aviones en el archivo
+//        archivos.setLista_aviones(listaAviones);
+//        archivos.cargaarchivo_aviones();
     }
 
 

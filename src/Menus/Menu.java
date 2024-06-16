@@ -2,10 +2,7 @@ package Menus;
 
 import Aerolinea.Aerolinea;
 import Aerolinea.Reserva;
-import Paquete_personas.Cliente;
-import Paquete_personas.Empleado;
-import Paquete_personas.Genero;
-import Paquete_personas.Persona;
+import Paquete_personas.*;
 import Paquetes_vuelos.Vuelo;
 import paquete_archivos.Manejo_archivos;
 
@@ -341,6 +338,7 @@ Cliente persona = new Cliente(nombre, apellido, mail, contra, Genero.MASCULINO);
         }
         lector.close();
     }
+}
 
 
 
