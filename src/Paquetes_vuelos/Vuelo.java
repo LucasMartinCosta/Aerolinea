@@ -20,8 +20,7 @@ public class Vuelo implements Comparable<Vuelo> {
     private int numeroPasajeros;
     private Double precioVuelo;
 
-//    LocalDate fechaSalida,
-//    LocalDate fechaLlegada, LocalDateTime horaSalida, LocalDateTime horaLlegada,
+
 
 
     public Vuelo() {
@@ -57,19 +56,19 @@ public class Vuelo implements Comparable<Vuelo> {
 
 
 //este to string lo usamos para imprimir el boleto de avion
-//    @Override
-//    public String toString() {
-//        return "\nORG=" + origen +
-//                "                    DES=" + destino  +
-//                "\nDURACION= " + tiempoVuelo +
-//                "\nSALIDA=" + fechaSalida +
-//                "\n" +avion.getModelo() +
-//                "      " + horaSalida +
-//                "\nLLEGADA= " + fechaLlegada +
-//
-//                "       " + horaLlegada;
-//
-//    }
+
+    public String mostrarPasaje() {
+        return "\nORG=" + origen +
+                "                    DES=" + destino  +
+                "\nDURACION= " + tiempoVuelo +
+                "\nSALIDA=" + fechaIda + "  "+
+                " "+ horarioSalida+
+                "\n" +avion.getModelo() +
+                "      " + horarioSalida +
+                "\nLLEGADA= " + fechaVuelta +"    "+
+                " "+ horarioLlegada;
+
+    }
 
     public String getCodigoVuelo() {
         return codigoVuelo;
@@ -138,21 +137,6 @@ public class Vuelo implements Comparable<Vuelo> {
         this.precioVuelo = precioVuelo;
     }
 
-    //    public LocalDate getFechaSalida() {
-//        return fechaSalida;
-//    }
-//
-//    public void setFechaSalida(LocalDate fechaSalida) {
-//        this.fechaSalida = fechaSalida;
-//    }
-//
-//    public LocalDate getFechaLlegada() {
-//        return fechaLlegada;
-//    }
-//
-//    public void setFechaLlegada(LocalDate fechaLlegada) {
-//        this.fechaLlegada = fechaLlegada;
-//    }
 
     @Override
      public int compareTo(Vuelo o) {
@@ -174,16 +158,15 @@ public class Vuelo implements Comparable<Vuelo> {
 
     @Override
     public String toString() {
-        return "Vuelo{" +
-                "origen='" + origen + '\'' +
-                ", destino='" + destino + '\'' +
-                ", avion=" + avion +
-                ", tiempoVuelo=" + tiempoVuelo +
-                ", estado=" + estado +
-                ", codigoVuelo=" + codigoVuelo +
-                ", condicionVuelo='" + condicionVuelo + '\'' +
-                ", numeroPasajeros=" + numeroPasajeros +
-                '}';
+        return
+                "\nORIGEN: " + origen + "  " +
+                "DESTINO: " + destino +
+                " " + avion.toString() +
+                "\nTIEMPO DE VUELO:" + tiempoVuelo +
+                "\nESTADO: " + estado +
+                "\nCODIGO DE VUELO: " + codigoVuelo +
+                "\nCONDICION DE VUELO: " + condicionVuelo +
+                "\nNUMERO DE PASAJEROS:" + numeroPasajeros;
     }
 
 

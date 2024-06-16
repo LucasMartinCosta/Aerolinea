@@ -51,7 +51,7 @@ public class Reserva implements Serializable {
     public void mostrarPasaje() {
         if (!vuelos.isEmpty()) {
             for (Vuelo vuelo : vuelos) {
-                System.out.println(vuelo.toString());
+                System.out.println(vuelo.mostrarPasaje());
             }
         }else {
             System.out.println("\nNo hay vuelos asociados a esta reserva.");
