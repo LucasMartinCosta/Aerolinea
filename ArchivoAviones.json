@@ -1,0 +1,355 @@
+[ {
+  "asientos" : {
+    "1" : {
+      "A" : {
+        "fila" : 1,
+        "letra" : "A",
+        "cliente" : {
+          "tipo" : "Cliente",
+          "nombre" : "",
+          "apellido" : "",
+          "email" : "",
+          "contra" : "",
+          "genero" : "FEMENINO",
+          "pasaporte" : null,
+          "edad" : 0,
+          "numTelefono" : 0,
+          "contrasenia" : null,
+          "reservas" : null
+        },
+        "disponible" : false
+      },
+      "B" : {
+        "fila" : 1,
+        "letra" : "B",
+        "cliente" : {
+          "tipo" : "Cliente",
+          "nombre" : "",
+          "apellido" : "",
+          "email" : "",
+          "contra" : "",
+          "genero" : "FEMENINO",
+          "pasaporte" : null,
+          "edad" : 0,
+          "numTelefono" : 0,
+          "contrasenia" : null,
+          "reservas" : null
+        },
+        "disponible" : false
+      },
+      "C" : {
+        "fila" : 1,
+        "letra" : "C",
+        "cliente" : {
+          "tipo" : "Cliente",
+          "nombre" : "",
+          "apellido" : "",
+          "email" : "",
+          "contra" : "",
+          "genero" : "FEMENINO",
+          "pasaporte" : null,
+          "edad" : 0,
+          "numTelefono" : 0,
+          "contrasenia" : null,
+          "reservas" : null
+        },
+        "disponible" : false
+      },
+      "D" : {
+        "fila" : 1,
+        "letra" : "D",
+        "cliente" : {
+          "tipo" : "Cliente",
+          "nombre" : "",
+          "apellido" : "",
+          "email" : "",
+          "contra" : "",
+          "genero" : "FEMENINO",
+          "pasaporte" : null,
+          "edad" : 0,
+          "numTelefono" : 0,
+          "contrasenia" : null,
+          "reservas" : null
+        },
+        "disponible" : false
+      },
+      "E" : {
+        "fila" : 1,
+        "letra" : "E",
+        "cliente" : {
+          "tipo" : "Cliente",
+          "nombre" : "",
+          "apellido" : "",
+          "email" : "",
+          "contra" : "",
+          "genero" : "FEMENINO",
+          "pasaporte" : null,
+          "edad" : 0,
+          "numTelefono" : 0,
+          "contrasenia" : null,
+          "reservas" : null
+        },
+        "disponible" : false
+      },
+      "F" : {
+        "fila" : 1,
+        "letra" : "F",
+        "cliente" : {
+          "tipo" : "Cliente",
+          "nombre" : "",
+          "apellido" : "",
+          "email" : "",
+          "contra" : "",
+          "genero" : "FEMENINO",
+          "pasaporte" : null,
+          "edad" : 0,
+          "numTelefono" : 0,
+          "contrasenia" : null,
+          "reservas" : null
+        },
+        "disponible" : false
+      }
+    }
+  },
+  "modelo" : "a1",
+  "capacidad_personas" : 20,
+  "tiempo_vuelo" : 2.4,
+  "tipo" : null,
+  "estado" : 1
+}, {
+  "asientos" : {
+    "1" : {
+      "A" : {
+        "fila" : 1,
+        "letra" : "A",
+        "cliente" : {
+          "tipo" : "Cliente",
+          "nombre" : "",
+          "apellido" : "",
+          "email" : "",
+          "contra" : "",
+          "genero" : "FEMENINO",
+          "pasaporte" : null,
+          "edad" : 0,
+          "numTelefono" : 0,
+          "contrasenia" : null,
+          "reservas" : null
+        },
+        "disponible" : false
+      },
+      "B" : {
+        "fila" : 1,
+        "letra" : "B",
+        "cliente" : {
+          "tipo" : "Cliente",
+          "nombre" : "",
+          "apellido" : "",
+          "email" : "",
+          "contra" : "",
+          "genero" : "FEMENINO",
+          "pasaporte" : null,
+          "edad" : 0,
+          "numTelefono" : 0,
+          "contrasenia" : null,
+          "reservas" : null
+        },
+        "disponible" : false
+      },
+      "C" : {
+        "fila" : 1,
+        "letra" : "C",
+        "cliente" : {
+          "tipo" : "Cliente",
+          "nombre" : "",
+          "apellido" : "",
+          "email" : "",
+          "contra" : "",
+          "genero" : "FEMENINO",
+          "pasaporte" : null,
+          "edad" : 0,
+          "numTelefono" : 0,
+          "contrasenia" : null,
+          "reservas" : null
+        },
+        "disponible" : false
+      },
+      "D" : {
+        "fila" : 1,
+        "letra" : "D",
+        "cliente" : {
+          "tipo" : "Cliente",
+          "nombre" : "",
+          "apellido" : "",
+          "email" : "",
+          "contra" : "",
+          "genero" : "FEMENINO",
+          "pasaporte" : null,
+          "edad" : 0,
+          "numTelefono" : 0,
+          "contrasenia" : null,
+          "reservas" : null
+        },
+        "disponible" : false
+      },
+      "E" : {
+        "fila" : 1,
+        "letra" : "E",
+        "cliente" : {
+          "tipo" : "Cliente",
+          "nombre" : "",
+          "apellido" : "",
+          "email" : "",
+          "contra" : "",
+          "genero" : "FEMENINO",
+          "pasaporte" : null,
+          "edad" : 0,
+          "numTelefono" : 0,
+          "contrasenia" : null,
+          "reservas" : null
+        },
+        "disponible" : false
+      },
+      "F" : {
+        "fila" : 1,
+        "letra" : "F",
+        "cliente" : {
+          "tipo" : "Cliente",
+          "nombre" : "",
+          "apellido" : "",
+          "email" : "",
+          "contra" : "",
+          "genero" : "FEMENINO",
+          "pasaporte" : null,
+          "edad" : 0,
+          "numTelefono" : 0,
+          "contrasenia" : null,
+          "reservas" : null
+        },
+        "disponible" : false
+      }
+    }
+  },
+  "modelo" : "a2",
+  "capacidad_personas" : 20,
+  "tiempo_vuelo" : 2.4,
+  "tipo" : null,
+  "estado" : 1
+}, {
+  "asientos" : {
+    "1" : {
+      "A" : {
+        "fila" : 1,
+        "letra" : "A",
+        "cliente" : {
+          "tipo" : "Cliente",
+          "nombre" : "",
+          "apellido" : "",
+          "email" : "",
+          "contra" : "",
+          "genero" : "FEMENINO",
+          "pasaporte" : null,
+          "edad" : 0,
+          "numTelefono" : 0,
+          "contrasenia" : null,
+          "reservas" : null
+        },
+        "disponible" : false
+      },
+      "B" : {
+        "fila" : 1,
+        "letra" : "B",
+        "cliente" : {
+          "tipo" : "Cliente",
+          "nombre" : "",
+          "apellido" : "",
+          "email" : "",
+          "contra" : "",
+          "genero" : "FEMENINO",
+          "pasaporte" : null,
+          "edad" : 0,
+          "numTelefono" : 0,
+          "contrasenia" : null,
+          "reservas" : null
+        },
+        "disponible" : false
+      },
+      "C" : {
+        "fila" : 1,
+        "letra" : "C",
+        "cliente" : {
+          "tipo" : "Cliente",
+          "nombre" : "",
+          "apellido" : "",
+          "email" : "",
+          "contra" : "",
+          "genero" : "FEMENINO",
+          "pasaporte" : null,
+          "edad" : 0,
+          "numTelefono" : 0,
+          "contrasenia" : null,
+          "reservas" : null
+        },
+        "disponible" : false
+      },
+      "D" : {
+        "fila" : 1,
+        "letra" : "D",
+        "cliente" : {
+          "tipo" : "Cliente",
+          "nombre" : "",
+          "apellido" : "",
+          "email" : "",
+          "contra" : "",
+          "genero" : "FEMENINO",
+          "pasaporte" : null,
+          "edad" : 0,
+          "numTelefono" : 0,
+          "contrasenia" : null,
+          "reservas" : null
+        },
+        "disponible" : false
+      },
+      "E" : {
+        "fila" : 1,
+        "letra" : "E",
+        "cliente" : {
+          "tipo" : "Cliente",
+          "nombre" : "",
+          "apellido" : "",
+          "email" : "",
+          "contra" : "",
+          "genero" : "FEMENINO",
+          "pasaporte" : null,
+          "edad" : 0,
+          "numTelefono" : 0,
+          "contrasenia" : null,
+          "reservas" : null
+        },
+        "disponible" : false
+      },
+      "F" : {
+        "fila" : 1,
+        "letra" : "F",
+        "cliente" : {
+          "tipo" : "Cliente",
+          "nombre" : "",
+          "apellido" : "",
+          "email" : "",
+          "contra" : "",
+          "genero" : "FEMENINO",
+          "pasaporte" : null,
+          "edad" : 0,
+          "numTelefono" : 0,
+          "contrasenia" : null,
+          "reservas" : null
+        },
+        "disponible" : false
+      }
+    }
+  },
+  "modelo" : "a3",
+  "capacidad_personas" : 20,
+  "tiempo_vuelo" : 2.4,
+  "tipo" : null,
+  "estado" : 1
+} ]

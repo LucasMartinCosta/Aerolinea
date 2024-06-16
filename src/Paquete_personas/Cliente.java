@@ -62,7 +62,7 @@ public class Cliente extends Persona implements Serializable {
     public Double comprarAsientos (Vuelo dato)
     {
         Integer continuar = 1;
-        Double totalCompra = 0.;
+        double totalCompra = 0.;
 
         while (continuar==1)
         {
@@ -92,24 +92,43 @@ public class Cliente extends Persona implements Serializable {
         }
         return totalCompra;
     }
+    public void mostrarEstadoDelVuelo(Integer idReserva) {
+        Reserva reserva = reservas.get(idReserva);
+        if (reserva != null) {
+            reserva.mostrarEstadoDeTodosLosVuelos();
+        } else {
+            throw new NoSuchElementException("\nNo se encontro ninguna reserva con el ID proporcionado.");
+        }
+    }
+
+    public void mostrarReservas(){
+        for (Map.Entry<Integer, Reserva> entry : reservas.entrySet()) {
+            Reserva reserva = entry.getValue();
+        }
+
+    }
+
+
+    public void mostrarPasajes() {
+        if (reservas.isEmpty()) {
+            System.out.println("\nNo hay reservas registradas para este cliente.");
+            return;
+        }
+
+        for (Reserva reserva : reservas.values()) {
+            reserva.mostrarPasaje();
+        }
+    }
 
 
 
+    public void eliminarReserva(Integer id) {  //Elimina una reserva pasandole el codigo.
 
-    public void eliminarReserva() {  //Elimina una reserva pasandole el codigo.
         boolean encontrada = false;
-        Scanner scan = new Scanner(System.in);
-
-        do {
-            System.out.println("\n-------------------\n");
-            System.out.println("\nCODIGO DE RESERVA:");
-            int codigoReserva = Integer.parseInt(scan.nextLine());
-
-
             Iterator<Map.Entry<Integer, Reserva>> iterator = reservas.entrySet().iterator();
             while (iterator.hasNext()) {
                 Map.Entry<Integer, Reserva> entry = iterator.next();
-                if (entry.getKey() == codigoReserva) {
+                if (entry.getKey().equals(id)) {
 
                     iterator.remove();
                     System.out.println("\nReserva eliminada con éxito.");
@@ -120,8 +139,10 @@ public class Cliente extends Persona implements Serializable {
             if (!encontrada) {
                 System.out.println("\nNo se encontró ninguna reserva con el código especificado. Vuelve a intentarlo.");
             }
-        } while (!encontrada);
+
     }
+
+
 
     public Integer getPasaporte() {
         return pasaporte;
@@ -155,8 +176,6 @@ public class Cliente extends Persona implements Serializable {
         this.contrasenia = contrasenia;
     }
 
-
-
     public void setScan(Scanner scan) {
         this.scan = scan;
     }
@@ -164,103 +183,6 @@ public class Cliente extends Persona implements Serializable {
     public HashMap<Integer, Reserva> getReservas() {
         return reservas;
     }
-
-
-    public void modificarReserva() {
-        Scanner scan = new Scanner(System.in);
-
-        if (reservas.isEmpty()) {
-            System.out.println("\nNo tiene reservas.");
-            return;
-        }
-        System.out.println("\nRESERVAS:");
-        for (Map.Entry<Integer, Reserva> entry : reservas.entrySet()) {
-            System.out.println("\nID: " + entry.getKey() + " - Reserva: " + entry.getValue());
-        }
-
-        System.out.println("\nIngrese el ID de la reserva que desea modificar:");
-        int codigoReserva = Integer.parseInt(scan.nextLine());
-
-        Reserva reserva = reservas.get(codigoReserva);
-        if (reserva != null) {
-            System.out.println("\nReserva seleccionada: " + reserva);
-            System.out.println("\nMODIFICAR:");
-            System.out.println("\n1.Salida");
-            System.out.println("\n1.Llegada");
-
-//si modificamos la reseva tenemos q crear un nuevo vuelo si so ? no se como hacerlo
-        } else {
-            System.out.println("\nNo se encontró ninguna reserva con el ID especificado.");
-        }
-
-    }
-
-
-     //muestra reserva  ESPECIFICA ENTRANDO CON UN ID OSEA LA KEY DE EL HASHMAP no PASAJE
-//    public void mostrarReserva() {
-//        Scanner scan = new Scanner(System.in);
-//
-//        System.out.println("\n-------------------\n");
-//        System.out.println("\nCODIGO DE RESERVA:");
-//           Integer id1 = Integer.parseInt(scan.nextLine());
-//        if (reservas.isEmpty()) {
-//            System.out.println("\nNo tiene reservas.");
-//            return;
-//        }
-//        for (Map.Entry<Integer, Reserva> entry : reservas.entrySet()) {
-//            Reserva reserva = entry.getValue();
-//
-//            if (entry.getKey().equals(id1)) {
-//                System.out.println("\nReserva encontrada:");
-//                System.out.println("ID: " + entry.getKey() + " " ); nose como mostrar la reserva
-//                return;
-//            }
-//        }
-//
-//        System.out.println("\nNo se encontró ninguna reserva con la ID y el apellido especificados.");
-//    }
-
-
-
-
-//    public void comprarvuelo(int codigo, int cantidadcompras, Vuelo a)
-//    {
-//        int i=0;
-//        int flag =0;
-//        while(codigo!= vuelos_comprados.get(i).getCodigoVuelo() && flag==0)
-//        {
-//            if(codigo == vuelos_comprados.get(i).getCodigoVuelo())
-//            {
-//                flag=1;
-//                if(vuelos_comprados.get(i).getAvion().getCapacidad_personas()>cantidadcompras)
-//                {
-//                    vuelos_comprados.add(a);
-//                    System.out.println("La compra fue realizada con exito");
-//                }
-//            }
-//            i++;
-//        }
-//    }
-
-
-
-
-//    // Método para comprar vuelos
-//    public void comprarVuelo(int codigo, int cantidadCompras, Vuelo vuelo) {
-//        // Verificar si el vuelo está disponible y hay suficientes asientos
-//        if (vuelo.getCapacidadDisponible() >= cantidadCompras) {
-//            // Comprar la cantidad especificada de asientos en el vuelo
-//            for (int i = 0; i < cantidadCompras; i++) {
-//                vuelos_comprados.add(vuelo);
-//                vuelo.reservarAsiento(); // Restar un asiento a la capacidad disponible del vuelo
-//            }
-//            System.out.println("La compra fue realizada con éxito.");
-//        } else {
-//            System.out.println("No hay suficientes asientos disponibles en este vuelo.");
-//        }
-//    }
-
-
 
     public void setReservas(HashMap<Integer, Reserva> reservas) {
         this.reservas = reservas;

@@ -16,10 +16,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Manejo_archivos {
 
@@ -59,7 +56,7 @@ public class Manejo_archivos {
         }
     }
 
-    public Lista_Personas leerarchivo_personas() {
+    public void leerarchivo_personas() {
         try {
             JsonNode rootNode = mapper.readTree(archivo_personas);
             JsonNode listaPersonasNode = rootNode.get("lista_personas");
@@ -78,7 +75,6 @@ public class Manejo_archivos {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return lista_personas;
     }
 
 //    public void leer_todo_archivo_personas()
@@ -109,7 +105,7 @@ public class Manejo_archivos {
         }
     }
 
-    public Lista_aviones leer_archivo_aviones()
+    public void leer_archivo_aviones()
     {
         try {
             ArrayList<Avion> aux;
@@ -120,15 +116,6 @@ public class Manejo_archivos {
         catch (IOException e)
         {
            throw new RuntimeException(e);
-        }
-        return lista_aviones;
-    }
-
-    public void mostraraviones()
-    {
-        for(Avion a: lista_aviones.getLista_aviones())
-        {
-            System.out.println(a.toString());
         }
     }
 
@@ -241,10 +228,9 @@ public class Manejo_archivos {
     public void prueba_vuelos()
     {
         Avion a1 = new Avion();
-        Vuelo v1= new Vuelo(Destinos.CORDOBA,Destinos.MISIONES,a1,2.4,1,"mdp.ny.a1", 100.);
-        Vuelo v2= new Vuelo(Destinos.BUENOSAIRES,Destinos.MENDOZA,a1,2.4,1,"cv.ny.a1", 150.);
-        Vuelo v3= new Vuelo(Destinos.BARILOCHE,Destinos.CORDOBA,a1,2.4,1,"ch.ny.a1", 222.);
-
+        Vuelo v1= new Vuelo(Destinos.CORDOBA,Destinos.MISIONES,a1,2.4,"29/06/2024","18/07/2024","16:00hrs","20:00hrs",1,"mp12345", 100.);
+        Vuelo v2= new Vuelo(Destinos.BUENOSAIRES,Destinos.MENDOZA,a1,2.4,"20/06/2024","10/07/2024","21:30hrs","03:00 hrs",1,"we34567", 150.);
+        Vuelo v3= new Vuelo(Destinos.RIONEGRO,Destinos.CORDOBA,a1,2.4,"30/06/2024","11/07/2024","10:00hrs","16:00hrs",1,"df7890", 222.);
 
         vuelos.agregarvueloslista(v1);
         vuelos.agregarvueloslista(v2);
@@ -254,6 +240,8 @@ public class Manejo_archivos {
 
     }
 
+
+
     public Lista_vuelos getVuelos() {
         return vuelos;
     }
@@ -262,23 +250,5 @@ public class Manejo_archivos {
         this.vuelos = vuelos;
     }
 
-    public Lista_Personas getLista_personas() {
-        return lista_personas;
-    }
 
-    public void setLista_personas(Lista_Personas lista_personas) {
-        this.lista_personas = lista_personas;
-    }
-
-    public Lista_aviones getLista_aviones() {
-        return lista_aviones;
-    }
-
-    public void setLista_aviones(Lista_aviones lista_aviones) {
-        this.lista_aviones = lista_aviones;
-    }
-
-    public void setListaReservas(HashMap<Integer, Reserva> listaReservas) {
-        this.listaReservas = listaReservas;
-    }
 }

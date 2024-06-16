@@ -2,7 +2,6 @@ package Paquetes_vuelos;
 
 import Aviones.Avion;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
 public class Vuelo implements Comparable<Vuelo> {
@@ -10,10 +9,11 @@ public class Vuelo implements Comparable<Vuelo> {
     private Destinos destino;
     private Avion avion;
     private Double tiempoVuelo;
-//    private LocalDate fechaSalida;
-//    private LocalDate fechaLlegada;
-//    private LocalDateTime horaSalida;
-//    private LocalDateTime horaLlegada;
+    private String fechaIda;
+    private String fechaVuelta;
+    private String horarioLlegada;
+    private String horarioSalida;
+
     private int estado; // Ok(1) - Retrasado(0) - Cancelado (-1)
     private String codigoVuelo;  //capaz puede ser un String
     private String condicionVuelo;
@@ -27,17 +27,19 @@ public class Vuelo implements Comparable<Vuelo> {
     public Vuelo() {
     }
 
-    public Vuelo(Destinos origen,Destinos destino, Avion avion, Double tiempoVuelo, int estado, String codigoVuelo, Double precioVuelo) {
+    //ESTE LO USAMOS PARA CREAR LOS VUELOS POR EJEMPLO EN EL MENU DEL CLIENTE CUANDO VA A COMPRAR VUELOS
+
+    public Vuelo(Destinos origen,Destinos destino, Avion avion, Double tiempoVuelo,String fechaIda, String fechaVuelta, String horarioSalida, String horarioLlegada, int estado, String codigoVuelo, Double precioVuelo) {
 
         this.origen = origen;
         this.destino = destino;
         this.codigoVuelo=codigoVuelo;
         this.avion = avion;
         this.tiempoVuelo = tiempoVuelo;
-//        this.fechaSalida = fechaSalida;
-//        this.fechaLlegada = fechaLlegada;
-//        this.horaSalida = horaSalida;
-//        this.horaLlegada = horaLlegada;
+        this.fechaIda = fechaIda;
+        this.fechaVuelta = fechaVuelta;
+        this.horarioSalida = horarioSalida;
+        this.horarioLlegada= horarioLlegada;
         this.estado = estado;
       setCondicionVuelo(condicionVuelo);
       this.precioVuelo=precioVuelo;
@@ -46,25 +48,15 @@ public class Vuelo implements Comparable<Vuelo> {
     }
 
 
-
-//    public Vuelo(String origen, String destino, LocalDate fechaSalida, int numeroPasajeros){
-//        this.origen = origen;
-//        this.destino = destino;
-//        this.fechaSalida= fechaSalida;
-//        this.numeroPasajeros = numeroPasajeros;
-//
-//    }
-
-    public Vuelo(Destinos origen, Destinos destino, LocalDate fechaLlegada, int numeroPasajeros){
+    public Vuelo(Destinos origen, Destinos destino,int numeroPasajeros){
         this.origen = origen;
         this.destino = destino;
-//        this.fechaLlegada = fechaLlegada;
         this.numeroPasajeros = numeroPasajeros;
 
     }
 
 
-    //este to string lo usamos para imprimir el boleto de avion
+//este to string lo usamos para imprimir el boleto de avion
 //    @Override
 //    public String toString() {
 //        return "\nORG=" + origen +

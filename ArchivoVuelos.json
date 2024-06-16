@@ -1,0 +1,49 @@
+[ {
+  "origen" : "RIONEGRO",
+  "destino" : "CORDOBA",
+  "avion" : {
+    "asientos" : null,
+    "modelo" : null,
+    "capacidad_personas" : null,
+    "tiempo_vuelo" : 0.0,
+    "tipo" : null,
+    "estado" : 0
+  },
+  "tiempoVuelo" : 2.4,
+  "estado" : 1,
+  "codigoVuelo" : "ch.ny.a1",
+  "condicionVuelo" : "A TIEMPO",
+  "precioVuelo" : 222.0
+}, {
+  "origen" : "CORDOBA",
+  "destino" : "MISIONES",
+  "avion" : {
+    "asientos" : null,
+    "modelo" : null,
+    "capacidad_personas" : null,
+    "tiempo_vuelo" : 0.0,
+    "tipo" : null,
+    "estado" : 0
+  },
+  "tiempoVuelo" : 2.4,
+  "estado" : 1,
+  "codigoVuelo" : "mdp.ny.a1",
+  "condicionVuelo" : "A TIEMPO",
+  "precioVuelo" : 100.0
+}, {
+  "origen" : "BUENOSAIRES",
+  "destino" : "MENDOZA",
+  "avion" : {
+    "asientos" : null,
+    "modelo" : null,
+    "capacidad_personas" : null,
+    "tiempo_vuelo" : 0.0,
+    "tipo" : null,
+    "estado" : 0
+  },
+  "tiempoVuelo" : 2.4,
+  "estado" : 1,
+  "codigoVuelo" : "cv.ny.a1",
+  "condicionVuelo" : "A TIEMPO",
+  "precioVuelo" : 150.0
+} ]
