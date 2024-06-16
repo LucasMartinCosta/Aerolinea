@@ -249,7 +249,7 @@ Cliente persona = new Cliente(nombre, apellido, mail, contra, Genero.MASCULINO);
                     //con la lista de pasajeros y toda la info
                     System.out.println("\n Ingrese el codigo de vuelo a buscar: ");
                     String codigo1 = lector.nextLine();
-                    Vuelo aux = empleado.buscarVuelo(codigo1);
+                    Vuelo aux = empleado.buscarVuelo(codigo1, archivos);
                     //Falta el metodo de vuelo de mostrar todos los datos del vuelo.
                     //System.out.println(aux.toString());
 
@@ -258,24 +258,24 @@ Cliente persona = new Cliente(nombre, apellido, mail, contra, Genero.MASCULINO);
                     //llama a una funcion que crea vuelos, juntando un avion(que tiene que estar disponible) un origen, y un destino
                     break;
                 case 3:
-                    empleado.mostrarListaAviones();
+                    empleado.mostrarListaAviones(archivos);
                     break;
                 case 4:
                     //Muestra solo los clientes de la lista Personas.
-                    empleado.mostrarListaClientes();
+                    empleado.mostrarListaClientes(archivos);
                 case 5:
-                    empleado.mostrarListaVuelos();
+                    empleado.mostrarListaVuelos(archivos);
                     break;
                 case 6:
                     System.out.println("\n Ingrese el codigo de vuelo que desea ver: ");
                     String codigo2 = lector.nextLine();
-                    empleado.verPasajerosXVuelo(codigo2);
+                    empleado.verPasajerosXVuelo(codigo2, archivos);
                     break;
                 case 7:
                     //modificar estado de vuelo.
                     System.out.println("\n Ingrese el codigo de vuelo a buscar: ");
                     String codigo3 = lector.nextLine();
-                    empleado.modificarEstadoVuelo(codigo3);
+                    empleado.modificarEstadoVuelo(codigo3, archivos);
                     break;
                 case 8:
                     exit = true;
