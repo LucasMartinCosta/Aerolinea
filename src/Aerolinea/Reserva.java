@@ -90,6 +90,16 @@ public class Reserva implements Serializable {
     public void setCostoTotal(Double costoTotal) {
         this.costoTotal = costoTotal;
     }
+
+    @Override
+    public String toString() {
+        return "Reserva{" +
+                "cliente=" + cliente +
+                ", vuelos=" + vuelos +
+                ", id=" + id +
+                ", costoTotal=" + costoTotal +
+                '}';
+    }
 }
 
 

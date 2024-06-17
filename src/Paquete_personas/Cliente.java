@@ -17,7 +17,7 @@ public class Cliente extends Persona implements Serializable {
     private int edad;
     private long numTelefono;
     private String contrasenia;
-    private HashMap<Integer, Reserva> reservas; //hashMap con reservas de cada cliente
+    private HashMap<Integer, Reserva> reservas = new HashMap<>(); //hashMap con reservas de cada cliente
 
     private Scanner scan = new Scanner(System.in);
 
@@ -35,7 +35,7 @@ public class Cliente extends Persona implements Serializable {
         this.pasaporte = pasaporte;
         this.edad = edad;
         this.numTelefono = numTelefono;
-        this.reservas = new HashMap<>();
+
     }
 
     public void agregarReserva (Reserva reserva)
@@ -55,6 +55,7 @@ public class Cliente extends Persona implements Serializable {
         String codigo = scan.nextLine();
 
         Vuelo buscado=listaVuelos.buscarVuelo(codigo);
+        //System.out.println("buscado = " + buscado);
         //funcion de buscar vuelo con el codigo leido
         return buscado;
     }
@@ -82,14 +83,15 @@ public class Cliente extends Persona implements Serializable {
                 } else {
                     System.out.println("Por favor, ingrese un solo carácter.");
                 }
-                scan.close();
             }
             dato.getAvion().comprarAsiento(this,filaElegida,letra);
             totalCompra=totalCompra+dato.getPrecioVuelo();
 
             System.out.println("ingrese 1 para comprar otro asiento o 0 para salir");
             continuar= scan.nextInt();
+
         }
+        scan.close();
         return totalCompra;
     }
     public void mostrarEstadoDelVuelo(Integer idReserva) {

@@ -15,6 +15,7 @@ public class Avion implements Serializable {
     private double tiempo_vuelo; // en horas
     private String tipo;  /*PRIVADO O COMERCIAL*/
     private int estado;    /*Disponi|ble(1) - Ocupado (0) - Reparacion (-1) */
+    private int filas;
 
     public Avion() {
     }
@@ -23,22 +24,24 @@ public class Avion implements Serializable {
         this.asientos = asientos;
     }
 
-    public Avion(String modelo, Integer capacidad_personas, double tiempo_vuelo, int estado, int filas) {
+
+    public Avion(String modelo, double tiempo_vuelo, int estado, int filas) {
         this.modelo = modelo;
-        this.capacidad_personas = capacidad_personas;
+        this.capacidad_personas = inicCapacidadPersonas();
         this.tiempo_vuelo = tiempo_vuelo;
         this.estado = estado;
+        this.filas=filas;
         asientos = new HashMap<>(); // inicializador de filas.
+        inicializarAsientos(filas);
+    }
 
-        for (int i=1; i<= filas; i++)
-        {
+    private void inicializarAsientos(int filas) {
+        for (int i = 1; i <= filas; i++) {
             Map<Character, Asiento> fila = new HashMap<>();
-            fila.put('A', new Asiento(i, 'A'));
-            fila.put('B', new Asiento(i, 'B'));
-            fila.put('C', new Asiento(i, 'C'));
-            fila.put('D', new Asiento(i, 'D'));
-            fila.put('E', new Asiento(i, 'E'));
-            fila.put('F', new Asiento(i, 'F'));
+            // Inicializa los asientos de la A a la F en cada fila
+            for (char seat = 'A'; seat <= 'F'; seat++) {
+                fila.put(seat, new Asiento(i, seat));
+            }
             asientos.put(i, fila);
         }
     }
@@ -67,6 +70,10 @@ public class Avion implements Serializable {
 
     public void setCapacidad_personas(Integer capacidad_personas) {
         this.capacidad_personas = capacidad_personas;
+    }
+    public int inicCapacidadPersonas()
+    {
+        return this.filas*6;
     }
 
     public double getTiempo_vuelo() {

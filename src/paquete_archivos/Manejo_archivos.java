@@ -203,9 +203,9 @@ public class Manejo_archivos {
 
     public void prueba_aviones()
     {
-        Avion avion1 = new Avion("a1",20,2.4,1,1);
-        Avion avion2 = new Avion("a2",20,2.4,1,1);
-        Avion avion3 = new Avion("a3",20,2.4,1,1);
+        Avion avion1 = new Avion("a1",2.4,1,1);
+        Avion avion2 = new Avion("a2",2.4,1,1);
+        Avion avion3 = new Avion("a3",2.4,1,1);
 
         lista_aviones.agregar_aviones_lista(avion1);
         lista_aviones.agregar_aviones_lista(avion2);
@@ -215,7 +215,7 @@ public class Manejo_archivos {
 
     public void prueba_vuelos()
     {
-        Avion a1 = new Avion();
+        Avion a1 = new Avion("a1", 120, 1, 1);
         Vuelo v1= new Vuelo(Destinos.CORDOBA,Destinos.MISIONES,a1,2.4,"29/06/2024","18/07/2024","16:00hrs","20:00hrs",1,"mp12345", 100.);
         Vuelo v2= new Vuelo(Destinos.BUENOSAIRES,Destinos.MENDOZA,a1,2.4,"20/06/2024","10/07/2024","21:30hrs","03:00 hrs",1,"we34567", 150.);
         Vuelo v3= new Vuelo(Destinos.RIONEGRO,Destinos.CORDOBA,a1,2.4,"30/06/2024","11/07/2024","10:00hrs","16:00hrs",1,"df7890", 222.);

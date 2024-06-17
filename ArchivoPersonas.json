@@ -10,13 +10,20 @@
     "edad" : 0,
     "numTelefono" : 0,
     "contrasenia" : null,
-    "reservas" : null
+    "reservas" : { }
   }, {
     "tipo" : "Empleado",
     "nombre" : "manuempleado",
     "apellido" : "abras",
     "email" : "manu@",
     "contra" : "manu",
+    "genero" : "MASCULINO"
+  }, {
+    "tipo" : "Admin",
+    "nombre" : "lucasempleado",
+    "apellido" : "admin",
+    "email" : "lucasempleado@",
+    "contra" : "1",
     "genero" : "MASCULINO"
   }, {
     "tipo" : "Empleado",
@@ -36,7 +43,7 @@
     "edad" : 0,
     "numTelefono" : 0,
     "contrasenia" : null,
-    "reservas" : null
+    "reservas" : { }
   }, {
     "tipo" : "Cliente",
     "nombre" : "imanol",
@@ -48,6 +55,6 @@
     "edad" : 0,
     "numTelefono" : 0,
     "contrasenia" : null,
-    "reservas" : null
+    "reservas" : { }
   } ]
 }

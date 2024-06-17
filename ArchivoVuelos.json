@@ -1,49 +1,400 @@
 [ {
-  "origen" : "RIONEGRO",
-  "destino" : "CORDOBA",
+  "origen" : "BUENOSAIRES",
+  "destino" : "MENDOZA",
   "avion" : {
-    "asientos" : null,
-    "modelo" : null,
-    "capacidad_personas" : null,
-    "tiempo_vuelo" : 0.0,
+    "asientos" : {
+      "1" : {
+        "A" : {
+          "fila" : 1,
+          "letra" : "A",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : { }
+          },
+          "disponible" : false
+        },
+        "B" : {
+          "fila" : 1,
+          "letra" : "B",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : { }
+          },
+          "disponible" : false
+        },
+        "C" : {
+          "fila" : 1,
+          "letra" : "C",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : { }
+          },
+          "disponible" : false
+        },
+        "D" : {
+          "fila" : 1,
+          "letra" : "D",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : { }
+          },
+          "disponible" : false
+        },
+        "E" : {
+          "fila" : 1,
+          "letra" : "E",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : { }
+          },
+          "disponible" : false
+        },
+        "F" : {
+          "fila" : 1,
+          "letra" : "F",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : { }
+          },
+          "disponible" : false
+        }
+      }
+    },
+    "modelo" : "a1",
+    "capacidad_personas" : 100,
+    "tiempo_vuelo" : 120.0,
     "tipo" : null,
-    "estado" : 0
+    "estado" : 1
   },
   "tiempoVuelo" : 2.4,
   "estado" : 1,
-  "codigoVuelo" : "ch.ny.a1",
+  "codigoVuelo" : "we34567",
+  "condicionVuelo" : "A TIEMPO",
+  "precioVuelo" : 150.0
+}, {
+  "origen" : "RIONEGRO",
+  "destino" : "CORDOBA",
+  "avion" : {
+    "asientos" : {
+      "1" : {
+        "A" : {
+          "fila" : 1,
+          "letra" : "A",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : { }
+          },
+          "disponible" : false
+        },
+        "B" : {
+          "fila" : 1,
+          "letra" : "B",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : { }
+          },
+          "disponible" : false
+        },
+        "C" : {
+          "fila" : 1,
+          "letra" : "C",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : { }
+          },
+          "disponible" : false
+        },
+        "D" : {
+          "fila" : 1,
+          "letra" : "D",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : { }
+          },
+          "disponible" : false
+        },
+        "E" : {
+          "fila" : 1,
+          "letra" : "E",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : { }
+          },
+          "disponible" : false
+        },
+        "F" : {
+          "fila" : 1,
+          "letra" : "F",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : { }
+          },
+          "disponible" : false
+        }
+      }
+    },
+    "modelo" : "a1",
+    "capacidad_personas" : 100,
+    "tiempo_vuelo" : 120.0,
+    "tipo" : null,
+    "estado" : 1
+  },
+  "tiempoVuelo" : 2.4,
+  "estado" : 1,
+  "codigoVuelo" : "df7890",
   "condicionVuelo" : "A TIEMPO",
   "precioVuelo" : 222.0
 }, {
   "origen" : "CORDOBA",
   "destino" : "MISIONES",
   "avion" : {
-    "asientos" : null,
-    "modelo" : null,
-    "capacidad_personas" : null,
-    "tiempo_vuelo" : 0.0,
+    "asientos" : {
+      "1" : {
+        "A" : {
+          "fila" : 1,
+          "letra" : "A",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : { }
+          },
+          "disponible" : false
+        },
+        "B" : {
+          "fila" : 1,
+          "letra" : "B",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : { }
+          },
+          "disponible" : false
+        },
+        "C" : {
+          "fila" : 1,
+          "letra" : "C",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : { }
+          },
+          "disponible" : false
+        },
+        "D" : {
+          "fila" : 1,
+          "letra" : "D",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : { }
+          },
+          "disponible" : false
+        },
+        "E" : {
+          "fila" : 1,
+          "letra" : "E",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : { }
+          },
+          "disponible" : false
+        },
+        "F" : {
+          "fila" : 1,
+          "letra" : "F",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : { }
+          },
+          "disponible" : false
+        }
+      }
+    },
+    "modelo" : "a1",
+    "capacidad_personas" : 100,
+    "tiempo_vuelo" : 120.0,
     "tipo" : null,
-    "estado" : 0
+    "estado" : 1
   },
   "tiempoVuelo" : 2.4,
   "estado" : 1,
-  "codigoVuelo" : "mdp.ny.a1",
+  "codigoVuelo" : "mp12345",
   "condicionVuelo" : "A TIEMPO",
   "precioVuelo" : 100.0
-}, {
-  "origen" : "BUENOSAIRES",
-  "destino" : "MENDOZA",
-  "avion" : {
-    "asientos" : null,
-    "modelo" : null,
-    "capacidad_personas" : null,
-    "tiempo_vuelo" : 0.0,
-    "tipo" : null,
-    "estado" : 0
-  },
-  "tiempoVuelo" : 2.4,
-  "estado" : 1,
-  "codigoVuelo" : "cv.ny.a1",
-  "condicionVuelo" : "A TIEMPO",
-  "precioVuelo" : 150.0
 } ]

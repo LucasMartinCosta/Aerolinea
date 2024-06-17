@@ -22,25 +22,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         Menu menu = new Menu();
-        Manejo_archivos inicArchivos = new Manejo_archivos();
-
-        inicArchivos.prueba();
-        inicArchivos.leerarchivo_personas();
-
-        inicArchivos.prueba_aviones();
-        inicArchivos.leer_archivo_aviones();
-
-        inicArchivos.prueba_vuelos();
-        inicArchivos.leerarchivo_vuelos();
-
 
         menu.inicio();
-        System.out.println("kasjdhasiudhasiudnasf");
-
-//            Admin a = new Admin();
-//
-//            a.crearAvion();
-//            a.crearAvion();
 
     }
 }

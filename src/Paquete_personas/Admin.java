@@ -57,7 +57,7 @@ public class Admin extends Empleado implements Serializable {
         filas=lector.nextInt();
         lector.nextLine();
 
-        Avion avion = new Avion(modelo,capacidad,tiempovuelo,estado,filas);
+        Avion avion = new Avion(modelo,tiempovuelo,estado,filas);
 
         archivo.getLista_aviones().agregar_aviones_lista(avion);
     }

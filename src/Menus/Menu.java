@@ -55,14 +55,13 @@ public class Menu {
                     System.out.println("\nOpción no valida. Por favor, intente de nuevo.");
             }
         }
-        lector.close();
+        //lector.close();
     }
 
     public void iniciarSesion ()
     {
         boolean sesionExitosa = false;
 
-        try {
             System.out.println("Ingrese apellido:");
             String apellido = lector.nextLine();
             System.out.println("Ingrese contraseña:");
@@ -86,14 +85,11 @@ public class Menu {
                 System.out.println("Volviendo al inicio...");
                 inicio();
             }
-        } catch (NoSuchElementException e) {
-            throw new NoSuchElementException(e.getMessage());
-
-        }
 
     }
 
-    //en registrar cliente hay que hacer un return de que? LUCAS: hace el return de la persona que se registra para dsp poder pasarla al menu
+    //en registrar cliente hay que hacer un return de que?
+    // LUCAS: hace el return de la persona que se registra para dsp poder pasarla al menu
 
     public Cliente registrarCliente() {
 
@@ -154,6 +150,7 @@ public class Menu {
         int opcion1;
 
         while (!exit) {
+
             System.out.println("\n-----------------------");
             System.out.println("\n1.COMPRAR PASAJE");
             System.out.println("\n2.ESTADO DE VUELO");
@@ -162,14 +159,15 @@ public class Menu {
             System.out.println("\n5.DEVOLUCION / CANCELACION DE VUELOS");
             System.out.println("\n6.SALIR DEL MENU");
             System.out.println("\n-----------------------");
-            opcion1 = lector.nextInt();
-            lector.nextLine();
+
+            if (lector.hasNextInt()) {
+                opcion1 = lector.nextInt();
+                lector.nextLine(); // consume the newline
+
+
 
             switch (opcion1) {
                 case 1:
-
-
-
                     //LUCAS: COMPRAR PASAJE tiene que mostrar una lista de todos los vuelos disponibles para poder hacer una compra, el cliente
                     //toca el numero del pasaje que quiere comprar y se añade a su lista
 
@@ -181,6 +179,8 @@ public class Menu {
                     nuevaReserva.agregaVuelo(vueloAComprar);// se carga ese vuelo a su array de vuelos en la reserva
                     nuevaReserva.setCostoTotal(costo); //cargo el costo a la reserva
                     cliente.agregarReserva(nuevaReserva); //agrego la reserva a la lista de reservas del cliente
+                    cliente.mostrarReservas();
+
                     break;
 
                 case 2:
@@ -196,8 +196,8 @@ public class Menu {
                 case 3:
                     //MOSTRAMOS PASAJES DEL CLIENTE
                     cliente.mostrarReservas();
-
                     break;
+
                 case 4:
                     //mostramos reserva del cliente
                     cliente.mostrarReservas();
@@ -213,9 +213,12 @@ public class Menu {
                     break;
                 default:
                     System.out.println("\nOpción no valida. Por favor, intente de nuevo.");
+            } } else {
+                System.out.println("Entrada inválida. Por favor, ingrese un número.");
+                lector.nextLine(); // consume the invalid input
             }
         }
-        lector.close();
+        //lector.close();
     }
 
 
@@ -302,28 +305,19 @@ public class Menu {
 
             switch (opcion1) {
                 case 1:
-
                     admin.crearAvion(archivos);
-
                     break;
                 case 2:
-
                     admin.crearEmpleado(archivos);
-
                     break;
                 case 3:
-
                     admin.mostrarListaAviones(archivos);
-
                     break;
                 case 4:
-
                     admin.mostrarListaVuelos(archivos);
-
+                    break;
                 case 5:
-
                     admin.verempleados(archivos);
-
                     break;
                 case 6:
                     //System.out.println("\n Ingrese el codigo de vuelo que desea ver: ");
