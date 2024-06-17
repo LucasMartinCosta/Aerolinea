@@ -91,11 +91,6 @@ public class Menu {
 
 
 
-
-
-    //en registrar cliente hay que hacer un return de que?
-    // LUCAS: hace el return de la persona que se registra para dsp poder pasarla al menu
-
     public Cliente registrarCliente() {
 
 
@@ -173,23 +168,35 @@ public class Menu {
                 case 1:
                     //LUCAS: COMPRAR PASAJE tiene que mostrar una lista de todos los vuelos disponibles para poder hacer una compra, el cliente
                     //toca el numero del pasaje que quiere comprar y se añade a su lista
+//                   //esta funcion primero completa los datos del cliente
+
                     if(cliente.getEdad()==0)
                     {
                         System.out.println("Ingrese su edad: ");
+                        while (!scanCliente.hasNextInt()) {
+                            System.out.println("Entrada invalida. Por favor, ingrese un numero:");
+                            scanCliente.next(); // Limpiar el buffer de entrada
+                        }
                         cliente.setEdad(scanCliente.nextInt());
                         scanCliente.nextLine();
                     }
                     if(cliente.getNumTelefono()==0)
                     {
                         System.out.println("Ingrese su numero de telefono: ");
+                        while (!scanCliente.hasNextInt()) {
+                            System.out.println("Entrada invalida. Por favor, ingrese un numero:");
+                            scanCliente.next(); // Limpiar el buffer de entrada
+                        }
                         cliente.setNumTelefono(scanCliente.nextLong());
                         scanCliente.nextLine();
                     }
-                    if (cliente.getPasaporte()==null)
-                    {
-                        System.out.println("Ingrese el numero de su pasaporte");
+                    if (cliente.getPasaporte()==null) {
+                        System.out.println("Ingrese su numero de pasaporte: ");
+                        while (!scanCliente.hasNextInt()) {
+                            System.out.println("Entrada invalida. Por favor, ingrese un numero:");
+                            scanCliente.next(); // Limpiar el buffer de entrada
+                        }
                         cliente.setPasaporte(scanCliente.nextInt());
-                        scanCliente.nextLine();
                     }
 
                     Reserva nuevaReserva = new Reserva(cliente); //creo una nueva reserva
@@ -231,13 +238,16 @@ public class Menu {
                 case 5:
                     //en este caso eliminamos el vuelo ingresndo a traves del scanner luego lo pasamos a reserva.eliminarReserva
                      System.out.print("Ingrese el ID para eliminar/cancelar su reserva: ");
+
                      Integer eleccion = lector.nextInt();
                    cliente.eliminarReserva(eleccion);
                     break;
+
                 case 6:
                     archivos.cargararchivo_personas();
                     exit = true;
                     break;
+
                 default:
                     System.out.println("\nOpción no valida. Por favor, intente de nuevo.");
                 }
