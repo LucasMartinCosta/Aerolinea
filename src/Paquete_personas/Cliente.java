@@ -121,7 +121,7 @@ public class Cliente extends Persona implements Serializable {
             for (Map.Entry<Integer, Reserva> entry : reservas.entrySet()) {
                 Integer clave = entry.getKey();
                 Reserva reserva = entry.getValue();
-                System.out.println("Clave: " + clave + ", Reserva: " + reserva.toString());
+                System.out.println("ID DE RESERVA: " + clave + " INFORMACION: " + reserva.toString());
             }
         }
 
@@ -136,7 +136,7 @@ public class Cliente extends Persona implements Serializable {
         {
             for (Map.Entry<Integer, Reserva> entry : reservas.entrySet()) {
                 Reserva reserva = entry.getValue();
-                System.out.println(" Reserva: " + reserva.toString());
+                System.out.println(" Reserva: " + reserva.mostrarPasaje());
             }
         }
 
@@ -173,7 +173,7 @@ public class Cliente extends Persona implements Serializable {
                 "\n NUM. PASAPORTE: " + pasaporte +
                 "\n EDAD: " + edad +
                 "\n TELEFONO: " + numTelefono +
-                "\n --- \n";
+                "\n --------- ";
     }
 
     public Integer getPasaporte() {

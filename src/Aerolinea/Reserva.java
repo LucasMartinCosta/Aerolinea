@@ -51,15 +51,18 @@ public class Reserva implements Serializable {
     }
 
     //ESTE MUESTRA EL PASAJE
-    public void mostrarPasaje() {
+    public String mostrarPasaje() {
+        StringBuilder resultado = new StringBuilder();
+
         if (!vuelos.isEmpty()) {
             for (Vuelo vuelo : vuelos) {
-                System.out.println(vuelo.mostrarPasaje());
+                resultado.append(vuelo.mostrarPasaje()).append("\n");
             }
-        }else {
-            System.out.println("\nNo hay vuelos asociados a esta reserva.");
+        } else {
+            resultado.append("\nNo hay vuelos asociados a esta reserva.");
         }
 
+        return resultado.toString();
     }
 
     public int getFila() {
@@ -117,8 +120,8 @@ public class Reserva implements Serializable {
                 "\n ASIENTO: " + letra +
                 "\n CLIENTE: " + cliente +
                 "\n VUELO: " + vuelos +
-                "\n COSTO TOTAL: " + costoTotal +
-                "\n --- \n";
+                "\n COSTO TOTAL:$" + costoTotal +
+                "\n --------- \n";
     }
 }
 
