@@ -193,7 +193,6 @@ public class Menu {
                     }
 
                     Reserva nuevaReserva = new Reserva(cliente); //creo una nueva reserva
-
                     Vuelo vueloAComprar = cliente.elegirVueloAComprar(archivos.getVuelos()); //el cliente elige que vuelo comprar
 //
                     Double costo = cliente.comprarAsientos(vueloAComprar, nuevaReserva); //compra los asientos de ese vuelo
@@ -219,7 +218,6 @@ public class Menu {
                     int idVuelo = scanCliente.nextInt();
                     //accede a el estado de el/los vuelos que tengas y su estado en esa reserva
                     cliente.mostrarEstadoDelVuelo(idVuelo);
-
                     break;
                 case 3:
                     //MOSTRAMOS PASAJES DEL CLIENTE

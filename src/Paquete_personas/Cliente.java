@@ -56,7 +56,7 @@ public class Cliente extends Persona implements Serializable {
         }
         System.out.println(" Ingrese el codigo del vuelo a comprar");
         String codigo = scan.nextLine();
-        scan.nextLine();
+
 
         Vuelo buscado=listaVuelos.buscarVuelo(codigo);
         //System.out.println("buscado = " + buscado);
@@ -66,11 +66,9 @@ public class Cliente extends Persona implements Serializable {
 
     public Double comprarAsientos (Vuelo dato, Reserva nueva)
     {
-        //Integer continuar = 1;
         double totalCompra = 0.;
 
-        //while (continuar==1)
-        //{
+
             dato.getAvion().mostrarAsientos();
             int flag=0;
             char letra='a';
@@ -94,11 +92,7 @@ public class Cliente extends Persona implements Serializable {
             dato.getAvion().comprarAsiento(this,filaElegida,letra);
             totalCompra=totalCompra+dato.getPrecioVuelo();
 
-//            System.out.println("ingrese 1 para comprar otro asiento o 0 para salir");
-//            continuar= scan.nextInt();
-//            scan.nextLine();
-
-        //}
+            scan.nextLine();
 
         return totalCompra;
     }
