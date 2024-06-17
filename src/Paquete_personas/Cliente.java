@@ -126,10 +126,11 @@ public class Cliente extends Persona implements Serializable {
         }
     }
 
-    public void mostrarReservas(){
+    public boolean mostrarReservas(){
         if(reservas.isEmpty())
         {
             System.out.println(" El cliente no tiene reservas");
+            return false;
         }
 
         else{
@@ -137,9 +138,10 @@ public class Cliente extends Persona implements Serializable {
                 Integer clave = entry.getKey();
                 Reserva reserva = entry.getValue();
                 System.out.println("ID DE RESERVA: " + clave + " INFORMACION: " + reserva.toString());
+
             }
         }
-
+        return true;
     }
 
 

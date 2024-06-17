@@ -27,7 +27,7 @@ public class Menu {
         int eleccion;
 
 
-        archivos.prueba();
+//        archivos.prueba();
         archivos.leerarchivo_reserva();
         archivos.leerarchivo_personas();
         archivos.leer_archivo_aviones();
@@ -215,18 +215,26 @@ public class Menu {
 
                 case 2:
                     //mostras reserva
-                    cliente.mostrarReservas();
+                    boolean existe = cliente.mostrarReservas();
                     //pide que ingreses el id de la reserva
-                    System.out.print("Ingrese el ID de la reserva para ver el estado su estado: ");
-                    //este ciclo hace que cuando ingresas un caracter no valido vuelva a pedirte que lo ingreses
-                    while (!scanCliente.hasNextInt()) {
-                        System.out.println("Entrada inválida. Por favor, ingrese un número:");
-                        scanCliente.next(); // Limpiar el buffer de entrada
+                    if(existe)
+                    {
+                        System.out.print("Ingrese el ID de la reserva para ver el estado su estado: ");
+                        //este ciclo hace que cuando ingresas un caracter no valido vuelva a pedirte que lo ingreses
+                        while (!scanCliente.hasNextInt()) {
+                            System.out.println("Entrada inválida. Por favor, ingrese un número:");
+                            scanCliente.next(); // Limpiar el buffer de entrada
+                        }
+
+                        int idVuelo = scanCliente.nextInt();
+                        //accede a el estado de el/los vuelos que tengas y su estado en esa reserva
+                        cliente.mostrarEstadoDelVuelo(idVuelo);
+                    }
+                    else
+                    {
+                        System.out.println("No existen reservas a su nombre, no podemos mostrar el estado de vuelo");
                     }
 
-                    int idVuelo = scanCliente.nextInt();
-                    //accede a el estado de el/los vuelos que tengas y su estado en esa reserva
-                    cliente.mostrarEstadoDelVuelo(idVuelo);
                     break;
                 case 3:
                     //MOSTRAMOS PASAJES DEL CLIENTE
