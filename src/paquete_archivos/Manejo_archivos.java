@@ -177,7 +177,7 @@ public class Manejo_archivos {
     public void prueba () //funcion de prueba..... solo carga personas en el archivo, sirve para verificar
     {
         Cliente cliente = new Cliente("imanol", "sayago", "ima@", "ima", Genero.MASCULINO);
-        Cliente cliente2 = new Cliente("Lucas", "Costa", "lucas@", "lucas",Genero.MASCULINO);
+        Cliente cliente2 = new Cliente("Lucas", "Costa", "lucas@", "lucas",Genero.MASCULINO, 1234321, 24, 1234566);
         Cliente cliente3 = new Cliente("Laura", "nomeacuerdo", "laura@", "laura",Genero.FEMENINO);
 
 
