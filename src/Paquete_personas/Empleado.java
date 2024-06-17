@@ -166,16 +166,7 @@ public class Empleado extends Persona implements Serializable {
             }
         }
     }
-        //Este metodo va a trabajar SOLO con Clientes porque tienen el atributo pasaporte para poder buscar.
-        //Lo hice ahora aca pero lo voy a agregar como un metodo de admin.
-//    public Persona buscarPersona(Integer buscar){
-//        for(Persona p : listaPersonas.getLista_personas()){
-//            if(p instanceof Cliente && ((Cliente) p).getPasaporte().equals(buscar)){
-//                return p;
-//            }
-//        }
-//        return null;
-//    }
+
 
     public void mostrarListaAviones(Manejo_archivos archivo){
         for(Avion a : archivo.getLista_aviones()){
