@@ -1,0 +1,243 @@
+@startuml
+Persona<|--Cliente
+Persona<|--Empleado
+Empleado<|--Admin
+Reserva--->Cliente
+Asientoo--Cliente
+Vuelo*--Asiento
+Reservao--Vuelo
+Genero*--Persona
+Destinos*--Vuelo
+Aviono--Vuelo
+IDGenerator*---Reserva
+
+class Reserva{
++Cliente cliente;
++ArrayList<Vuelo> vuelos;
++Integer id;
++ Double costoTotal;
++int fila;
++Character letra;
++ Scanner scan
+
++ public Reserva(Cliente cliente)
++ void agregaVuelo (Vuelo dato)
++void mostrarEstadoDeTodosLosVuelos()
++String mostrarPasaje()
++String toString()
+}
+
+class Aerolinea{
++HashMap<Integer,Vuelo> vuelos_Aerolineas;
+
++ public Aerolinea()
+}
+
+class IDGenerator{
++ static final String FILE_PATH;
++static int lastId;
+
++ static int generateID()
++static void saveLastId()
+}
+
+class Asiento{
++int fila;
++char letra;
++ boolean reservado;
++ Cliente cliente;
+
++Asiento(int fila, char letra)
++void reservar (Cliente dato)
++String toString()
+}
+
+class Avion{
++Map<Integer, Map <Character, Asiento>> asientos;
++String modelo;
++Integer capacidad_personas;
++double tiempo_vuelo;
++String tipo;
++int estado;
++int filas;
+
++Avion(String modelo, double tiempo_vuelo, int estado, int filas)
++void setAsientos(Map<Integer, Map<Character, Asiento>> asientos)
++void inicializarAsientos(int filas)
++String toString()
++int inicCapacidadPersonas()
++boolean comprarAsiento (Cliente dato, int fila, char letra)
++boolean liberarAsiento (int fila, char letra)
++void mostrarAsientos()
+}
+class Menu{
++Manejo_archivos archivos;
++Scanner lector
+
++void inicio()
++void iniciarSesion()
++Cliente registrarCliente()
++void menuCliente(Cliente cliente)
++void menuEmpleado(Empleado empleado)
++void menuAdmin(Admin admin)
++void mostrarlistavuelos(HashSet<Vuelo> lista)
+}
+
+class Manejo_archivos{
++Lista_Personas lista_personas;
++Lista_aviones lista_aviones;
++Lista_vuelos vuelos;
++HashMap <Integer, Reserva> listaReservas
++ File archivo_personas;
++ File archivo_aviones
++ File archivo_vuelos;
++ File archivo_reservas;
++  ObjectMapper mapper
+
++Persona buscarPersona (String apellido, String contra)
++void cargararchivo_personas()
++void leerarchivo_personas()
++void cargaarchivo_aviones()
++void leer_archivo_aviones()
++void cargararchivo_vuelos()
++void leerarchivo_vuelos()
++void cargararchivo_reserva()
++void leerarchivo_reserva()
++void eliminarReservaEstructura(Integer id)
+}
+
+class Admin{
++Scanner lector;
+
++ public Admin(String nombre, String apellido, String email, String contra,Genero genero)
++String toString()
++void crearAvion(Manejo_archivos archivo)
++void crearEmpleado(Manejo_archivos archivos)
++void eliminarAvion(String modelo, Lista_aviones listaaux)
++void verempleados(Manejo_archivos archi)
++void despedirEmpleado(String emailBuscar, String contra, Lista_Personas listaAux)
+}
+
+class Cliente {
++Integer pasaporte;
++int edad;
++long numTelefono;
++String contrasenia;
++HashMap<Integer, Reserva> reservas;
++Scanner scan;
+
++Cliente(String nombre, String apellido, String email, String contra,Genero genero)
++void agregarReserva (Reserva reserva, Manejo_archivos archivo)
++void cargarReservasCliente (Manejo_archivos archivos)
++Vuelo elegirVueloAComprar (Lista_vuelos listaVuelos)
++Double comprarAsientos (Vuelo dato, Reserva nueva)
++void mostrarEstadoDelVuelo(Integer idReserva)
++void mostrarReservas()
++void mostrarPasajes()
++void eliminarReservaCliente(Integer id, Manejo_archivos archivos)
++String toString()
+}
+
+exception VueloNoExisteException{
++ VueloNoExisteExc(String message)
+}
+
+class Empleado{
++Lista_vuelos listaVuelo;
++Lista_Personas listaPersonas;
++Lista_aviones listaAviones;
++Scanner scanner;
+
++Empleado(String nombre, String apellido, String email, String contra,Genero genero)
++Empleado(String email, String contra)
++Vuelo crearVuelo (Manejo_archivos archivos)
++Avion elegirAvion (Manejo_archivos archivos)
++Vuelo buscarVuelo(String vueloBuscado, Manejo_archivos archivo)
++void modificarEstadoVuelo(String buscado, Manejo_archivos archivo)
++void mostrarListaClientes(Manejo_archivos archivo)
++void mostrarListaAviones(Manejo_archivos archivo
++void mostrarListaVuelos(Manejo_archivos archivo)
++void verPasajerosXVuelo(String codBuscar, Manejo_archivos archivo)
++
++
+}
+
+enum Genero{
++FEMENINO;
++MASCULINO;
++OTROS;
+
++Genero(int codigo)
++static Genero getByCodigo(int codigo)
++int getCodigo()
+}
+
+class Persona{
++String nombre;
++String apellido;
++String email;
++String contra;
++Genero genero;
+
++Persona(String nombre, String apellido,String email, String contra,Genero genero )
++Persona(String email, String contra)
+}
+
+enum Destinos{
++BUENOSAIRES,
++MENDOZA,
++CORDOBA,
++RIONEGRO,
++MISIONES,
++MARDELPLATA,
++SANTAFE,
++CHACO ,
++TIERRADELFUEGO,
++SANTACRUZ,
++SALTA,
++JUJUY;
++static final Scanner scanner;
+
++static void mostrarDestinos()
++Destinos elegirDestino(String tipo)
++static void elegirDestinos(Vuelo vuelo)
+}
+
+class Lista_Vuelos{
++ HashSet<Vuelo> lista_vuelos;
+
++void agregarvueloslista(Vuelo a)
++Vuelo buscarVuelo(String codigo)
+}
+
+class Vuelo{
++Destinos origen;
++Destinos destino;
++Avion avion;
++Double tiempoVuelo;
++String fechaIda;
++String fechaVuelta;
++String horarioLlegada;
++String horarioSalida;
++int estado;
++String codigoVuelo;
++String condicionVuelo;
++Double precioVuelo;
+
++Vuelo(Destinos origen,Destinos destino, Avion avion, Double tiempoVuelo,String fechaIda, String fechaVuelta, String horarioSalida, String horarioLlegada, int estado, String codigoVuelo, Double precioVuelo)
++String mostrarPasaje()
++String toString()
+}
+
+class main{
++Menu menu;
+
++menu.inicio();
+}
+
+
+
+
+
+
+@enduml
