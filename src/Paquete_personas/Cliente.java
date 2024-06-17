@@ -3,8 +3,10 @@ package Paquete_personas;
 import Aerolinea.Reserva;
 import Paquetes_vuelos.Lista_vuelos;
 import Paquetes_vuelos.Vuelo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import paquete_archivos.Manejo_archivos;
+//import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.io.Console;
 //import java.lang.classfile.Attribute;
@@ -18,7 +20,8 @@ public class Cliente extends Persona implements Serializable {
     private int edad;
     private long numTelefono;
     private String contrasenia;
-    @JsonManagedReference
+    //@JsonManagedReference
+   @JsonIgnore
     private HashMap<Integer, Reserva> reservas = new HashMap<>(); //hashMap con reservas de cada cliente
 
     private Scanner scan = new Scanner(System.in);
@@ -40,9 +43,22 @@ public class Cliente extends Persona implements Serializable {
 
     }
 
-    public void agregarReserva (Reserva reserva)
+    public void agregarReserva (Reserva reserva, Manejo_archivos archivo)
     {
         reservas.put(reserva.getId(), reserva);
+        archivo.getListaReservas().put(reserva.getId(), reserva);
+    }
+
+    public void cargarReservasCliente (Manejo_archivos archivos)
+    {
+        for (Reserva dato:archivos.getListaReservas().values())
+        {
+            if(dato.getCliente()!=null && dato.getCliente().equals(this))
+            {
+                reservas.put(dato.getId(), dato);
+            }
+        }
+
     }
 
     public Vuelo elegirVueloAComprar (Lista_vuelos listaVuelos)
@@ -136,9 +152,7 @@ public class Cliente extends Persona implements Serializable {
 
     }
 
-
-
-    public void eliminarReserva(Integer id) {  //Elimina una reserva pasandole el codigo.
+    public void eliminarReservaCliente(Integer id, Manejo_archivos archivos) {  //Elimina una reserva pasandole el codigo.
 
         boolean encontrada = false;
 
@@ -150,7 +164,7 @@ public class Cliente extends Persona implements Serializable {
 
                 iterator.remove();
                 System.out.println("\n Reserva eliminada con éxito.");
-                entry.getValue().getVuelos().getFirst().getAvion().liberarAsiento(entry.getValue().getFila(), entry.getValue().getLetra());
+                archivos.eliminarReservaEstructura(id);
                 encontrada = true;
                 break;
             }

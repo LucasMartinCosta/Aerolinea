@@ -28,6 +28,7 @@ public class Menu {
 
 
         archivos.prueba();
+        archivos.leerarchivo_reserva();
         archivos.leerarchivo_personas();
         archivos.leer_archivo_aviones();
         archivos.leerarchivo_vuelos();
@@ -149,6 +150,7 @@ public class Menu {
         boolean exit = false;
         int opcion1;
         Scanner scanCliente = new Scanner(System.in);
+        cliente.cargarReservasCliente(archivos);
 
         while (!exit) {
 
@@ -205,10 +207,8 @@ public class Menu {
                     Double costo = cliente.comprarAsientos(vueloAComprar, nuevaReserva); //compra los asientos de ese vuelo
                     nuevaReserva.agregaVuelo(vueloAComprar);// se carga ese vuelo a su array de vuelos en la reserva
                     nuevaReserva.setCostoTotal(costo); //cargo el costo a la reserva
-                    cliente.agregarReserva(nuevaReserva); //agrego la reserva a la lista de reservas del cliente
+                    cliente.agregarReserva(nuevaReserva, archivos); //agrego la reserva a la lista de reservas del cliente y a la estructura general que dsp se va a cargar en el archivo
                     cliente.mostrarReservas();
-
-
                     break;
 
                 case 2:
@@ -240,10 +240,11 @@ public class Menu {
                      System.out.print("Ingrese el ID para eliminar/cancelar su reserva: ");
 
                      Integer eleccion = lector.nextInt();
-                   cliente.eliminarReserva(eleccion);
+                     cliente.eliminarReservaCliente(eleccion, archivos); //elimina la reserva de la estructura del cliente y de la del archivo general
                     break;
 
                 case 6:
+                    archivos.cargararchivo_reserva();
                     archivos.cargararchivo_personas();
                     exit = true;
                     break;

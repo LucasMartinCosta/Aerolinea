@@ -10,12 +10,11 @@ import java.time.LocalDate;
 import java.util.*;
 
 
-
 public class Reserva implements Serializable {
-    @JsonBackReference
+    //@JsonBackReference
     private Cliente cliente;
-    private ArrayList<Vuelo> vuelos;
-    private Integer id;  // la vamos a usar de codigo
+    private ArrayList<Vuelo> vuelos = new ArrayList<>();
+    private Integer id = IDGenerator.generateID();// la vamos a usar de codigo
     private Double costoTotal;
     private int fila;
     private Character letra;

@@ -23,7 +23,7 @@ public class Manejo_archivos {
     private Lista_Personas lista_personas = new Lista_Personas();
     private Lista_aviones lista_aviones = new Lista_aviones();
     private Lista_vuelos vuelos = new Lista_vuelos();
-    private HashMap<Integer, Reserva> listaReservas;
+    private HashMap <Integer, Reserva> listaReservas = new HashMap<>();
 
     File archivo_personas = new File("ArchivoPersonas.json");
     File archivo_aviones = new File("ArchivoAviones.json");
@@ -77,21 +77,6 @@ public class Manejo_archivos {
         }
     }
 
-//    public void leer_todo_archivo_personas()
-//    {
-//        try {
-//            TreeSet<Persona>aux;
-//            aux = mapper.readValue(archivo_personas, new TypeReference<TreeSet<Persona>>() {
-//            });
-//            System.out.println("Ya leyo el archivo, hasta aca todo bien");
-//
-//            lista_personas.setLista_personas(aux);
-//        }
-//        catch (IOException e) {
-//            System.out.println("Error al querer leer el archivo");
-//            throw new RuntimeException(e);
-//        }
-//    }
 
     ///Carga archivo aviones///
 
@@ -147,11 +132,11 @@ public class Manejo_archivos {
         }
     }
 
-    public void cargararchivo_reserva(HashMap<Integer,Reserva> lista_reservas) // tiene el id de reserva
+    public void cargararchivo_reserva() // tiene el id de reserva
     {
         try
         {
-            mapper.writeValue(archivo_reservas,lista_reservas);
+            mapper.writeValue(archivo_reservas,listaReservas);
         }
         catch (IOException e)
         {
@@ -164,12 +149,32 @@ public class Manejo_archivos {
     public void leerarchivo_reserva()
     {
         try {
-            this.listaReservas = mapper.readValue(archivo_reservas, new TypeReference<HashMap>() {
+            this.listaReservas = mapper.readValue(archivo_reservas, new TypeReference<HashMap<Integer, Reserva>>() {
             });
         }
         catch (IOException e)
         {
             System.out.println("No se puede leer el archivo de reservas");
+        }
+    }
+
+    public void eliminarReservaEstructura(Integer id) {  //Elimina una reserva pasandole el codigo.
+
+        boolean encontrada = false;
+
+        Iterator<Map.Entry<Integer, Reserva>> iterator = listaReservas.entrySet().iterator();
+
+        while (iterator.hasNext()) {
+            Map.Entry<Integer, Reserva> entry = iterator.next();
+            if (entry.getKey().equals(id)) {
+
+                iterator.remove();
+                encontrada = true;
+                break;
+            }
+        }
+        if (!encontrada) {
+            System.out.println("\n No se encontró ninguna reserva con el código especificado. Vuelve a intentarlo.");
         }
     }
 
@@ -255,7 +260,11 @@ public class Manejo_archivos {
         this.vuelos = vuelos;
     }
 
+    public HashMap<Integer, Reserva> getListaReservas() {
+        return listaReservas;
+    }
 
-
-
+    public void setListaReservas(HashMap<Integer, Reserva> listaReservas) {
+        this.listaReservas = listaReservas;
+    }
 }

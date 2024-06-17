@@ -6,11 +6,10 @@
     "email" : "lucas@",
     "contra" : "lucas",
     "genero" : "MASCULINO",
-    "pasaporte" : null,
-    "edad" : 0,
-    "numTelefono" : 0,
-    "contrasenia" : null,
-    "reservas" : { }
+    "pasaporte" : 12,
+    "edad" : 12,
+    "numTelefono" : 12,
+    "contrasenia" : null
   }, {
     "tipo" : "Empleado",
     "nombre" : "manuempleado",
@@ -49,8 +48,7 @@
     "pasaporte" : null,
     "edad" : 0,
     "numTelefono" : 0,
-    "contrasenia" : null,
-    "reservas" : { }
+    "contrasenia" : null
   }, {
     "tipo" : "Cliente",
     "nombre" : "imanol",
@@ -61,7 +59,6 @@
     "pasaporte" : null,
     "edad" : 0,
     "numTelefono" : 0,
-    "contrasenia" : null,
-    "reservas" : { }
+    "contrasenia" : null
   } ]
 }

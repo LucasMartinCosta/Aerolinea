@@ -13,7 +13,6 @@ public class Vuelo implements Comparable<Vuelo> {
     private String fechaVuelta;
     private String horarioLlegada;
     private String horarioSalida;
-
     private int estado; // Ok(1) - Retrasado(0) - Cancelado (-1)
     private String codigoVuelo;  //capaz puede ser un String
     private String condicionVuelo;
