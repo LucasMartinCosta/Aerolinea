@@ -265,14 +265,20 @@ public class Menu {
 
             switch (opcion1) {
                 case 1:
-                    //llama a una funcion que pasandole el numero de vuelo te muestre un vuelo en especifico,
-                    //con la lista de pasajeros y toda la info
-                    System.out.println("\n Ingrese el codigo de vuelo a buscar: ");
-                    String codigo1 = lector.nextLine();
-                    Vuelo aux = empleado.buscarVuelo(codigo1, archivos);
-                    //Falta el metodo de vuelo de mostrar todos los datos del vuelo.
-                    //System.out.println(aux.toString());
-
+                    try {
+                        //llama a una funcion que pasandole el numero de vuelo te muestre un vuelo en especifico,
+                        //con la lista de pasajeros y toda la info
+                        System.out.println("\n Ingrese el codigo de vuelo a buscar: ");
+                        String codigo1 = lector.nextLine();
+                        Vuelo aux = empleado.buscarVuelo(codigo1, archivos);
+                        if(aux != null){
+                        System.out.println(aux);
+                        }else {
+                            throw new VueloNoExisteExc(codigo1);
+                        }
+                    }catch (VueloNoExisteExc e){
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 2:
                     //crea vuelos nuevos y lo muestra.
@@ -351,15 +357,15 @@ public class Menu {
                     admin.verempleados(archivos);
                     break;
                 case 6:
-                    //System.out.println("\n Ingrese el codigo de vuelo que desea ver: ");
-                    // Integer codigo2 = lector.nextInt();
-                    //empleado.verPasajerosXVuelo(codigo2);
+                    System.out.println("\n Ingrese el codigo de vuelo que desea ver: ");
+                    String codigo2 = lector.nextLine();
+                    admin.verPasajerosXVuelo(codigo2, archivos);
                     break;
                 case 7:
                     //modificar estado de vuelo.
-                    //System.out.println("\n Ingrese el codigo de vuelo a buscar: ");
-                    //Integer codigo3 = lector.nextInt();
-                    //empleado.modificarEstadoVuelo(codigo3);
+                    System.out.println("\n Ingrese el codigo de vuelo a buscar: ");
+                    String codigo3 = lector.nextLine();
+                    admin.modificarEstadoVuelo(codigo3, archivos);
                     break;
                 case 8:
                     String emailbuscar,contrabuscar;
