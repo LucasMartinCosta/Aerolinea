@@ -120,8 +120,8 @@ public class Reserva implements Serializable {
                 "\n ASIENTO: " + letra +
                 "\n CLIENTE: " + cliente +
                 "\n VUELO: " + vuelos +
-                "\n COSTO TOTAL:$" + costoTotal +
-                "\n --------- \n";
+                "\n COSTO TOTAL: $" + costoTotal +
+                "\n ----------------\n";
     }
 }
 
