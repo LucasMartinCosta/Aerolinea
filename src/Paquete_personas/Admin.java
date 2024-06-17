@@ -127,24 +127,7 @@ public class Admin extends Empleado implements Serializable {
             }
         }
     }
-    public void eliminaAvion(Avion avionAEliminar, Manejo_archivos archivos) //Ima: esto me tiro chatgpt
-    {
-        //Lista_aviones listaAviones = archivos.leer_archivo_aviones();
 
-//        Iterator<Avion> iterator = listaAviones.getLista_aviones().iterator();
-//        while (iterator.hasNext()) {
-//            Avion avion = iterator.next();
-//            if (avion.equals(avionAEliminar)) {
-//                iterator.remove();
-//                System.out.println("Avión eliminado con éxito");
-//                break;  // Termina el bucle una vez que se elimina el avión
-//            }
-//        }
-//
-//        // Actualiza la lista de aviones en el archivo
-//        archivos.setLista_aviones(listaAviones);
-//        archivos.cargaarchivo_aviones();
-    }
 
     public void verempleados(Manejo_archivos archi)
     {

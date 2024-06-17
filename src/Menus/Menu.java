@@ -7,6 +7,7 @@ import Paquetes_vuelos.Lista_vuelos;
 import Paquetes_vuelos.Vuelo;
 import paquete_archivos.Manejo_archivos;
 
+import java.io.Console;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
@@ -87,6 +88,10 @@ public class Menu {
             }
 
     }
+
+
+
+
 
     //en registrar cliente hay que hacer un return de que?
     // LUCAS: hace el return de la persona que se registra para dsp poder pasarla al menu
@@ -186,7 +191,13 @@ public class Menu {
                     //mostras reserva
                     cliente.mostrarReservas();
                     //pide que ingreses el id de la reserva
-                    System.out.print("Ingrese el ID del vuelo para ver su estado: ");
+                    System.out.print("Ingrese el ID de la reserva para ver el estado su estado: ");
+                    //este ciclo hace que cuando ingresas un caracter no valido vuelva a pedirte que lo ingreses
+                    while (!scanCliente.hasNextInt()) {
+                        System.out.println("Entrada inválida. Por favor, ingrese un número:");
+                        scanCliente.next(); // Limpiar el buffer de entrada
+                    }
+
                     int idVuelo = scanCliente.nextInt();
                     //accede a el estado de el/los vuelos que tengas y su estado en esa reserva
                     cliente.mostrarEstadoDelVuelo(idVuelo);
@@ -194,17 +205,18 @@ public class Menu {
                     break;
                 case 3:
                     //MOSTRAMOS PASAJES DEL CLIENTE
-                    cliente.mostrarReservas();
+                    cliente.mostrarPasajes();
                     break;
 
                 case 4:
                     //mostramos reserva del cliente
                     cliente.mostrarReservas();
+                    break;
                 case 5:
                     //en este caso eliminamos el vuelo ingresndo a traves del scanner luego lo pasamos a reserva.eliminarReserva
-                    // System.out.print("Ingrese el ID para eliminar/cancelar su vuelo: ");
-//                   Integer idVuelo = lector.nextInt();
-//                   reserva.eliminarReserva(idVuelo);
+                    System.out.print("Ingrese el ID para eliminar/cancelar su vuelo: ");
+                   Integer idVuelo1 = lector.nextInt();
+                   cliente.eliminarReserva(idVuelo1);
                     break;
                 case 6:
                     archivos.cargararchivo_personas();

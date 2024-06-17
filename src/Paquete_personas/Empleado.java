@@ -51,12 +51,12 @@ public class Empleado extends Persona implements Serializable {
              Avion avion = elegirAvion(archivos);
              nuevo.setAvion(avion);
 
-        System.out.println("Ingrese las horas totales del vuelo: ");
+        System.out.println("\nIngrese las horas totales del vuelo: ");
         Double tiempoVuelo = scanner.nextDouble();
         scanner.nextLine();
         nuevo.setTiempoVuelo(tiempoVuelo);
 
-        System.out.println("ingrese la fecha de salida: ");
+        System.out.println("\nIngrese la fecha de salida: ");
         String fechaSalida= scanner.nextLine();
         nuevo.setFechaIda(fechaSalida);
 
@@ -64,26 +64,26 @@ public class Empleado extends Persona implements Serializable {
 //        String fechaVuelta= scanner.nextLine();
 //        nuevo.setFechaVuelta(fechaVuelta);
 
-        System.out.println("ingrese el horario de salida: ");
+        System.out.println("\nIngrese el horario de salida: ");
         String horariosalida= scanner.nextLine();
         nuevo.setHorarioSalida(horariosalida);
 
-        System.out.println("ingrese el horario de llegada: ");
+        System.out.println("\nIngrese el horario de llegada: ");
         String horarioLlegada= scanner.nextLine();
         nuevo.setHorarioLlegada(horarioLlegada);
 
-        System.out.println("ingrese el estado del avion: A TIEMPO = 1 // RETRASADO=0 // CANCELADO= -1");
+        System.out.println("\nIngrese el estado del avion: A TIEMPO = 1 // RETRASADO=0 // CANCELADO= -1");
         int estado= scanner.nextInt();
         scanner.nextLine();
         nuevo.setEstado(estado);
         nuevo.setCondicionVuelo();
 
-        System.out.println("ingrese el codigo del vuelo (Primeras 3 letras del origen - Primeras 3 letras del destino - horario llegada) ");
+        System.out.println("\nIngrese el codigo del vuelo (Primeras 3 letras del origen - Primeras 3 letras del destino - horario llegada) ");
         System.out.println("ORIGEN = " + nuevo.getOrigen() + " LLEGADA = " + nuevo.getDestino() + " HORARIO LLEGADA = " + nuevo.getHorarioLlegada());
         String codigo= scanner.nextLine();
         nuevo.setCodigoVuelo(codigo);
 
-        System.out.println("Ingrese el precio del vuelo para los pasajeros: ");
+        System.out.println("\nIngrese el precio del vuelo para los pasajeros: ");
         Double precio = scanner.nextDouble();
         scanner.nextLine();
         nuevo.setPrecioVuelo(precio);
@@ -100,19 +100,19 @@ public class Empleado extends Persona implements Serializable {
         mostrarListaAviones(archivos);
 
         while (true) {
-            System.out.println("Ingrese el Modelo del avion a elegir: ");
+            System.out.println("\nIngrese el Modelo del avion a elegir: ");
             String modelo = scanner.nextLine();
 
             boolean found = false;
             for (Avion dato : archivos.getLista_aviones()) {
                 if (dato.getModelo().equalsIgnoreCase(modelo)) { // Comparación insensible a mayúsculas/minúsculas
                     if (dato.getEstado() == 1) {
-                        System.out.println("Avión elegido.");
+                        System.out.println("\nAvión elegido.");
                         elegido = dato;
                         found = true;
                         break;
                     } else {
-                        System.out.println("El avión no está disponible, por favor elija otro.");
+                        System.out.println("\nEl avión no está disponible, por favor elija otro.");
                         found = true;
                         break;
                     }
@@ -122,7 +122,7 @@ public class Empleado extends Persona implements Serializable {
             if (elegido != null) {
                 break;
             } else if (!found) {
-                System.out.println("Modelo no encontrado, por favor elija otro.");
+                System.out.println("\nModelo no encontrado, por favor elija otro.");
             }
         }
         elegido.setEstado(0);
@@ -145,12 +145,12 @@ public class Empleado extends Persona implements Serializable {
     public void modificarEstadoVuelo(String buscado, Manejo_archivos archivo) {
         Vuelo encontrado = buscarVuelo(buscado, archivo);
         if (encontrado != null) {
-            System.out.println("Ingresar estado del Vuelo (1= A Tiempo // 0= Retrasado // -1= Cancelado");
+            System.out.println("\nIngresar estado del Vuelo (1= A Tiempo // 0= Retrasado // -1= Cancelado");
             Scanner estado = new Scanner(System.in);
             int e = estado.nextInt();
             encontrado.setEstado(e);
         } else {
-            System.out.println("ERROR - Vuelo no encontrado.");
+            System.out.println("\nERROR - Vuelo no encontrado.");
         }
     }
 
