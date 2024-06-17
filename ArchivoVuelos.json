@@ -127,6 +127,10 @@
     "estado" : 1
   },
   "tiempoVuelo" : 2.4,
+  "fechaIda" : null,
+  "fechaVuelta" : null,
+  "horarioLlegada" : null,
+  "horarioSalida" : null,
   "estado" : 1,
   "codigoVuelo" : "we34567",
   "condicionVuelo" : "A TIEMPO",
@@ -260,10 +264,151 @@
     "estado" : 1
   },
   "tiempoVuelo" : 2.4,
+  "fechaIda" : null,
+  "fechaVuelta" : null,
+  "horarioLlegada" : null,
+  "horarioSalida" : null,
   "estado" : 1,
   "codigoVuelo" : "df7890",
   "condicionVuelo" : "A TIEMPO",
   "precioVuelo" : 222.0
+}, {
+  "origen" : "MENDOZA",
+  "destino" : "CORDOBA",
+  "avion" : {
+    "asientos" : {
+      "1" : {
+        "A" : {
+          "fila" : 1,
+          "letra" : "A",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : null
+          },
+          "disponible" : false
+        },
+        "B" : {
+          "fila" : 1,
+          "letra" : "B",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : null
+          },
+          "disponible" : false
+        },
+        "C" : {
+          "fila" : 1,
+          "letra" : "C",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : null
+          },
+          "disponible" : false
+        },
+        "D" : {
+          "fila" : 1,
+          "letra" : "D",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : null
+          },
+          "disponible" : false
+        },
+        "E" : {
+          "fila" : 1,
+          "letra" : "E",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : null
+          },
+          "disponible" : false
+        },
+        "F" : {
+          "fila" : 1,
+          "letra" : "F",
+          "reservado" : false,
+          "cliente" : {
+            "tipo" : "Cliente",
+            "nombre" : "",
+            "apellido" : "",
+            "email" : "",
+            "contra" : "",
+            "genero" : "FEMENINO",
+            "pasaporte" : null,
+            "edad" : 0,
+            "numTelefono" : 0,
+            "contrasenia" : null,
+            "reservas" : null
+          },
+          "disponible" : false
+        }
+      }
+    },
+    "modelo" : "a3",
+    "capacidad_personas" : 20,
+    "tiempo_vuelo" : 2.4,
+    "tipo" : null,
+    "estado" : 0
+  },
+  "tiempoVuelo" : 6.0,
+  "fechaIda" : "20/07/2024",
+  "fechaVuelta" : null,
+  "horarioLlegada" : "23:30",
+  "horarioSalida" : "19:30",
+  "estado" : 1,
+  "codigoVuelo" : "mencor2330",
+  "condicionVuelo" : "A TIEMPO",
+  "precioVuelo" : 450.0
 }, {
   "origen" : "CORDOBA",
   "destino" : "MISIONES",
@@ -393,7 +538,11 @@
     "estado" : 1
   },
   "tiempoVuelo" : 2.4,
-  "estado" : 1,
+  "fechaIda" : null,
+  "fechaVuelta" : null,
+  "horarioLlegada" : null,
+  "horarioSalida" : null,
+  "estado" : 0,
   "codigoVuelo" : "mp12345",
   "condicionVuelo" : "A TIEMPO",
   "precioVuelo" : 100.0

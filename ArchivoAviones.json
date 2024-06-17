@@ -4,6 +4,7 @@
       "A" : {
         "fila" : 1,
         "letra" : "A",
+        "reservado" : false,
         "cliente" : {
           "tipo" : "Cliente",
           "nombre" : "",
@@ -22,6 +23,7 @@
       "B" : {
         "fila" : 1,
         "letra" : "B",
+        "reservado" : false,
         "cliente" : {
           "tipo" : "Cliente",
           "nombre" : "",
@@ -40,6 +42,7 @@
       "C" : {
         "fila" : 1,
         "letra" : "C",
+        "reservado" : false,
         "cliente" : {
           "tipo" : "Cliente",
           "nombre" : "",
@@ -58,6 +61,7 @@
       "D" : {
         "fila" : 1,
         "letra" : "D",
+        "reservado" : false,
         "cliente" : {
           "tipo" : "Cliente",
           "nombre" : "",
@@ -76,6 +80,7 @@
       "E" : {
         "fila" : 1,
         "letra" : "E",
+        "reservado" : false,
         "cliente" : {
           "tipo" : "Cliente",
           "nombre" : "",
@@ -94,6 +99,7 @@
       "F" : {
         "fila" : 1,
         "letra" : "F",
+        "reservado" : false,
         "cliente" : {
           "tipo" : "Cliente",
           "nombre" : "",
@@ -122,6 +128,7 @@
       "A" : {
         "fila" : 1,
         "letra" : "A",
+        "reservado" : false,
         "cliente" : {
           "tipo" : "Cliente",
           "nombre" : "",
@@ -140,6 +147,7 @@
       "B" : {
         "fila" : 1,
         "letra" : "B",
+        "reservado" : false,
         "cliente" : {
           "tipo" : "Cliente",
           "nombre" : "",
@@ -158,6 +166,7 @@
       "C" : {
         "fila" : 1,
         "letra" : "C",
+        "reservado" : false,
         "cliente" : {
           "tipo" : "Cliente",
           "nombre" : "",
@@ -176,6 +185,7 @@
       "D" : {
         "fila" : 1,
         "letra" : "D",
+        "reservado" : false,
         "cliente" : {
           "tipo" : "Cliente",
           "nombre" : "",
@@ -194,6 +204,7 @@
       "E" : {
         "fila" : 1,
         "letra" : "E",
+        "reservado" : false,
         "cliente" : {
           "tipo" : "Cliente",
           "nombre" : "",
@@ -212,6 +223,7 @@
       "F" : {
         "fila" : 1,
         "letra" : "F",
+        "reservado" : false,
         "cliente" : {
           "tipo" : "Cliente",
           "nombre" : "",
@@ -240,6 +252,7 @@
       "A" : {
         "fila" : 1,
         "letra" : "A",
+        "reservado" : false,
         "cliente" : {
           "tipo" : "Cliente",
           "nombre" : "",
@@ -258,6 +271,7 @@
       "B" : {
         "fila" : 1,
         "letra" : "B",
+        "reservado" : false,
         "cliente" : {
           "tipo" : "Cliente",
           "nombre" : "",
@@ -276,6 +290,7 @@
       "C" : {
         "fila" : 1,
         "letra" : "C",
+        "reservado" : false,
         "cliente" : {
           "tipo" : "Cliente",
           "nombre" : "",
@@ -294,6 +309,7 @@
       "D" : {
         "fila" : 1,
         "letra" : "D",
+        "reservado" : false,
         "cliente" : {
           "tipo" : "Cliente",
           "nombre" : "",
@@ -312,6 +328,7 @@
       "E" : {
         "fila" : 1,
         "letra" : "E",
+        "reservado" : false,
         "cliente" : {
           "tipo" : "Cliente",
           "nombre" : "",
@@ -330,6 +347,7 @@
       "F" : {
         "fila" : 1,
         "letra" : "F",
+        "reservado" : false,
         "cliente" : {
           "tipo" : "Cliente",
           "nombre" : "",
@@ -351,5 +369,5 @@
   "capacidad_personas" : 20,
   "tiempo_vuelo" : 2.4,
   "tipo" : null,
-  "estado" : 1
+  "estado" : 0
 } ]

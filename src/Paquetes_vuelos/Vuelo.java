@@ -56,7 +56,7 @@ public class Vuelo implements Comparable<Vuelo> {
                 "\n DURACION: " + tiempoVuelo +
                 "\n SALIDA: " + fechaIda + " - " +  horarioSalida+
                 "\n LLEGADA: " + fechaVuelta + " - " + horarioLlegada +
-                "\nAVION: " + avion.getModelo();
+                "\n AVION: " + avion.getModelo();
     }
 
     public String getCodigoVuelo() {
