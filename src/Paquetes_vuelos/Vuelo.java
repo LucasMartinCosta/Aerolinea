@@ -17,7 +17,7 @@ public class Vuelo implements Comparable<Vuelo> {
     private int estado; // Ok(1) - Retrasado(0) - Cancelado (-1)
     private String codigoVuelo;  //capaz puede ser un String
     private String condicionVuelo;
-    private int numeroPasajeros;
+    //private int numeroPasajeros;
     private Double precioVuelo;
 
 
@@ -40,19 +40,12 @@ public class Vuelo implements Comparable<Vuelo> {
         this.horarioSalida = horarioSalida;
         this.horarioLlegada= horarioLlegada;
         this.estado = estado;
-      setCondicionVuelo(condicionVuelo);
-      this.precioVuelo=precioVuelo;
+        setCondicionVuelo();
+        this.precioVuelo=precioVuelo;
 
 
     }
 
-
-    public Vuelo(Destinos origen, Destinos destino,int numeroPasajeros){
-        this.origen = origen;
-        this.destino = destino;
-        this.numeroPasajeros = numeroPasajeros;
-
-    }
 
 
 //este to string lo usamos para imprimir el boleto de avion
@@ -80,7 +73,7 @@ public class Vuelo implements Comparable<Vuelo> {
     }
 
     public void setEstado(int estado) {
-      if (estado== 1 || estado==0 || estado== -1) {
+      if (estado == 1 || estado==0 || estado== -1) {
           this.estado = estado;
       }else {
           System.out.println("\nNO VALIDO");
@@ -91,12 +84,11 @@ public class Vuelo implements Comparable<Vuelo> {
         return condicionVuelo;
     }
 
-    public void setCondicionVuelo(String condicionVuelo) {
-      if (estado== 1){
+    public void setCondicionVuelo() {
+      if (estado == 1){
           this.condicionVuelo ="A TIEMPO";
       } else if (estado== 0) {
           this.condicionVuelo ="RETRASADO";
-
       }else {
           this.condicionVuelo = "CANCELADO";
       }
@@ -134,6 +126,45 @@ public class Vuelo implements Comparable<Vuelo> {
         this.precioVuelo = precioVuelo;
     }
 
+    public void setAvion(Avion avion) {
+        this.avion = avion;
+    }
+
+    public String getFechaIda() {
+        return fechaIda;
+    }
+
+    public void setFechaIda(String fechaIda) {
+        this.fechaIda = fechaIda;
+    }
+
+    public String getFechaVuelta() {
+        return fechaVuelta;
+    }
+
+    public void setFechaVuelta(String fechaVuelta) {
+        this.fechaVuelta = fechaVuelta;
+    }
+
+    public String getHorarioLlegada() {
+        return horarioLlegada;
+    }
+
+    public void setHorarioLlegada(String horarioLlegada) {
+        this.horarioLlegada = horarioLlegada;
+    }
+
+    public String getHorarioSalida() {
+        return horarioSalida;
+    }
+
+    public void setHorarioSalida(String horarioSalida) {
+        this.horarioSalida = horarioSalida;
+    }
+
+    public void setCodigoVuelo(String codigoVuelo) {
+        this.codigoVuelo = codigoVuelo;
+    }
 
     @Override
      public int compareTo(Vuelo o) {
@@ -162,8 +193,8 @@ public class Vuelo implements Comparable<Vuelo> {
                 "\n TIEMPO DE VUELO:" + tiempoVuelo +
                 "\n ESTADO: " + estado +
                 "\n CODIGO DE VUELO: " + codigoVuelo +
-                "\n CONDICION DE VUELO: " + condicionVuelo +
-                "\n NUMERO DE PASAJEROS:" + numeroPasajeros;
+                "\n CONDICION DE VUELO: " + condicionVuelo; //+
+               // "\n NUMERO DE PASAJEROS:" + numeroPasajeros;
     }
 
 

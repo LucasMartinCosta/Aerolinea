@@ -148,10 +148,11 @@ public class Menu {
     public void menuCliente(Cliente cliente) {
         boolean exit = false;
         int opcion1;
+        Scanner scanCliente = new Scanner(System.in);
 
         while (!exit) {
 
-            System.out.println("\n-----------------------");
+            System.out.println("\n-----------MENU CLIENTE------------");
             System.out.println("\n1.COMPRAR PASAJE");
             System.out.println("\n2.ESTADO DE VUELO");
             System.out.println("\n3.VER PASAJE"); // mostramos de a un pasaje
@@ -160,13 +161,10 @@ public class Menu {
             System.out.println("\n6.SALIR DEL MENU");
             System.out.println("\n-----------------------");
 
-            if (lector.hasNextInt()) {
-                opcion1 = lector.nextInt();
-                lector.nextLine(); // consume the newline
+            opcion1 = scanCliente.nextInt();
+            scanCliente.nextLine(); // consume the newline
 
-
-
-            switch (opcion1) {
+                switch (opcion1) {
                 case 1:
                     //LUCAS: COMPRAR PASAJE tiene que mostrar una lista de todos los vuelos disponibles para poder hacer una compra, el cliente
                     //toca el numero del pasaje que quiere comprar y se añade a su lista
@@ -188,7 +186,7 @@ public class Menu {
                     cliente.mostrarReservas();
                     //pide que ingreses el id de la reserva
                     System.out.print("Ingrese el ID del vuelo para ver su estado: ");
-                    int idVuelo = lector.nextInt();
+                    int idVuelo = scanCliente.nextInt();
                     //accede a el estado de el/los vuelos que tengas y su estado en esa reserva
                     cliente.mostrarEstadoDelVuelo(idVuelo);
 
@@ -213,22 +211,16 @@ public class Menu {
                     break;
                 default:
                     System.out.println("\nOpción no valida. Por favor, intente de nuevo.");
-            } } else {
-                System.out.println("Entrada inválida. Por favor, ingrese un número.");
-                lector.nextLine(); // consume the invalid input
-            }
+                }
         }
-        //lector.close();
     }
-
-
 
     public void menuEmpleado(Empleado empleado) {
 
         boolean exit= false;
         int opcion1;
         while (!exit) {
-            System.out.println("\n-----------------------");
+            System.out.println("\n------------MENU EMPLEADO-----------");
             System.out.println("\n1.VER UN VUELO");
             System.out.println("\n2.HACER VUELOS NUEVOS");
             System.out.println("\n3.VER LISTA DE AVIONES COMPLETA");
@@ -253,7 +245,9 @@ public class Menu {
 
                     break;
                 case 2:
-                    //llama a una funcion que crea vuelos, juntando un avion(que tiene que estar disponible) un origen, y un destino
+                    //crea vuelos nuevos y lo muestra.
+                    Vuelo creado=empleado.crearVuelo(archivos);
+                    System.out.println("Vuelo creado con exito: " + creado.toString());
                     break;
                 case 3:
                     empleado.mostrarListaAviones(archivos);
@@ -286,6 +280,7 @@ public class Menu {
     }
 
     public void menuAdmin(Admin admin) {
+
 
         boolean exit= false;
         int opcion1;

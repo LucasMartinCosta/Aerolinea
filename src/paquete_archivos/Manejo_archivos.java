@@ -183,7 +183,8 @@ public class Manejo_archivos {
 
         Empleado empleado = new Empleado("manuempleado", "abras", "manu@", "manu",Genero.MASCULINO);
         Empleado empleado2 = new Empleado("imanolempleado", "sayago", "imanolempleado@", "imanolempleado",Genero.MASCULINO);
-        Empleado empleado3 = new Empleado("lucasempleado", "costa", "lucasempleado@", "lucasempleado",Genero.MASCULINO);
+        Empleado empleado3 = new Empleado("lucasempleado", "coasdadsta", "lucasempleado@", "lucasempleado",Genero.MASCULINO);
+        Empleado empleado4 = new Empleado("lucasempleado", "costa", "lucasempleado@", "1",Genero.MASCULINO);
 
 
         Admin admin = new Admin("lucasempleado", "costa", "lucasempleado@", "lucasempleado",Genero.MASCULINO);
@@ -197,6 +198,7 @@ public class Manejo_archivos {
         lista_personas.agregar_personas(empleado3);
         lista_personas.agregar_personas(admin1);
         lista_personas.agregar_personas(admin);
+        lista_personas.agregar_personas(empleado4);
 
         cargararchivo_personas();
     }

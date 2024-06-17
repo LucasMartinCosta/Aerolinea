@@ -28,6 +28,13 @@
   }, {
     "tipo" : "Empleado",
     "nombre" : "lucasempleado",
+    "apellido" : "coasdadsta",
+    "email" : "lucasempleado@",
+    "contra" : "lucasempleado",
+    "genero" : "MASCULINO"
+  }, {
+    "tipo" : "Admin",
+    "nombre" : "lucasempleado",
     "apellido" : "costa",
     "email" : "lucasempleado@",
     "contra" : "lucasempleado",

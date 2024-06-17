@@ -2,6 +2,7 @@ package Paquete_personas;
 
 import Aviones.Asiento;
 import Aviones.Avion;
+import Paquetes_vuelos.Destinos;
 import Paquetes_vuelos.Lista_vuelos;
 import Paquetes_vuelos.Vuelo;
 import Tipos_listas.Lista_Personas;
@@ -12,12 +13,15 @@ import paquete_archivos.Manejo_archivos;
 import java.io.Serializable;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.SortedMap;
 
 @JsonTypeName("Empleado")
 public class Empleado extends Persona implements Serializable {
     private Lista_vuelos listaVuelo;
     private Lista_Personas listaPersonas;
     private Lista_aviones listaAviones;
+
+    Scanner scanner = new Scanner(System.in);
 
 
     //Constructor Persona.
@@ -37,6 +41,94 @@ public class Empleado extends Persona implements Serializable {
         this.listaPersonas = new Lista_Personas();
         this.listaAviones = new Lista_aviones();
     }
+
+    public Vuelo crearVuelo (Manejo_archivos archivos)
+    {
+            Vuelo nuevo = new Vuelo();
+
+             Destinos.elegirDestinos(nuevo);
+
+             Avion avion = elegirAvion(archivos);
+             nuevo.setAvion(avion);
+
+        System.out.println("Ingrese las horas totales del vuelo: ");
+        Double tiempoVuelo = scanner.nextDouble();
+        scanner.nextLine();
+        nuevo.setTiempoVuelo(tiempoVuelo);
+
+        System.out.println("ingrese la fecha de salida: ");
+        String fechaSalida= scanner.nextLine();
+        nuevo.setFechaIda(fechaSalida);
+
+//        System.out.println("ingrese la fecha de vuelta: ");
+//        String fechaVuelta= scanner.nextLine();
+//        nuevo.setFechaVuelta(fechaVuelta);
+
+        System.out.println("ingrese el horario de salida: ");
+        String horariosalida= scanner.nextLine();
+        nuevo.setHorarioSalida(horariosalida);
+
+        System.out.println("ingrese el horario de llegada: ");
+        String horarioLlegada= scanner.nextLine();
+        nuevo.setHorarioLlegada(horarioLlegada);
+
+        System.out.println("ingrese el estado del avion: A TIEMPO = 1 // RETRASADO=0 // CANCELADO= -1");
+        int estado= scanner.nextInt();
+        scanner.nextLine();
+        nuevo.setEstado(estado);
+        nuevo.setCondicionVuelo();
+
+        System.out.println("ingrese el codigo del vuelo (Primeras 3 letras del origen - Primeras 3 letras del destino - horario llegada) ");
+        System.out.println("ORIGEN = " + nuevo.getOrigen() + " LLEGADA = " + nuevo.getDestino() + " HORARIO LLEGADA = " + nuevo.getHorarioLlegada());
+        String codigo= scanner.nextLine();
+        nuevo.setCodigoVuelo(codigo);
+
+        System.out.println("Ingrese el precio del vuelo para los pasajeros: ");
+        Double precio = scanner.nextDouble();
+        scanner.nextLine();
+        nuevo.setPrecioVuelo(precio);
+
+        archivos.getVuelos().agregarvueloslista(nuevo);
+
+        return nuevo;
+
+    }
+
+    public Avion elegirAvion (Manejo_archivos archivos) {
+        Avion elegido = null;
+
+        mostrarListaAviones(archivos);
+
+        while (true) {
+            System.out.println("Ingrese el Modelo del avion a elegir: ");
+            String modelo = scanner.nextLine();
+
+            boolean found = false;
+            for (Avion dato : archivos.getLista_aviones()) {
+                if (dato.getModelo().equalsIgnoreCase(modelo)) { // Comparación insensible a mayúsculas/minúsculas
+                    if (dato.getEstado() == 1) {
+                        System.out.println("Avión elegido.");
+                        elegido = dato;
+                        found = true;
+                        break;
+                    } else {
+                        System.out.println("El avión no está disponible, por favor elija otro.");
+                        found = true;
+                        break;
+                    }
+                }
+            }
+
+            if (elegido != null) {
+                break;
+            } else if (!found) {
+                System.out.println("Modelo no encontrado, por favor elija otro.");
+            }
+        }
+        elegido.setEstado(0);
+        return elegido;
+    }
+
 
         //Buscar un vuelo puntual buscado por codigo de vuelo y devuelve ese vuelo puntual o null si no existe.
     public Vuelo buscarVuelo(String vueloBuscado, Manejo_archivos archivo) {
