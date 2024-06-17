@@ -100,7 +100,7 @@ public class Menu {
         System.out.println("\nIngrese su apellido: ");
         String apellido = lector.nextLine();
 
-        System.out.println("]nIngrese su mail: ");
+        System.out.println("\nIngrese su mail: ");
         String mail = lector.nextLine();
 
         System.out.println("\nIngrese su contraseña");
@@ -301,6 +301,7 @@ public class Menu {
                 case 4:
                     //Muestra solo los clientes de la lista Personas.
                     empleado.mostrarListaClientes(archivos);
+                    break;
                 case 5:
                     empleado.mostrarListaVuelos(archivos);
                     break;
