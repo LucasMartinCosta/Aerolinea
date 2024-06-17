@@ -51,7 +51,7 @@ public class Avion implements Serializable {
     public String toString() {
         return  "\n MODELO DE AVION: " + modelo +
                 "\n CAPACIDAD: " + capacidad_personas +
-                "\n COMBUSTIBLE: " + tiempo_vuelo +
+                "\n TIEMPO DE COMBUSTIBLE: " + tiempo_vuelo +
                 "\n TIPO: " + tipo +
                 "\n ESTADO: " + estado +
                 "\n (Disponi|ble(1) - Ocupado (0) - Reparacion (-1))" +
