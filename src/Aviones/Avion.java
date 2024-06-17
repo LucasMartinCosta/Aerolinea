@@ -46,14 +46,17 @@ public class Avion implements Serializable {
         }
     }
 
+
     @Override
     public String toString() {
-        return "\nASIENTO: " +asientos+
-                "\nMODELO: " + modelo +
-                "\nCAPACIDAD: " + capacidad_personas +
-                "\nTIEMPO DE VUELO: " + tiempo_vuelo +
-                "\nTIPO: " + tipo +
-                "\nESTADO: " + estado;
+        return  "\n MODELO DE AVION: " + modelo +
+                "\n CAPACIDAD: " + capacidad_personas +
+                "\n COMBUSTIBLE: " + tiempo_vuelo +
+                "\n TIPO: " + tipo +
+                "\n ESTADO: " + estado +
+                "\n (Disponi|ble(1) - Ocupado (0) - Reparacion (-1))" +
+                //"\n ASIENTO: " + asientos +
+                "\n \n ====================== \n";
     }
 
     public String getModelo() {

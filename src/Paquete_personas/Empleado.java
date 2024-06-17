@@ -71,14 +71,14 @@ public class Empleado extends Persona implements Serializable {
     }
         //Este metodo va a trabajar SOLO con Clientes porque tienen el atributo pasaporte para poder buscar.
         //Lo hice ahora aca pero lo voy a agregar como un metodo de admin.
-    public Persona buscarPersona(Integer buscar){
-        for(Persona p : listaPersonas.getLista_personas()){
-            if(p instanceof Cliente && ((Cliente) p).getPasaporte().equals(buscar)){
-                return p;
-            }
-        }
-        return null;
-    }
+//    public Persona buscarPersona(Integer buscar){
+//        for(Persona p : listaPersonas.getLista_personas()){
+//            if(p instanceof Cliente && ((Cliente) p).getPasaporte().equals(buscar)){
+//                return p;
+//            }
+//        }
+//        return null;
+//    }
 
     public void mostrarListaAviones(Manejo_archivos archivo){
         for(Avion a : archivo.getLista_aviones()){
@@ -91,21 +91,30 @@ public class Empleado extends Persona implements Serializable {
         }
     }
 
-    public void verPasajerosXVuelo(String codBuscar, Manejo_archivos archivo){
-        for(Vuelo vuelo : archivo.getVuelos()){
-            if(vuelo.getCodigoVuelo().equals(codBuscar)){
-                //Segun chat gpt son 3 bucles for para acceder a asientos, segun Intellij son 2.
-                //for (Map<Integer, Map<Character, Asiento>> filaMap : vuelo.getAvion().getAsientos().values()){
-                for(Map<Character, Asiento> asientoMap : vuelo.getAvion().getAsientos().values()){
-                    for (Asiento a : asientoMap.values()){
-                        if (a.isDisponible() && a.getCliente() != null){
-                            System.out.println(a);
-                        }
-                    }
-                    //}
-                }
-            }
-        }
+    public void verPasajerosXVuelo(String codBuscar, Manejo_archivos archivo) {
+        Vuelo aux = buscarVuelo(codBuscar, archivo);
+        System.out.println(
+                aux.toString() +
+                "\n --- " +
+                aux.getAvion().toString() +
+                aux.getAvion().getAsientos());
+        //Increiblemente la funcion de abajo no sirve, y la pavada de arriba si sirve para mostrar todos los asientos.
+
+
+//            for(Vuelo vuelo : archivo.getVuelos()){
+//            if(vuelo.getCodigoVuelo().equals(codBuscar)){
+//                //Segun chat gpt son 3 bucles for para acceder a asientos, segun Intellij son 2.
+//                //for (Map<Integer, Map<Character, Asiento>> filaMap : vuelo.getAvion().getAsientos().values()){
+//                for(Map<Character, Asiento> asientoMap : vuelo.getAvion().getAsientos().values()){
+//                    for (Asiento a : asientoMap.values()){
+//                        if (a.isDisponible() && a.getCliente() != null){
+//                            System.out.println(a);
+//                        }
+//                    }
+//                    //}
+//                }
+//            }
+//        }
 
     }
 

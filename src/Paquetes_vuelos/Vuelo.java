@@ -58,16 +58,13 @@ public class Vuelo implements Comparable<Vuelo> {
 //este to string lo usamos para imprimir el boleto de avion
 
     public String mostrarPasaje() {
-        return "\nORG=" + origen +
-                "                    DES=" + destino  +
-                "\nDURACION= " + tiempoVuelo +
-                "\nSALIDA=" + fechaIda + "  "+
-                " "+ horarioSalida+
-                "\n" +avion.getModelo() +
-                "      " + horarioSalida +
-                "\nLLEGADA= " + fechaVuelta +"    "+
-                " "+ horarioLlegada;
-
+        return "\n ORIGEN: " + origen + " - " +
+                " DESTINO: " + destino  +
+                "\n DURACION: " + tiempoVuelo +
+                "\n SALIDA: " + fechaIda + " - " +  horarioSalida+
+                "\n LLEGADA: " + fechaVuelta + " - " + horarioLlegada +
+                "\n" + avion.getModelo() +
+                " - " + horarioSalida;
     }
 
     public String getCodigoVuelo() {
@@ -159,14 +156,14 @@ public class Vuelo implements Comparable<Vuelo> {
     @Override
     public String toString() {
         return
-                "\nORIGEN: " + origen + "  " +
-                "DESTINO: " + destino +
-                " " + avion.toString() +
-                "\nTIEMPO DE VUELO:" + tiempoVuelo +
-                "\nESTADO: " + estado +
-                "\nCODIGO DE VUELO: " + codigoVuelo +
-                "\nCONDICION DE VUELO: " + condicionVuelo +
-                "\nNUMERO DE PASAJEROS:" + numeroPasajeros;
+                "\n ORIGEN: " + origen + " - " +
+                " DESTINO: " + destino +
+                "\n MODELO DE AVION: " + avion.getModelo() +
+                "\n TIEMPO DE VUELO:" + tiempoVuelo +
+                "\n ESTADO: " + estado +
+                "\n CODIGO DE VUELO: " + codigoVuelo +
+                "\n CONDICION DE VUELO: " + condicionVuelo +
+                "\n NUMERO DE PASAJEROS:" + numeroPasajeros;
     }
 
 

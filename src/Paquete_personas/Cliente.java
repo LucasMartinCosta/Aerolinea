@@ -157,6 +157,14 @@ public class Cliente extends Persona implements Serializable {
     }
 
 
+    @Override
+    public String toString() {
+        return  super.toString() +
+                "\n NUM. PASAPORTE: " + pasaporte +
+                "\n EDAD: " + edad +
+                "\n TELEFONO: " + numTelefono +
+                "\n --- \n";
+    }
 
     public Integer getPasaporte() {
         return pasaporte;

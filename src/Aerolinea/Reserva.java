@@ -93,12 +93,11 @@ public class Reserva implements Serializable {
 
     @Override
     public String toString() {
-        return "Reserva{" +
-                "cliente=" + cliente +
-                ", vuelos=" + vuelos +
-                ", id=" + id +
-                ", costoTotal=" + costoTotal +
-                '}';
+        return  "\n RESERVA NUMERO: " + id +
+                "\n CLIENTE: " + cliente +
+                "\n VUELO: " + vuelos +
+                "\n COSTO TOTAL: " + costoTotal +
+                "\n --- \n";
     }
 }
 

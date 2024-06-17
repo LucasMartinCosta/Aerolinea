@@ -76,10 +76,19 @@ public class Asiento implements Serializable {
 
     @Override
     public String toString() {
-        return "Asiento{" +
-                "fila=" + fila +
-                ", letra=" + letra +
-                ", disponible=" + reservado +
-                '}';
+        //Si es false corta el toString
+        if(!this.isReservado()){
+            return  "\n UBICACION: " + fila + letra +
+                    "\n DISPONIBILIDAD: " + reservado +
+                    "\n (true = ocupado - false = disponible " +
+                    "\n ---\n";
+        }else{ //Si es True muestra el asiento junto al cliente.
+            return  "\n UBICACION: " + fila + letra +
+                    "\n DISPONIBILIDAD: " + reservado +
+                    "\n (true = ocupado - false = disponible " +
+                    "\n CLIENTE :" + cliente +
+                    "\n --- \n";
+        }
+
     }
 }
