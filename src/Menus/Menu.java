@@ -179,6 +179,7 @@ public class Menu {
                     cliente.agregarReserva(nuevaReserva); //agrego la reserva a la lista de reservas del cliente
                     cliente.mostrarReservas();
 
+
                     break;
 
                 case 2:
@@ -206,7 +207,7 @@ public class Menu {
 //                   reserva.eliminarReserva(idVuelo);
                     break;
                 case 6:
-                    inicio();
+                    archivos.cargararchivo_personas();
                     exit = true;
                     break;
                 default:
@@ -270,13 +271,16 @@ public class Menu {
                     empleado.modificarEstadoVuelo(codigo3, archivos);
                     break;
                 case 8:
+                    archivos.cargararchivo_personas();
+                    archivos.cargaarchivo_aviones();
+                    archivos.cargararchivo_vuelos();
                     exit = true;
                     break;
                 default:
                     System.out.println("\nOpción no valida. Por favor, intente de nuevo.");
             }
         }
-        lector.close();
+
     }
 
     public void menuAdmin(Admin admin) {
