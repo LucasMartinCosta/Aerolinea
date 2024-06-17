@@ -137,9 +137,11 @@ public class Menu {
             }
 
         }
+
         Cliente persona = new Cliente(nombre, apellido, mail, contra, Genero.MASCULINO);
 
         archivos.getLista_personas().agregar_personas(persona);
+
         //archivos.cargararchivo_personas(); //LUCAS: No hay que cargar el archivo en todas las funciones, en las funciones  solamente trabajamos
         //con la estructura y al final lo que cargamos al archivo es la estructura cargada
         return persona;
@@ -185,7 +187,7 @@ public class Menu {
                     if(cliente.getNumTelefono()==0)
                     {
                         System.out.println("Ingrese su numero de telefono: ");
-                        while (!scanCliente.hasNextInt()) {
+                        while (!scanCliente.hasNextLong()) {
                             System.out.println("Entrada invalida. Por favor, ingrese un numero:");
                             scanCliente.next(); // Limpiar el buffer de entrada
                         }
@@ -244,8 +246,8 @@ public class Menu {
                     break;
 
                 case 6:
-                    archivos.cargararchivo_reserva();
                     archivos.cargararchivo_personas();
+                    archivos.cargararchivo_reserva();
                     exit = true;
                     break;
 

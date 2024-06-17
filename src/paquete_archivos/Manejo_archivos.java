@@ -64,9 +64,7 @@ public class Manejo_archivos {
             TreeSet<Persona> personas = mapper.readValue(listaPersonasNode.toString(), new TypeReference<TreeSet<Persona>>() {});
 
             // Deserializar el array de personas en un TreeSet
-            TreeSet<Persona> aux = mapper.readValue(
-                    listaPersonasNode.toString(),
-                    new TypeReference<TreeSet<Persona>>() {}
+            TreeSet<Persona> aux = mapper.readValue(listaPersonasNode.toString(), new TypeReference<TreeSet<Persona>>() {}
             );
 
             // Asignar el TreeSet al campo setListaPersonas
@@ -184,7 +182,7 @@ public class Manejo_archivos {
         Cliente cliente = new Cliente("imanol", "sayago", "ima@", "ima", Genero.MASCULINO);
         Cliente cliente2 = new Cliente("Lucas", "Costa", "lucas@", "lucas",Genero.MASCULINO, 1234321, 24, 1234566);
         Cliente cliente3 = new Cliente("Laura", "nomeacuerdo", "laura@", "laura",Genero.FEMENINO);
-
+        Cliente cliente4 = new Cliente("prueba", "pruebaa", "prueba", "1", Genero.MASCULINO, 111, 111, 123123123);
 
         Empleado empleado = new Empleado("manuempleado", "abras", "manu@", "manu",Genero.MASCULINO);
         Empleado empleado2 = new Empleado("imanolempleado", "sayago", "imanolempleado@", "imanolempleado",Genero.MASCULINO);
@@ -204,6 +202,7 @@ public class Manejo_archivos {
         lista_personas.agregar_personas(admin1);
         lista_personas.agregar_personas(admin);
         lista_personas.agregar_personas(empleado4);
+        lista_personas.agregar_personas(cliente4);
 
         cargararchivo_personas();
     }

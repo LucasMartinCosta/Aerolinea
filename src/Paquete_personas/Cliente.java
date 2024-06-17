@@ -34,13 +34,12 @@ public class Cliente extends Persona implements Serializable {
     }
 
 
-
     public Cliente(String nombre, String apellido, String email, String contra,Genero genero, Integer pasaporte, int edad, long numTelefono) {
         super(nombre, apellido, email, contra,genero);
         this.pasaporte = pasaporte;
         this.edad = edad;
         this.numTelefono = numTelefono;
-
+        this.contrasenia=contra;
     }
 
     public void agregarReserva (Reserva reserva, Manejo_archivos archivo)
@@ -68,7 +67,8 @@ public class Cliente extends Persona implements Serializable {
             System.out.println(" ------ ");
             System.out.println("\n CODIGO: " + vuelo.getCodigoVuelo() +  //Capaz que se pueden agregar las fechas
                     "\n ORIGEN: "+vuelo.getOrigen() +
-                    "\n DESTINO: "+vuelo.getDestino());
+                    "\n DESTINO: "+vuelo.getDestino() +
+                    "\n FECHA SALIDA: "+vuelo.getFechaIda());
         }
         System.out.println(" Ingrese el codigo del vuelo a comprar");
         String codigo = scan.nextLine();
@@ -96,8 +96,11 @@ public class Cliente extends Persona implements Serializable {
                 System.out.println("Ingrese la letra del asiento");
                 String input = scan.next();
                 if (input.length() == 1) {
-                    letra = input.charAt(0);
-                    flag=1;
+                    letra = Character.toUpperCase(input.charAt(0));
+                    if(dato.getAvion().comprarAsiento(this,filaElegida,letra))
+                    {
+                        flag=1;
+                    }
                 } else {
                     System.out.println("Por favor, ingrese un solo carácter.");
                 }
@@ -105,7 +108,9 @@ public class Cliente extends Persona implements Serializable {
 
             nueva.setFila(filaElegida);
             nueva.setLetra(letra);
-            dato.getAvion().comprarAsiento(this,filaElegida,letra);
+
+
+
             totalCompra=totalCompra+dato.getPrecioVuelo();
 
             scan.nextLine();
