@@ -38,11 +38,6 @@ public class Admin extends Empleado implements Serializable {
         System.out.println("Ingrese el modelo del avion");
         modelo=lector.nextLine();
 
-        int capacidad;
-        System.out.println("Ingrese la capacidad maxima de pesonas del avion");
-        capacidad=lector.nextInt();
-        lector.nextLine();
-
         double tiempovuelo;
         System.out.println("Ingrese las horas de tiempo de vuelo maximo del avion");
         tiempovuelo=lector.nextDouble();

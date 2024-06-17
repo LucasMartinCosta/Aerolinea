@@ -93,7 +93,7 @@ public class Persona implements Comparable<Persona>, Serializable {
 
     @Override
     public String toString() {
-        return  "\n NOMBRE: " + nombre + apellido +
+        return  "\n NOMBRE: " + nombre + " " + apellido +
                 "\n GENERO: " + genero +
                 "\n MAIL: " + email;
                 //"\n CONTRASENIA: " + contra;

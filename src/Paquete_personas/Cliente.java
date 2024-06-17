@@ -146,7 +146,7 @@ public class Cliente extends Persona implements Serializable {
         {
             for (Map.Entry<Integer, Reserva> entry : reservas.entrySet()) {
                 Reserva reserva = entry.getValue();
-                System.out.println(" Reserva: " + reserva.mostrarPasaje());
+                System.out.println(" VUELO: " + reserva.mostrarPasaje());
             }
         }
 
@@ -227,4 +227,6 @@ public class Cliente extends Persona implements Serializable {
     public void setReservas(HashMap<Integer, Reserva> reservas) {
         this.reservas = reservas;
     }
+
+
 }

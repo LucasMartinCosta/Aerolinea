@@ -27,12 +27,13 @@ public class Avion implements Serializable {
 
     public Avion(String modelo, double tiempo_vuelo, int estado, int filas) {
         this.modelo = modelo;
-        this.capacidad_personas = inicCapacidadPersonas();
+
         this.tiempo_vuelo = tiempo_vuelo;
         this.estado = estado;
         this.filas=filas;
         asientos = new HashMap<>(); // inicializador de filas.
         inicializarAsientos(filas);
+        this.capacidad_personas = inicCapacidadPersonas();
     }
 
     private void inicializarAsientos(int filas) {
@@ -51,8 +52,7 @@ public class Avion implements Serializable {
     public String toString() {
         return  "\n MODELO DE AVION: " + modelo +
                 "\n CAPACIDAD: " + capacidad_personas +
-                "\n COMBUSTIBLE: " + tiempo_vuelo +
-                "\n TIPO: " + tipo +
+                "\n TIEMPO DE COMBUSTIBLE: " + tiempo_vuelo +
                 "\n ESTADO: " + estado +
                 "\n (Disponi|ble(1) - Ocupado (0) - Reparacion (-1))" +
                 //"\n ASIENTO: " + asientos +
