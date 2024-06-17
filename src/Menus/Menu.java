@@ -293,7 +293,9 @@ public class Menu {
             System.out.println("\n5.VER LISTA EMPLEADOS COMPLETA");
             System.out.println("\n6.VER LISTA DE PASAJEROS POR VUELO");
             System.out.println("\n7.MODIFICAR ESTADO DE VUELO");
-            System.out.println("\n8.SALIR DEL MENU");
+            System.out.println("\n8.DESPEDIR EMPLEADO:");
+            System.out.println("\n9.ELIMINAR UN AVION DEL SISTEMA");
+            System.out.println("\n10.SALIR DEL MENU");
             System.out.println("\n-----------------------");
             opcion1 = lector.nextInt();
             lector.nextLine();
@@ -326,6 +328,21 @@ public class Menu {
                     //empleado.modificarEstadoVuelo(codigo3);
                     break;
                 case 8:
+                    String emailbuscar,contrabuscar;
+                    System.out.println("Ingrese el Email del empleado a despedir");
+                    emailbuscar=lector.nextLine();
+                    System.out.println("Ingrese la contraseña del empleado a despedir");
+                    contrabuscar=lector.nextLine();
+                    admin.despedirEmpleado(emailbuscar,contrabuscar,archivos.getLista_personas());
+                    break;
+
+                case 9:
+                    String modeloeliminar;
+                    System.out.println("Ingrese el modelo de avion que desea eliminar");
+                    modeloeliminar=lector.nextLine();
+                            admin.eliminarAvion(modeloeliminar,archivos.getLista_aviones());
+                            break;
+                case 10:
                     archivos.cargaarchivo_aviones();
                     archivos.cargararchivo_personas();
                     exit = true;
@@ -334,7 +351,7 @@ public class Menu {
                     System.out.println("\nOpción no valida. Por favor, intente de nuevo.");
             }
         }
-        lector.close();
+
     }
 
     public void mostrarlistavuelos(HashSet<Vuelo> lista)

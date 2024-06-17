@@ -116,21 +116,17 @@ public class Admin extends Empleado implements Serializable {
         //archivos.cargararchivo_personas();
     }
 
-    public void eliminaavionModoIma(Avion dato, Manejo_archivos archivos)//Ima: busca el avion, lo elimina, setea la nueva lista a la lista del avion y carga el archivo
-    {
 
-        //for(Avion avi : archivos.getLista_aviones()) //LUCAS: creo que para solucionar este error hay que implementar la interfaz iterable en la clase Lista_Aviones como hice en la clase Lista_vuelos. Preguntar cualquier cosa
-//        {
-//            if(avi.equals(dato))
-//            {
-//                aux.getLista_aviones().remove(avi);
-//                System.out.println("Avion eliminado con exito");
-//            }
-//        }
-//        archivos.setLista_aviones(aux);
-//        archivos.cargaarchivo_aviones();
+    public void eliminarAvion(String modelo, Lista_aviones listaaux) {
+        Iterator<Avion> iterator = listaaux.getLista_aviones().iterator();
+        while (iterator.hasNext()) {
+            Avion aux = iterator.next();
+            if (aux.getModelo().equals(modelo)) {
+                iterator.remove();  // Eliminación segura del avión
+                System.out.println("Avión eliminado con éxito");
+            }
+        }
     }
-
     public void eliminaAvion(Avion avionAEliminar, Manejo_archivos archivos) //Ima: esto me tiro chatgpt
     {
         //Lista_aviones listaAviones = archivos.leer_archivo_aviones();
@@ -168,6 +164,22 @@ public class Admin extends Empleado implements Serializable {
             }
         }
     }
+
+    public void despedirEmpleado(String emailBuscar, String contra, Lista_Personas listaAux) {
+        Iterator<Persona> iterator = listaAux.getLista_personas().iterator();
+        while (iterator.hasNext()) {
+            Persona aux = iterator.next();
+            if (aux instanceof Empleado) {
+                if (aux.getEmail().equals(emailBuscar) && aux.getContra().equals(contra)) {
+                    iterator.remove();  // Eliminación segura del elemento
+                    System.out.println("Empleado eliminado con éxito");
+                    break;  // Salir del bucle después de eliminar el empleado
+                }
+            }
+        }
+    }
+
+
 
 
 }
