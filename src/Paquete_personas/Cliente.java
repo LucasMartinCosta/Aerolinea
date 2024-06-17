@@ -47,11 +47,12 @@ public class Cliente extends Persona implements Serializable {
     {
         for (Vuelo vuelo:listaVuelos)
         {
-            System.out.println("CODIGO: " + vuelo.getCodigoVuelo() + "\n"+  //Capaz que se pueden agregar las fechas
-                    "ORIGEN: "+vuelo.getOrigen() +"\n"+
-                    "DESTINO: "+vuelo.getDestino());
+            System.out.println(" ------ ");
+            System.out.println("\n CODIGO: " + vuelo.getCodigoVuelo() +  //Capaz que se pueden agregar las fechas
+                    "\n ORIGEN: "+vuelo.getOrigen() +"\n"+
+                    "\n DESTINO: "+vuelo.getDestino());
         }
-        System.out.println("Ingrese el codigo del vuelo a comprar");
+        System.out.println(" Ingrese el codigo del vuelo a comprar");
         String codigo = scan.nextLine();
 
         Vuelo buscado=listaVuelos.buscarVuelo(codigo);
@@ -100,14 +101,14 @@ public class Cliente extends Persona implements Serializable {
         if (reserva != null) {
             reserva.mostrarEstadoDeTodosLosVuelos();
         } else {
-            throw new NoSuchElementException("\nNo se encontro ninguna reserva con el ID proporcionado.");
+            throw new NoSuchElementException("\n No se encontro ninguna reserva con el ID proporcionado.");
         }
     }
 
     public void mostrarReservas(){
         if(reservas.isEmpty())
         {
-            System.out.println("El cliente no tiene reservas");
+            System.out.println(" El cliente no tiene reservas");
         }
 
         else{
@@ -123,13 +124,13 @@ public class Cliente extends Persona implements Serializable {
 
     public void mostrarPasajes() {
         if (reservas.isEmpty()) {
-            System.out.println("\nNo hay reservas registradas para este cliente.");
+            System.out.println("\n No hay reservas registradas para este cliente.");
         }
         else
         {
             for (Map.Entry<Integer, Reserva> entry : reservas.entrySet()) {
                 Reserva reserva = entry.getValue();
-                System.out.println("Reserva: " + reserva.toString());
+                System.out.println(" Reserva: " + reserva.toString());
             }
         }
 
@@ -146,13 +147,13 @@ public class Cliente extends Persona implements Serializable {
             if (entry.getKey().equals(id)) {
 
                 iterator.remove();
-                System.out.println("\nReserva eliminada con éxito.");
+                System.out.println("\n Reserva eliminada con éxito.");
                 encontrada = true;
                 break;
             }
         }
         if (!encontrada) {
-            System.out.println("\nNo se encontró ninguna reserva con el código especificado. Vuelve a intentarlo.");
+            System.out.println("\n No se encontró ninguna reserva con el código especificado. Vuelve a intentarlo.");
         }
 
     }
