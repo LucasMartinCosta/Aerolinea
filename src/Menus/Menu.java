@@ -168,12 +168,30 @@ public class Menu {
                 case 1:
                     //LUCAS: COMPRAR PASAJE tiene que mostrar una lista de todos los vuelos disponibles para poder hacer una compra, el cliente
                     //toca el numero del pasaje que quiere comprar y se añade a su lista
+                    if(cliente.getEdad()==0)
+                    {
+                        System.out.println("Ingrese su edad: ");
+                        cliente.setEdad(scanCliente.nextInt());
+                        scanCliente.nextLine();
+                    }
+                    if(cliente.getNumTelefono()==0)
+                    {
+                        System.out.println("Ingrese su numero de telefono: ");
+                        cliente.setNumTelefono(scanCliente.nextLong());
+                        scanCliente.nextLine();
+                    }
+                    if (cliente.getPasaporte()==null)
+                    {
+                        System.out.println("Ingrese el numero de su pasaporte");
+                        cliente.setPasaporte(scanCliente.nextInt());
+                        scanCliente.nextLine();
+                    }
 
                     Reserva nuevaReserva = new Reserva(cliente); //creo una nueva reserva
 
                     Vuelo vueloAComprar = cliente.elegirVueloAComprar(archivos.getVuelos()); //el cliente elige que vuelo comprar
 //
-                    Double costo = cliente.comprarAsientos(vueloAComprar); //compra los asientos de ese vuelo
+                    Double costo = cliente.comprarAsientos(vueloAComprar, nuevaReserva); //compra los asientos de ese vuelo
                     nuevaReserva.agregaVuelo(vueloAComprar);// se carga ese vuelo a su array de vuelos en la reserva
                     nuevaReserva.setCostoTotal(costo); //cargo el costo a la reserva
                     cliente.agregarReserva(nuevaReserva); //agrego la reserva a la lista de reservas del cliente
@@ -200,11 +218,12 @@ public class Menu {
                 case 4:
                     //mostramos reserva del cliente
                     cliente.mostrarReservas();
+                    break;
                 case 5:
                     //en este caso eliminamos el vuelo ingresndo a traves del scanner luego lo pasamos a reserva.eliminarReserva
-                    // System.out.print("Ingrese el ID para eliminar/cancelar su vuelo: ");
-//                   Integer idVuelo = lector.nextInt();
-//                   reserva.eliminarReserva(idVuelo);
+                     System.out.print("Ingrese el ID para eliminar/cancelar su reserva: ");
+                     Integer eleccion = lector.nextInt();
+                   cliente.eliminarReserva(eleccion);
                     break;
                 case 6:
                     archivos.cargararchivo_personas();
@@ -214,6 +233,7 @@ public class Menu {
                     System.out.println("\nOpción no valida. Por favor, intente de nuevo.");
                 }
         }
+
     }
 
     public void menuEmpleado(Empleado empleado) {

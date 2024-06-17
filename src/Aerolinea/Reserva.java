@@ -3,17 +3,22 @@ package Aerolinea;
 import Paquete_personas.Cliente;
 import Paquetes_vuelos.Vuelo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.*;
 
 
+
 public class Reserva implements Serializable {
+    @JsonBackReference
     private Cliente cliente;
     private ArrayList<Vuelo> vuelos;
     private Integer id;  // la vamos a usar de codigo
     private Double costoTotal;
-
+    private int fila;
+    private Character letra;
     private Scanner scan = new Scanner(System.in);
 
     public Reserva(Cliente cliente) {
@@ -29,9 +34,7 @@ public class Reserva implements Serializable {
 
     public void agregaVuelo (Vuelo dato)
     {
-
             vuelos.add(dato);
-
     }
 
 
@@ -57,6 +60,22 @@ public class Reserva implements Serializable {
             System.out.println("\nNo hay vuelos asociados a esta reserva.");
         }
 
+    }
+
+    public int getFila() {
+        return fila;
+    }
+
+    public void setFila(int fila) {
+        this.fila = fila;
+    }
+
+    public Character getLetra() {
+        return letra;
+    }
+
+    public void setLetra(Character letra) {
+        this.letra = letra;
     }
 
     public Cliente getCliente() {
@@ -94,6 +113,8 @@ public class Reserva implements Serializable {
     @Override
     public String toString() {
         return  "\n RESERVA NUMERO: " + id +
+                "\n FILA: " + fila +
+                "\n ASIENTO: " + letra +
                 "\n CLIENTE: " + cliente +
                 "\n VUELO: " + vuelos +
                 "\n COSTO TOTAL: " + costoTotal +

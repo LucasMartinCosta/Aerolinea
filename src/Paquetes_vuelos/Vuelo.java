@@ -94,6 +94,8 @@ public class Vuelo implements Comparable<Vuelo> {
       }
     }
 
+
+
     public Destinos getOrigen() {
         return origen;
     }

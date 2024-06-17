@@ -4,6 +4,7 @@ import Aerolinea.Reserva;
 import Paquetes_vuelos.Lista_vuelos;
 import Paquetes_vuelos.Vuelo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.io.Console;
 //import java.lang.classfile.Attribute;
@@ -17,6 +18,7 @@ public class Cliente extends Persona implements Serializable {
     private int edad;
     private long numTelefono;
     private String contrasenia;
+    @JsonManagedReference
     private HashMap<Integer, Reserva> reservas = new HashMap<>(); //hashMap con reservas de cada cliente
 
     private Scanner scan = new Scanner(System.in);
@@ -49,11 +51,12 @@ public class Cliente extends Persona implements Serializable {
         {
             System.out.println(" ------ ");
             System.out.println("\n CODIGO: " + vuelo.getCodigoVuelo() +  //Capaz que se pueden agregar las fechas
-                    "\n ORIGEN: "+vuelo.getOrigen() +"\n"+
+                    "\n ORIGEN: "+vuelo.getOrigen() +
                     "\n DESTINO: "+vuelo.getDestino());
         }
         System.out.println(" Ingrese el codigo del vuelo a comprar");
         String codigo = scan.nextLine();
+        scan.nextLine();
 
         Vuelo buscado=listaVuelos.buscarVuelo(codigo);
         //System.out.println("buscado = " + buscado);
@@ -61,13 +64,13 @@ public class Cliente extends Persona implements Serializable {
         return buscado;
     }
 
-    public Double comprarAsientos (Vuelo dato)
+    public Double comprarAsientos (Vuelo dato, Reserva nueva)
     {
-        Integer continuar = 1;
+        //Integer continuar = 1;
         double totalCompra = 0.;
 
-        while (continuar==1)
-        {
+        //while (continuar==1)
+        //{
             dato.getAvion().mostrarAsientos();
             int flag=0;
             char letra='a';
@@ -85,14 +88,17 @@ public class Cliente extends Persona implements Serializable {
                     System.out.println("Por favor, ingrese un solo carácter.");
                 }
             }
+
+            nueva.setFila(filaElegida);
+            nueva.setLetra(letra);
             dato.getAvion().comprarAsiento(this,filaElegida,letra);
             totalCompra=totalCompra+dato.getPrecioVuelo();
 
-            System.out.println("ingrese 1 para comprar otro asiento o 0 para salir");
-            continuar= scan.nextInt();
-            scan.nextLine();
+//            System.out.println("ingrese 1 para comprar otro asiento o 0 para salir");
+//            continuar= scan.nextInt();
+//            scan.nextLine();
 
-        }
+        //}
 
         return totalCompra;
     }
@@ -141,13 +147,16 @@ public class Cliente extends Persona implements Serializable {
     public void eliminarReserva(Integer id) {  //Elimina una reserva pasandole el codigo.
 
         boolean encontrada = false;
+
         Iterator<Map.Entry<Integer, Reserva>> iterator = reservas.entrySet().iterator();
+
         while (iterator.hasNext()) {
             Map.Entry<Integer, Reserva> entry = iterator.next();
             if (entry.getKey().equals(id)) {
 
                 iterator.remove();
                 System.out.println("\n Reserva eliminada con éxito.");
+                entry.getValue().getVuelos().getFirst().getAvion().liberarAsiento(entry.getValue().getFila(), entry.getValue().getLetra());
                 encontrada = true;
                 break;
             }
@@ -155,7 +164,6 @@ public class Cliente extends Persona implements Serializable {
         if (!encontrada) {
             System.out.println("\n No se encontró ninguna reserva con el código especificado. Vuelve a intentarlo.");
         }
-
     }
 
 
