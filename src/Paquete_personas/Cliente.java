@@ -72,7 +72,7 @@ public class Cliente extends Persona implements Serializable {
             char letra='a';
             System.out.println("Ingrese la fila del asiento");
             int filaElegida =scan.nextInt();
-
+            scan.nextLine();
             while (flag==0)
             {
                 System.out.println("Ingrese la letra del asiento");
@@ -89,9 +89,10 @@ public class Cliente extends Persona implements Serializable {
 
             System.out.println("ingrese 1 para comprar otro asiento o 0 para salir");
             continuar= scan.nextInt();
+            scan.nextLine();
 
         }
-        scan.close();
+
         return totalCompra;
     }
     public void mostrarEstadoDelVuelo(Integer idReserva) {
